@@ -1,8 +1,8 @@
 # Code Climate Badges
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/4e8651b055a6f6339b00/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/niyon-fe)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4e8651b055a6f6339b00/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/niyon-fe/maintainability)
 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/4e8651b055a6f6339b00/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/niyon-fe)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4e8651b055a6f6339b00/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/niyon-fe/test_coverage)
 
 
 🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
