@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 0,
   },
   buttons: {
-    margin: "90% auto 0 auto",
+    margin: "20% auto 0 auto",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -147,18 +147,18 @@ return (
           </Drawer>  
         </Hidden>
       </nav>
-
-      {/* <Paper className={classes.paper}>
-
-      </Paper> */}
-      <div className={classes.buttons}>
-      <Button variant="contained" color="primary" className={classes.button}>
-        Sign Up
-      </Button>
-      <Button variant="contained" color="secondary" className={classes.button}>
-        Login
-      </Button>
+      <div className="marketing-container">
+        <div className="container"></div>      
+        <div className={classes.buttons}>
+        <Button variant="contained" color="primary" className={classes.button}>
+          Sign Up
+        </Button>
+        <Button variant="contained" color="secondary" className={classes.button}>
+          Login
+        </Button>
+        </div>
       </div>
+      
 
     </div>
   );

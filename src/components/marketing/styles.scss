@@ -1,6 +1,17 @@
-.container{
-    background-image: url(../../assets/images/undraw.jpg);
-    height: 100px;
-    width: 100px;
-    border: red 1px solid
+.marketing-container{
+   display:flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width:100%;
+  .container{
+    margin-top: 5%;
+    background-image: url('/marketing-image.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    height: 500px;
+    width: 90%;
+    // border: red 1px solid
   }
+}
