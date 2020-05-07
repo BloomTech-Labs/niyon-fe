@@ -45,6 +45,9 @@
     ]
   },
   "devDependencies": {
-    "@playlyfe/gql": "^2.6.2"
+    "@playlyfe/gql": "^2.6.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "jest-enzyme": "^7.1.2"
   }
 }
