@@ -13,7 +13,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper'
 import './styles.scss';
 
 
@@ -55,34 +54,28 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    paddingTop: '10px',
+
   },
   button: {
     width: "250px",
     borderRadius: "50px",
     height: "50px",
-    margin: "20px 0"
-  },
-  paper: {
-    backgroundImage: `url(${"static/src/assets/images/niyon_marketing_header.jpg"})`,  
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "left top",
-    width: "500px",
-    height: "300px",
-    margin: "20% 0"
-}
+    margin: "15px 0",
+    textTransform: "capitalize"
+  }
 }));
 
 
 function Marketing() {
-  const dummyCategories = ['Signup', 'Login']
+  const dummyCategories = ['Home', 'About']
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 function handleDrawerToggle() {
     setMobileOpen(!mobileOpen)
   }
-const drawer = (
+  const drawer = (
     <div>
       <List>
         {dummyCategories.map((text, index) => (
@@ -107,8 +100,9 @@ return (
           >
             <MenuIcon />
           </IconButton>
+          <div className='logo'></div>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+            Niyon
           </Typography>
         </Toolbar>
       </AppBar>
@@ -148,7 +142,10 @@ return (
         </Hidden>
       </nav>
       <div className="marketing-container">
-        <div className="container"></div>      
+        <div className="container">
+          <h3>Connect with Mentors in your area!
+            </h3>
+            </div>    
         <div className={classes.buttons}>
         <Button variant="contained" color="primary" className={classes.button}>
           Sign Up
