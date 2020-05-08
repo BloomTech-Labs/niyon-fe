@@ -1,41 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import './styles.scss';
+import React, { useState, useEffect } from "react";
+import "./styles.scss";
 
 function Login(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   // const handleSubmit;
 
-  const handleChange = e => {
-    if (e.currentTarget.name === 'email') {
+  const handleChange = (e) => {
+    if (e.currentTarget.name === "email") {
       setEmail(e.currentTarget.value);
     } else {
       setPassword(e.currentTarget.value);
     }
-  }
+  };
 
   return (
-    <div>
-      <form>
+    <div className="formWrap">
+      <form className="formLogin">
         <input
           value={email}
-          name='email'
+          name="email"
           onChange={handleChange}
-          type='email'
-          placeholder='Email'
+          type="email"
+          placeholder="Email"
         />
 
         <input
           value={password}
-          name='password'
+          name="password"
           onChange={handleChange}
-          type='password'
-          placeholder='Password'
+          type="password"
+          placeholder="Password"
         />
 
-        <button type='submit'>Login</button>
-
+        <button type="submit">LOGIN</button>
       </form>
     </div>
   );
