@@ -1,57 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import './styles.scss';
+import React, { useState, useEffect } from "react";
+import "./styles.scss";
 
 function Registration(props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   // const handleSubmit;
 
-  const handleChange = e => {
-    if (e.currentTarget.name === 'email') {
+  const handleChange = (e) => {
+    if (e.currentTarget.name === "email") {
       setEmail(e.currentTarget.value);
     } else {
       setPassword(e.currentTarget.value);
     }
-  }
+  };
 
   return (
-    <div>
-      <form>
+    <div className="formWrap">
+      <form className="formRegister">
         <input
           value={email}
-          name='email'
+          name="email"
           onChange={handleChange}
-          type='email'
-          placeholder='Email'
+          type="email"
+          placeholder="Email"
         />
 
         <input
           value={password}
-          name='password'
+          name="password"
           onChange={handleChange}
-          type='password'
-          placeholder='Password'
+          type="password"
+          placeholder="Password"
         />
 
-        <input
-          type='radio'
-          id="mentor"
-          name="userType"
-        />
+        <div className="radio">
+          <input type="radio" id="mentor" name="userType" />
 
-        <label for="mentor">Mentor</label>
+          <label for="mentor">Mentor</label>
+        </div>
+        <div className="radio">
+          <input type="radio" id="mentee" name="userType" />
 
-        <input
-          type='radio'
-          id="mentee"
-          name="userType"
-        />
+          <label for="mentee">Mentee</label>
 
-        <label for="mentee">Mentee</label>
-
-        <button type='submit'>Register</button>
-
+          <button type="submit">Register</button>
+        </div>
       </form>
     </div>
   );
