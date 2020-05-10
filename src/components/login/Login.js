@@ -34,7 +34,7 @@ function Login(props) {
           placeholder="Password"
         />
 
-        <button type="submit">LOGIN</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );
