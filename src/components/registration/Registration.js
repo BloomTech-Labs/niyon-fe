@@ -34,18 +34,27 @@ function Registration(props) {
           placeholder="Password"
         />
 
-        <div className="radio">
-          <input type="radio" id="mentor" name="userType" />
+        <input
+          value={password}
+          name="password"
+          onChange={handleChange}
+          type="password"
+          placeholder="Repeat Password"
+        />
 
-          <label for="mentor">Mentor</label>
+        <div className="radioWrap">
+          <div className="radio">
+            <input type="radio" id="mentor" name="userType" />
+
+            <label for="mentor">Mentor</label>
+          </div>
+          <div className="radio">
+            <input type="radio" id="mentee" name="userType" />
+
+            <label for="mentee">Mentee</label>
+          </div>
         </div>
-        <div className="radio">
-          <input type="radio" id="mentee" name="userType" />
-
-          <label for="mentee">Mentee</label>
-
-          <button type="submit">Register</button>
-        </div>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
