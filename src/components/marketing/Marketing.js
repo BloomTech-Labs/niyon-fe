@@ -90,20 +90,20 @@ return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="Open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
+        <Toolbar>          
+          <div className='logo'></div>
+          <div className="title-and-button">          
+            <Typography variant="h6" noWrap>Niyon</Typography>
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              className={classes.menuButton}
+            >
             <MenuIcon />
           </IconButton>
-          <div className='logo'></div>
-          <Typography variant="h6" noWrap>
-            Niyon
-          </Typography>
+          </div>
         </Toolbar>
       </AppBar>
       

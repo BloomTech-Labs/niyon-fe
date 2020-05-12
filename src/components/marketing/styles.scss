@@ -1,3 +1,25 @@
+.MuiToolbar-root, .MuiToolbar-regular, .MuiToolbar-gutters {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+       margin-left: 0px;
+    }
+    .title-and-button {
+       display:flex;
+       flex-direction: row;
+       justify-content: space-between;
+       align-items: center;
+       width: 100px;
+       button.MuiIconButton-edgeStart, button.makeStyles-menuButton-4  {
+         margin-left: 0px;
+       }
+    }
+}
+
+
+
 .marketing-container{
    display:flex;
    flex-direction: column;
