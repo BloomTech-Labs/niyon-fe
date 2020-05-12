@@ -11,6 +11,10 @@ import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Button from '@material-ui/core/Button';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles({
   root: {
@@ -25,8 +29,26 @@ const useStyles = makeStyles({
 export default function Footer() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
+<div>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}><Brightness4Icon /><div>&nbsp;Dark Mode</div></MenuItem>
+        <MenuItem onClick={handleClose}><ExitToAppIcon /><div>&nbsp;Log Out</div></MenuItem>
+      </Menu>
     <BottomNavigation
       value={value}
       onChange={(event, newValue) => {
@@ -37,7 +59,9 @@ export default function Footer() {
     >
       <BottomNavigationAction label="Profile" icon={<PersonIcon />} />
       <BottomNavigationAction label="Search" icon={<SearchIcon />} />
-      <BottomNavigationAction label="Settings" icon={<SettingsIcon />} />
+      <BottomNavigationAction onClick={handleClick} label="Settings" icon={<SettingsIcon />} />
     </BottomNavigation>
+
+    </div>
   );
 }
