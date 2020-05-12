@@ -14,6 +14,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
+import Marketingbuttons from './Marketingbuttons';
 import './styles.scss';
 
 
@@ -139,20 +140,7 @@ return (
           </Drawer>  
         </Hidden>
       </nav>
-      <div className="marketing-container">
-        <div className="container">
-          <h3>Connect with Mentors in your area!
-            </h3>
-            </div>    
-        <div className={classes.buttons}>
-        <Button variant="contained" color="primary" className={classes.button}>
-          Sign Up
-        </Button>
-        <Button variant="contained" color="secondary" className={classes.button}>
-          Login
-        </Button>
-        </div>
-      </div>
+      <Marketingbuttons/>
       
 
     </div>
