@@ -13,6 +13,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 import './styles.scss';
 
 
@@ -78,11 +79,8 @@ function handleDrawerToggle() {
   const drawer = (
     <div>
       <List>
-        {dummyCategories.map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+      <Link to="/home"><Button>Home</Button></Link>
+      <Link to="/about"><Button>About</Button></Link>
       </List>
     </div>
   );
