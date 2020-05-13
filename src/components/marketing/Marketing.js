@@ -6,8 +6,6 @@ import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -27,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
       flexShrink: 0,
-    },
+    }
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -40,7 +38,8 @@ const useStyles = makeStyles(theme => ({
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
+
   },
   content: {
     flexGrow: 1,
@@ -65,12 +64,22 @@ const useStyles = makeStyles(theme => ({
     height: "50px",
     margin: "15px 0",
     textTransform: "capitalize"
+  },
+  list: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "start",
+    paddingLeft: "10px"
+  },
+  menulink: {
+    color: "black",
+    textTransform: 'capitalize',
+    textDecoration: "none"
   }
 }));
 
 
 function Marketing() {
-  const dummyCategories = ['Home', 'About']
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -79,9 +88,9 @@ function handleDrawerToggle() {
   }
   const drawer = (
     <div>
-      <List>
-      <Link to="/home"><Button>Home</Button></Link>
-      <Link to="/about"><Button>About</Button></Link>
+      <List className={classes.list}>
+      <Link to="/home"><Button className={classes.menulink}>Home</Button></Link>
+      <Link to="/about"><Button className={classes.menulink}> About</Button></Link>
       </List>
     </div>
   );
