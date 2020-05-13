@@ -89,7 +89,7 @@ function handleDrawerToggle() {
   const drawer = (
     <div>
       <List className={classes.list}>
-      <Link to="/home"><Button className={classes.menulink}>Home</Button></Link>
+      <Link to="/"><Button className={classes.menulink}>Home</Button></Link>
       <Link to="/about"><Button className={classes.menulink}> About</Button></Link>
       </List>
     </div>

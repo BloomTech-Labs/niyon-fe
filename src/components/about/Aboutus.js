@@ -14,8 +14,7 @@ function Aboutus() {
 
   return (
         <div className="container">
-          <h3>We are Niyon!
-            </h3>
+          <h1>Meet the Crew</h1>
             </div>
   );
 }
