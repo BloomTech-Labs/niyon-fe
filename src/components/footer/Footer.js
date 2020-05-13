@@ -1,18 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
@@ -26,9 +23,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Footer() {
+export default function Footer(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = React.useState(props.value);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -50,15 +47,16 @@ export default function Footer() {
         <MenuItem onClick={handleClose}><ExitToAppIcon /><div>&nbsp;Log Out</div></MenuItem>
       </Menu>
     <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
+      value={props.value}
+      // onChange={(event, newValue) => {
+      //   setValue(newValue);
+      // }}
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Profile" icon={<PersonIcon />} />
-      <BottomNavigationAction label="Search" icon={<SearchIcon />} />
+      <BottomNavigationAction component={Link} to='/home' label="Home" icon={<HomeIcon />} />
+      <BottomNavigationAction component={Link} to='/profile' label="Profile" icon={<PersonIcon />} />
+      <BottomNavigationAction component={Link} to='/search' label="Search" icon={<SearchIcon />} />
       <BottomNavigationAction onClick={handleClick} label="Settings" icon={<SettingsIcon />} />
     </BottomNavigation>
 
