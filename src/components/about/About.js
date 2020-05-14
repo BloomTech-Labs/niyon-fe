@@ -79,7 +79,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-function About() {
+function About({ team }) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -149,8 +149,10 @@ return (
           </Drawer>  
         </Hidden>
       </nav>
-      <Aboutus/>
+      <Aboutus team={team}/>
     </div>
   );
 }
+
+
 export default About;
