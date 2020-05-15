@@ -100,7 +100,6 @@ describe('<Marketing /> component testing', () => {
       });
        it('should render a <Div /> inside <Drawer /> component correctly', () => {
              const hiddenWrapper2 = component.find(Hidden).at(1);
-             console.log(hiddenWrapper2.dive().debug());
              expect(hiddenWrapper2.find('.makeStyles-toolbar-5').exists()).toBe(true);
        });
      });
