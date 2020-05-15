@@ -1,7 +1,7 @@
   .container{
-    background-image: url('/lambda_logo.png');
+    background-image: url('/lambda_logo2.jpg');
     background-position: center; 
-    background-size: contain; 
+    background-size: 300px auto; 
     background-repeat: no-repeat;
     background-color: white;
     border: 1px solid lightgrey;
@@ -9,6 +9,7 @@
     width: 90%;
     border-radius: 10px;
     margin: 20% auto 0px auto;
+    padding-top: 10px;
 
     h1 {
         padding-top: 175px;
