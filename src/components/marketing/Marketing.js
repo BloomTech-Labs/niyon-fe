@@ -129,11 +129,11 @@ function Marketing() {
           </Drawer>  
         </Hidden>
       </nav>
-      <div className="marketing-container">
-        <div className="container">
-          <h3>Connect with Mentors in your area!</h3>
+      <div className="marketing-container" data-test="marketing-container">
+        <div className="container" data-test="marketing-second-container">
+          <h3 data-test="container-title">Connect with Mentors in your area!</h3>
         </div>    
-        <div className={classes.buttons}>
+        <div className={classes.buttons} data-test="buttons-container">
           <Button variant="contained" color="primary" className={classes.button}>Sign Up</Button>
           <Button variant="contained" color="secondary" className={classes.button}>Login</Button>
         </div>

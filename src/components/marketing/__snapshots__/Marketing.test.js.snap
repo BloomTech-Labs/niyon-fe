@@ -124,16 +124,21 @@ exports[`<Marketing /> component testing should pass snapshot testing correctly 
   </nav>
   <div
     className="marketing-container"
+    data-test="marketing-container"
   >
     <div
       className="container"
+      data-test="marketing-second-container"
     >
-      <h3>
+      <h3
+        data-test="container-title"
+      >
         Connect with Mentors in your area!
       </h3>
     </div>
     <div
       className="makeStyles-buttons-9"
+      data-test="buttons-container"
     >
       <WithStyles(ForwardRef(Button))
         className="makeStyles-button-10"
