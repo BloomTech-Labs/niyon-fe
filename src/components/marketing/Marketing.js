@@ -72,7 +72,7 @@ function Marketing() {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-function handleDrawerToggle() {
+  function handleDrawerToggle() {
     setMobileOpen(!mobileOpen)
   }
   const drawer = (
@@ -80,13 +80,13 @@ function handleDrawerToggle() {
       <List>
         {dummyCategories.map((text, index) => (
           <ListItem button key={text}>
-            <ListItemText primary={text} />
+            <ListItemText primary={text}/>
           </ListItem>
         ))}
       </List>
     </div>
   );
-return (
+  return (
     <div className={classes.root} data-test="marketing-page">
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
@@ -110,13 +110,13 @@ return (
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{paper: classes.drawerPaper }}
-            ModalProps={{keepMounted: true, // Better open performance on mobile.}}
+            ModalProps={{keepMounted: true}}
           >
             <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}><CloseIcon/></IconButton>
             {drawer}
           </Drawer>
         </Hidden>
-<Hidden xsDown implementation="css">
+        <Hidden xsDown implementation="css">
           <Drawer
             className={classes.drawer}
             variant="permanent"
@@ -131,21 +131,15 @@ return (
       </nav>
       <div className="marketing-container">
         <div className="container">
-          <h3>Connect with Mentors in your area!
-            </h3>
-            </div>    
+          <h3>Connect with Mentors in your area!</h3>
+        </div>    
         <div className={classes.buttons}>
-        <Button variant="contained" color="primary" className={classes.button}>
-          Sign Up
-        </Button>
-        <Button variant="contained" color="secondary" className={classes.button}>
-          Login
-        </Button>
+          <Button variant="contained" color="primary" className={classes.button}>Sign Up</Button>
+          <Button variant="contained" color="secondary" className={classes.button}>Login</Button>
         </div>
       </div>
-      
-
     </div>
   );
-}
+};
+
 export default Marketing;

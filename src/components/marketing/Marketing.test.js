@@ -35,35 +35,38 @@ describe('<Marketing /> component testing', () => {
          const marketingWrapper = findByTestAttr(component, 'marketing-page');
          expect(marketingWrapper.length).toBe(1);
    });
+
    it('should render  <CssBaseline /> component with no errors', () => {
          expect(component.find(CssBaseline)).toHaveLength(1);
    });
-    it('should render <AppBar /> component correctly', () => {
+
+   it('should render <AppBar /> component correctly', () => {
          expect(component.find(AppBar)).toHaveLength(1);
     });
-    it('should render <Toolbar /> component correctly', () => {
+   it('should render <Toolbar /> component correctly', () => {
           expect(component.find(Toolbar)).toHaveLength(1);
- });
-    it('should render <IconButton /> component correctly', () => {
+   });
+   it('should render <IconButton /> component correctly', () => {
         expect(component.find(Toolbar).find(IconButton)).toHaveLength(1);
     });
 
-    it('should render <IconButton /> component correctly', () => {
-      expect(component.find(Toolbar).find(IconButton)).toHaveLength(1);
-  });
+   it('should render <IconButton /> component correctly', () => {
+         expect(component.find(Toolbar).find(IconButton)).toHaveLength(1);
+   });
 
-    it('should render <MenuIcon /> component correctly', () => {
-      expect(component.find(MenuIcon)).toHaveLength(1);
-    });
-     it('should render logo div correctly', () => {
+   it('should render <MenuIcon /> component correctly', () => {
+         expect(component.find(MenuIcon)).toHaveLength(1);
+   });
+
+   it('should render logo div correctly', () => {
         const logoWrapper = findByTestAttr(component, 'test-logo');
         expect(logoWrapper.exists()).toBe(true);
      });
 
-     it('should render title content with no errors', () => {
+   it('should render title content with no errors', () => {
          expect(component.find(Typography)).toHaveLength(1);
          expect(component.find(Typography).text()).toEqual('Niyon');
-     })
+     });
     
    
 })
