@@ -97,34 +97,22 @@ return (
             edge="start"
             onClick={handleDrawerToggle}
             className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          <div className='logo'></div>
-          <Typography variant="h6" noWrap>
-            Niyon
-          </Typography>
+          ><MenuIcon /></IconButton>
+          <div className='logo' data-test="test-logo"></div>
+          <Typography variant="h6" noWrap>Niyon</Typography>
         </Toolbar>
-      </AppBar>
-      
-      <nav className={classes.drawer}>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+      </AppBar>      
+      <nav className={classes.drawer}>        
         <Hidden smUp implementation="css">
           <Drawer
             variant="temporary"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
             onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
+            classes={{paper: classes.drawerPaper }}
+            ModalProps={{keepMounted: true, // Better open performance on mobile.}}
           >
-            <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
-              <CloseIcon/>
-            </IconButton>
+            <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}><CloseIcon/></IconButton>
             {drawer}
           </Drawer>
         </Hidden>

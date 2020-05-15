@@ -41,8 +41,29 @@ describe('<Marketing /> component testing', () => {
     it('should render <AppBar /> component correctly', () => {
          expect(component.find(AppBar)).toHaveLength(1);
     });
-    t('should render <Toolbar /> component correctly', () => {
-      expect(component.find(Toolbar)).toHaveLength(1);
- })
+    it('should render <Toolbar /> component correctly', () => {
+          expect(component.find(Toolbar)).toHaveLength(1);
+ });
+    it('should render <IconButton /> component correctly', () => {
+        expect(component.find(Toolbar).find(IconButton)).toHaveLength(1);
+    });
+
+    it('should render <IconButton /> component correctly', () => {
+      expect(component.find(Toolbar).find(IconButton)).toHaveLength(1);
+  });
+
+    it('should render <MenuIcon /> component correctly', () => {
+      expect(component.find(MenuIcon)).toHaveLength(1);
+    });
+     it('should render logo div correctly', () => {
+        const logoWrapper = findByTestAttr(component, 'test-logo');
+        expect(logoWrapper.exists()).toBe(true);
+     });
+
+     it('should render title content with no errors', () => {
+         expect(component.find(Typography)).toHaveLength(1);
+         expect(component.find(Typography).text()).toEqual('Niyon');
+     })
+    
    
 })
