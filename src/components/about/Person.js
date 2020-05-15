@@ -1,5 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
+
 import './styles.scss';
 
 const useStyles = makeStyles(theme => ({
@@ -16,16 +18,15 @@ const useStyles = makeStyles(theme => ({
     width: "250px"
 },
 personImg: {
-    height: "150px",
     width: "150px",
+    height: "150px",
     borderRadius: "50%",
-    background: "#484848",
     overflow: "hidden",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     boxShadow: "0 5px 25px rgba(0,0,0,0.2)",
-    marginBottom: "10px"
+    marginBottom: "10px",
 },
 h2: {
     margin: "0",
@@ -35,21 +36,27 @@ p: {
     color: "#484848",
     margin: "0",
     marginTop: "10px"
+},
+img2: {
+width: "160px",
+height: "auto"
 }
 }));
 
 
 
-function Person({src, name, position}) {
+function Person({src, name, position, link}) {
     const classes = useStyles();
 
   return (
     <div className={classes.person}>
     <div className={classes.personImg}>
-      <img src={src} alt="" height="100%" />
+    <a href={link}><img className={classes.img2} src={src} alt=""/></a>
+    {/* // can make the link pop up in a window with 'target="_blank"// */}
     </div>
     <h2>{name}</h2>
     <p>{position}</p>
+
 
   </div>
   );

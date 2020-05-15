@@ -150,8 +150,6 @@ return (
         </Hidden>
       </nav>
       <Marketingbuttons/>
-      
-
     </div>
   );
 }
