@@ -67,6 +67,43 @@ describe('<Marketing /> component testing', () => {
          expect(component.find(Typography)).toHaveLength(1);
          expect(component.find(Typography).text()).toEqual('Niyon');
      });
+
+     it('should render navbar component correctly',() => {
+         expect(component.find('.makeStyles-drawer-2').exists()).toBe(true);
+     });
+
+     describe('First <Hidden /> component', () => {
+      it('should render <Hidden /> with smUp attribute correctly', () => {
+            const hiddenWrapper1 = component.find(Hidden).at(0);
+            expect(hiddenWrapper1.exists()).toBe(true);
+            expect(hiddenWrapper1.props().smUp).toEqual(true);           
+      });
+      it('should render the <Drawer /> component correctly', () => {
+            const hiddenWrapper1 = component.find(Hidden).at(0);
+            expect(hiddenWrapper1.find(Drawer)).toHaveLength(1);
+      });
+       it('should render <IconButton /> inside <Drawer /> component correctly', () => {
+             const hiddenWrapper1 = component.find(Hidden).at(0);
+             expect(hiddenWrapper1.find(Drawer).find(IconButton)).toHaveLength(1);
+       });
+     });
+
+     describe('Second <Hidden /> component', () => {
+      it('should render <Hidden /> with xsDown attribute correctly', () => {
+            const hiddenWrapper2 = component.find(Hidden).at(1);
+            expect(hiddenWrapper2.exists()).toBe(true);
+            expect(hiddenWrapper2.props().xsDown).toEqual(true);           
+      });
+      it('should render the <Drawer /> component correctly', () => {
+            const hiddenWrapper2 = component.find(Hidden).at(1);
+            expect(hiddenWrapper2.find(Drawer)).toHaveLength(1);
+      });
+       it('should render a <Div /> inside <Drawer /> component correctly', () => {
+             const hiddenWrapper2 = component.find(Hidden).at(1);
+             console.log(hiddenWrapper2.dive().debug());
+             expect(hiddenWrapper2.find('.makeStyles-toolbar-5').exists()).toBe(true);
+       });
+     });
     
    
 })
