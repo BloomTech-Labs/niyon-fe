@@ -87,7 +87,7 @@ function handleDrawerToggle() {
     </div>
   );
 return (
-    <div className={classes.root}>
+    <div className={classes.root} data-test="marketing-page">
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
