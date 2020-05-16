@@ -43,8 +43,8 @@ const useStyles = makeStyles((theme) => ({
 function Person({src, name, position, link}) {
   const classes = useStyles();
   return (
-    <div className={classes.person}>
-      <div className={classes.personImg}>
+    <div className={classes.person} data-test="person-container">
+      <div className={classes.personImg} data-test="person-image-container">
         <a href={link}><img className={classes.img2} src={src} alt=""/></a>
         {/* // can make the link pop up in a window with 'target="_blank"// */}
       </div>
