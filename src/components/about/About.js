@@ -83,8 +83,8 @@ function About({ team }) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-function handleDrawerToggle() {
-    setMobileOpen(!mobileOpen)
+  function handleDrawerToggle() {
+      setMobileOpen(!mobileOpen)
   }
   const drawer = (
     <div>
@@ -113,8 +113,7 @@ return (
           </IconButton>
           </div>
         </Toolbar>
-      </AppBar>
-      
+      </AppBar>      
       <nav className={classes.drawer}>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
@@ -136,7 +135,7 @@ return (
             {drawer}
           </Drawer>
         </Hidden>
-<Hidden xsDown implementation="css">
+        <Hidden xsDown implementation="css">
           <Drawer
             className={classes.drawer}
             variant="permanent"
@@ -152,7 +151,6 @@ return (
       <Aboutus team={team}/>
     </div>
   );
-}
-
+};
 
 export default About;

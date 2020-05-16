@@ -61,11 +61,7 @@ describe('<Marketing /> component testing', () => {
    it('should render <IconButton /> component correctly', () => {
         expect(component.find(Toolbar).find(IconButton)).toHaveLength(1);
     });
-
-   it('should render <IconButton /> component correctly', () => {
-         expect(component.find(Toolbar).find(IconButton)).toHaveLength(1);
-   });
-
+   
    it('should render <MenuIcon /> component correctly', () => {
          expect(component.find(MenuIcon)).toHaveLength(1);
    });
