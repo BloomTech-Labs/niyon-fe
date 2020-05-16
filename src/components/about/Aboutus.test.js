@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+// import { createShallow } from '@material-ui/core/test-utils';
 import toJSON from 'enzyme-to-json';
 import Aboutus from './Aboutus';
 import Person from './Person';
@@ -43,6 +44,15 @@ describe('<Aboutus /> component testing', () => {
          expect(component.find('.team').at(0).find(Person).exists()).toBe(true);
          expect(component.find('.team').find(Person).length).toBe(7);
       });
+
+      it('should match the  <Person /> snapshots "n" number of times', () => {         
+           const result = component
+                          .find('.team')
+                          .find(Person)
+                          .map( (node) => node );
+            expect(toJSON(result)).toMatchSnapshot();           
+      });     
+
    });
 
 });
