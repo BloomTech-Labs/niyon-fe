@@ -4,7 +4,7 @@ import toJSON from 'enzyme-to-json';
 import Aboutus from './Aboutus';
 import Person from './Person';
 import findByTestAttr from '../../tests/utils';
-import { ExpansionPanelActions } from '@material-ui/core';
+
 
 const setUp = (props={}) => {
    const component = shallow(<Aboutus />);
@@ -17,18 +17,32 @@ describe('<Aboutus /> component testing', () => {
      component = setUp();
    });
 
-   it('should render <AboutUs /> component correctly', () => {
-       expect(component.length).toBe(1);
+  it('should match the snapshot test correctly', () => {
+      expect(toJSON(component)).toMatchSnapshot();
+   })
+
+ it('should render <AboutUs /> component correctly', () => {
+      expect(component.length).toBe(1);
    });
 
-   it('should render main container for <Aboutus /> component correctly', () => {
+ it('should render main container for <Aboutus /> component correctly', () => {
       const aboutWrapper = findByTestAttr(component, 'aboutUs-container');
       expect(aboutWrapper.length).toBe(1);
    });
 
-   it('should render container for teams in <Aboutus /> component', () => {
-       const teamContainer = findByTestAttr(component, 'team-container');
-       expect(teamContainer.length).toBe(1);
+ it('should render container for teams in <Aboutus /> component', () => {
+      const teamContainer = findByTestAttr(component, 'team-container');
+      expect(teamContainer.length).toBe(1);
    });
-   
+
+   describe('Testing team members rendering inside the component', () => {
+    it('should render the team members on the component correctly', () => {         
+         expect(component.find('.team')).toBeDefined();        
+      });
+    it('should render the <Person /> component correctly', () => {      
+         expect(component.find('.team').at(0).find(Person).exists()).toBe(true);
+         expect(component.find('.team').find(Person).length).toBe(7);
+      });
+   });
+
 });
