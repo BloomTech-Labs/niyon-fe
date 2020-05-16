@@ -13,6 +13,7 @@ exports[`<Marketing /> component testing should pass snapshot testing correctly 
     <WithStyles(ForwardRef(Toolbar))>
       <div
         className="logo"
+        data-test="test-logo"
       />
       <div
         className="title-and-button"
@@ -133,6 +134,6 @@ exports[`<Marketing /> component testing should pass snapshot testing correctly 
       </WithStyles(ForwardRef(Drawer))>
     </Hidden>
   </nav>
-  <Marketingbuttons />
+  <MarketingButtons />
 </div>
 `;
