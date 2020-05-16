@@ -1,6 +1,7 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
 import { shallow, mount } from 'enzyme';
+import { createShallow } from '@material-ui/core/test-utils';
 import Marketing from './Marketing';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -16,17 +17,29 @@ import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import findByTestAttr from '../../tests/utils';
+import { Icon } from '@material-ui/core';
 
-const setUp = (props={}) => {
-   const wrapper = shallow(<Marketing />);
+const setUp = (props={}, state=null) => {
+   const wrapper = shallow(<Marketing />);  
    return wrapper;
 }
 
 describe('<Marketing /> component testing', () => {
-   let component;
+   let component;   
    beforeEach(() => {
       component = setUp();
    });
+
+   it('should call handleDrawerToggle function to toggle mobileOpen option', () =>{    
+          const isMobileOpen = false;
+          const mockSetMobileOpen = jest.fn();
+          const shallowComponent = createShallow();
+          React.useState = jest.fn(() => [isMobileOpen, mockSetMobileOpen]);
+          const button = shallowComponent(<Marketing />).find(IconButton).at(0);         
+          button.simulate('click');
+          expect(mockSetMobileOpen).toHaveBeenCalled();
+          expect(mockSetMobileOpen).toHaveBeenCalledWith(!isMobileOpen);
+   })
    it('should pass snapshot testing correctly', () => {
             expect(toJSON(component)).toMatchSnapshot();
    });
