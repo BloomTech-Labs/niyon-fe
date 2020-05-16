@@ -1,63 +1,51 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./styles.scss";
 
-function Registration(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import useCustomForm from "../customHooks/useCustomForm";
 
-  // const handleSubmit;
-
-  const handleChange = (e) => {
-    if (e.currentTarget.name === "email") {
-      setEmail(e.currentTarget.value);
-    } else {
-      setPassword(e.currentTarget.value);
-    }
-  };
-
+const Registration = () => {
+  const { inputs, handleInputChange, handleSubmit } = useCustomForm({
+    email: "",
+    password1: "",
+    password2: "",
+  });
   return (
     <div className="formWrap">
-      <form className="formRegister">
+      <form className="formRegister" onSubmit={handleSubmit}>
+        <label>Email</label>
         <input
-          value={email}
-          name="email"
-          onChange={handleChange}
           type="email"
-          placeholder="Email"
+          name="email"
+          onChange={handleInputChange}
+          value={inputs.email}
+          required
         />
 
+        <label>Password</label>
         <input
-          value={password}
-          name="password"
-          onChange={handleChange}
           type="password"
-          placeholder="Password"
+          name="password1"
+          onChange={handleInputChange}
+          value={inputs.password1}
         />
 
+        <label>Repeat Password</label>
         <input
-          value={password}
-          name="password"
-          onChange={handleChange}
           type="password"
-          placeholder="Repeat Password"
+          name="password2"
+          onChange={handleInputChange}
+          value={inputs.password2}
         />
 
-        <div className="radioWrap">
-          <div className="radio">
-            <input type="radio" id="mentor" name="userType" />
+        <select onChange={handleInputChange} value="roll">
+          <option value="mentor">Mentor</option>
+          <option value="mentee">Mentee</option>
+        </select>
 
-            <label for="mentor">Mentor</label>
-          </div>
-          <div className="radio">
-            <input type="radio" id="mentee" name="userType" />
-
-            <label for="mentee">Mentee</label>
-          </div>
-        </div>
         <button type="submit">Register</button>
       </form>
     </div>
   );
-}
+};
 
 export default Registration;

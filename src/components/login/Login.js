@@ -1,43 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./styles.scss";
 
-function Login(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import useCustomForm from "../customHooks/useCustomForm";
 
-  // const handleSubmit;
-
-  const handleChange = (e) => {
-    if (e.currentTarget.name === "email") {
-      setEmail(e.currentTarget.value);
-    } else {
-      setPassword(e.currentTarget.value);
-    }
-  };
-
+const Login = () => {
+  const { inputs, handleInputChange, handleSubmit } = useCustomForm({
+    email: "",
+    password: "",
+  });
   return (
-    <div className="formWrap">
-      <form className="formLogin">
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Email</label>
         <input
-          value={email}
-          name="email"
-          onChange={handleChange}
           type="email"
-          placeholder="Email"
+          name="email"
+          onChange={handleInputChange}
+          value={inputs.email}
+          required
         />
-
+      </div>
+      <div>
+        <label>Password</label>
         <input
-          value={password}
-          name="password"
-          onChange={handleChange}
           type="password"
-          placeholder="Password"
+          name="password"
+          onChange={handleInputChange}
+          value={inputs.password}
         />
-
-        <button type="submit">Login</button>
-      </form>
-    </div>
+      </div>
+      <button type="submit">Login</button>
+    </form>
   );
-}
+};
 
 export default Login;

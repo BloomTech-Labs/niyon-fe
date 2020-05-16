@@ -12,7 +12,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import Marketingbuttons from './Marketingbuttons';
+import Aboutus from './Aboutus';
 import './styles.scss';
 
 
@@ -79,11 +79,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-function Marketing() {
+function About({ team }) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  function handleDrawerToggle() {
+function handleDrawerToggle() {
     setMobileOpen(!mobileOpen)
   }
   const drawer = (
@@ -94,8 +94,8 @@ function Marketing() {
       </List>
     </div>
   );
-  return (
-    <div className={classes.root} data-test="marketing-page">
+return (
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>          
@@ -113,22 +113,30 @@ function Marketing() {
           </IconButton>
           </div>
         </Toolbar>
-      </AppBar>      
-      <nav className={classes.drawer}>        
+      </AppBar>
+      
+      <nav className={classes.drawer}>
+        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
             variant="temporary"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
             onClose={handleDrawerToggle}
-            classes={{paper: classes.drawerPaper }}
-            ModalProps={{keepMounted: true}}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+            ModalProps={{
+              keepMounted: true, // Better open performance on mobile.
+            }}
           >
-            <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}><CloseIcon/></IconButton>
+            <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
+              <CloseIcon/>
+            </IconButton>
             {drawer}
           </Drawer>
         </Hidden>
-        <Hidden xsDown implementation="css">
+<Hidden xsDown implementation="css">
           <Drawer
             className={classes.drawer}
             variant="permanent"
@@ -141,9 +149,10 @@ function Marketing() {
           </Drawer>  
         </Hidden>
       </nav>
-      <Marketingbuttons/>
+      <Aboutus team={team}/>
     </div>
   );
-};
+}
 
-export default Marketing;
+
+export default About;
