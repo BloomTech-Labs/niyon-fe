@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Marketingbuttons() {
+function MarketingButtons() {
     const classes = useStyles();
 
   return (
@@ -45,4 +45,4 @@ function Marketingbuttons() {
         </div>
   );
 }
-export default Marketingbuttons;
+export default MarketingButtons;

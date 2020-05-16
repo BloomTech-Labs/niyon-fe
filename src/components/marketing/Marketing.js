@@ -12,7 +12,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import Marketingbuttons from './Marketingbuttons';
+import MarketingButtons from './MarketingButtons';
 import './styles.scss';
 
 
@@ -99,7 +99,7 @@ function Marketing() {
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>          
-          <div className='logo'></div>
+          <div className='logo' data-test="test-logo"></div>
           <div className="title-and-button">          
             <Typography variant="h6" noWrap>Niyon</Typography>
             <IconButton
@@ -141,7 +141,7 @@ function Marketing() {
           </Drawer>  
         </Hidden>
       </nav>
-      <Marketingbuttons/>
+      <MarketingButtons/>
     </div>
   );
 };
