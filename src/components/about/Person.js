@@ -1,13 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-
 import './styles.scss';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-  },
+const useStyles = makeStyles((theme) => ({
+  root: { display: 'flex' },
   person: {
     display: "flex",
     flexDirection: "column",
@@ -16,8 +13,8 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     margin: "32px",
     width: "250px"
-},
-personImg: {
+  },
+  personImg: {
     width: "150px",
     height: "150px",
     borderRadius: "50%",
@@ -27,40 +24,34 @@ personImg: {
     alignItems: "center",
     boxShadow: "0 5px 25px rgba(0,0,0,0.2)",
     marginBottom: "10px",
-},
-h2: {
+  },
+  h2: {
     margin: "0",
     marginTop: "10px"
-},
-p: {
+  },
+  p: {
     color: "#484848",
     margin: "0",
     marginTop: "10px"
-},
-img2: {
-width: "160px",
-height: "auto"
-}
+  },
+  img2: {
+    width: "160px",
+    height: "auto"
+  }
 }));
 
-
-
 function Person({src, name, position, link}) {
-    const classes = useStyles();
-
+  const classes = useStyles();
   return (
     <div className={classes.person}>
-    <div className={classes.personImg}>
-    <a href={link}><img className={classes.img2} src={src} alt=""/></a>
-    {/* // can make the link pop up in a window with 'target="_blank"// */}
+      <div className={classes.personImg}>
+        <a href={link}><img className={classes.img2} src={src} alt=""/></a>
+        {/* // can make the link pop up in a window with 'target="_blank"// */}
+      </div>
+      <h2>{name}</h2>
+      <p>{position}</p>
     </div>
-    <h2>{name}</h2>
-    <p>{position}</p>
-
-
-  </div>
   );
-}
-
+};
 
 export default Person;
