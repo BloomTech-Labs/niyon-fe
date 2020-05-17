@@ -7,7 +7,7 @@ import Connections from '../connections/Connections'
 
 function Home(props) {
   return (
-    <div>
+    <div className="home" data-test="home-container">
       <Header />
       <Connections />
       <Footer value={0} />

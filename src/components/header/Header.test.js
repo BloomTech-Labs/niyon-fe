@@ -19,10 +19,7 @@ describe('<Header /> component testing', () => {
      component = setUp();
     });
   
-    it('should match <Header /> component snapshot', () => {         
-         expect(toJSON(component)).toMatchSnapshot();
-    });
-
+    
     it('should render <Header /> component correctly', () => {
          const headerWrapper = findByTestAttr(component, 'header-container');         
          expect(headerWrapper.length).toBe(1);
