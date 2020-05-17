@@ -1,6 +1,7 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
 import { shallow } from 'enzyme';
+import { createShallow } from '@material-ui/core/test-utils';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -29,6 +30,17 @@ describe('<About /> component testing', () => {
     beforeEach(() => {
       component = setUp();
     });
+
+    it('should call handleDrawerToggle function to toggle mobileOpen option', () =>{    
+      const isMobileOpen = false;
+      const mockSetMobileOpen = jest.fn();
+      const shallowComponent = createShallow();
+      React.useState = jest.fn(() => [isMobileOpen, mockSetMobileOpen]);
+      const button = shallowComponent(<About />).find(IconButton).at(0);         
+      button.simulate('click');
+      expect(mockSetMobileOpen).toHaveBeenCalled();
+      expect(mockSetMobileOpen).toHaveBeenCalledWith(!isMobileOpen);
+})
 
   it('should render <About /> component correctly', () => {
       expect(component.length).toBe(1);
