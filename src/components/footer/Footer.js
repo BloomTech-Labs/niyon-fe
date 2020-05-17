@@ -22,7 +22,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Footer(props) {
+function Footer(props) {
   const classes = useStyles();  
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (event) => {
@@ -44,16 +44,18 @@ export default function Footer(props) {
         <MenuItem onClick={handleClose}><Brightness4Icon /><div>&nbsp;Dark Mode</div></MenuItem>
         <MenuItem onClick={handleClose}><ExitToAppIcon /><div>&nbsp;Log Out</div></MenuItem>
       </Menu>
-        <BottomNavigation
+      <BottomNavigation
           value={props.value}        
           showLabels
           className={classes.root}
-        >
-          <BottomNavigationAction component={Link} to='/home' label="Home" icon={<HomeIcon />} />
-          <BottomNavigationAction component={Link} to='/profile' label="Profile" icon={<PersonIcon />} />
-          <BottomNavigationAction component={Link} to='/search' label="Search" icon={<SearchIcon />} />
-          <BottomNavigationAction onClick={handleClick} label="Settings" icon={<SettingsIcon />} />
-        </BottomNavigation>
+      >
+        <BottomNavigationAction component={Link} to='/home' label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction component={Link} to='/profile' label="Profile" icon={<PersonIcon />} />
+        <BottomNavigationAction component={Link} to='/search' label="Search" icon={<SearchIcon />} />
+        <BottomNavigationAction onClick={handleClick} label="Settings" icon={<SettingsIcon />} />
+      </BottomNavigation>
     </div>
   );
 }
+
+export default Footer;

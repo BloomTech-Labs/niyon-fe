@@ -21,14 +21,14 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "sass-loader": "^8.0.2",
-    "yup": "^0.28.5" 
+    "yup": "^0.28.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --watchAll --verbose",
-    "test:coverage": "react-scripts test -u --coverage",
+    "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
+    "test:coverage": "react-scripts test -u --coverage --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
