@@ -26,9 +26,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "set CI=true react-scripts test",
-    "test:watch": "react-scripts test",
-    "test:coverage": "set CI=true && react-scripts test -u --coverage",
+    "test": "react-scripts test --env=jsdom",
+    "test:watch": "react-scripts test --watchAll --verbose",
+    "test:coverage": "react-scripts test -u --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

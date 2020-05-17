@@ -6,6 +6,8 @@ import Aboutus from './Aboutus';
 import Person from './Person';
 import findByTestAttr from '../../tests/utils';
 
+jest.mock('./Person');
+
 
 const setUp = (props={}) => {
    const component = shallow(<Aboutus />);
@@ -14,7 +16,7 @@ const setUp = (props={}) => {
 
 describe('<Aboutus /> component testing', () => {
    let component;
-   beforeEach(() => {
+   beforeEach(() => {      
      component = setUp();
    });
 
@@ -40,9 +42,11 @@ describe('<Aboutus /> component testing', () => {
     it('should render the team members on the component correctly', () => {         
          expect(component.find('.team')).toBeDefined();        
       });
-    it('should render the <Person /> component correctly', () => {      
+    it('should render the <Person /> component correctly', () => {           
          expect(component.find('.team').at(0).find(Person).exists()).toBe(true);
          expect(component.find('.team').find(Person).length).toBe(7);
+         // console.log(component.find('.team').find(Person));
+         //expect(Person).toHaveBeenCalledTimes(7);
       });
 
       it('should match the  <Person /> snapshots "n" number of times', () => {         
