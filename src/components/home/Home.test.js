@@ -29,4 +29,4 @@ describe('<Home /> component testing', () => {
     it('should render <Footer /> component correctly', () => {
        expect(component.find(Footer)).toHaveLength(1);
     });
-})
+});
