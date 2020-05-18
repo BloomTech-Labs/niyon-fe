@@ -7,6 +7,8 @@ import Search from "./components/search/Search";
 import { Route } from "react-router-dom";
 import "./App.css";
 
+import Registration from "./components/registration/Registration";
+
 function App() {
   return (
     <div className="App">
@@ -15,6 +17,7 @@ function App() {
       <Route path="/home" component={Home} />
       <Route path="/profile" component={Profile} />
       <Route path="/search" component={Search} />
+      <Route path="/registration" component={Registration} />
     </div>
   );
 }
