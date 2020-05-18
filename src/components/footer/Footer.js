@@ -18,14 +18,12 @@ const useStyles = makeStyles({
     width: '100%',
     position: 'fixed',
     bottom: 0,
-    // backgroundColor: '#3f51b5',
     color: 'primary'
   },
 });
 
-export default function Footer(props) {
-  const classes = useStyles();
-  // const [value, setValue] = React.useState(props.value);
+function Footer(props) {
+  const classes = useStyles();  
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -35,7 +33,7 @@ export default function Footer(props) {
   };
 
   return (
-<div>
+    <div>
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -46,20 +44,18 @@ export default function Footer(props) {
         <MenuItem onClick={handleClose}><Brightness4Icon /><div>&nbsp;Dark Mode</div></MenuItem>
         <MenuItem onClick={handleClose}><ExitToAppIcon /><div>&nbsp;Log Out</div></MenuItem>
       </Menu>
-    <BottomNavigation
-      value={props.value}
-      // onChange={(event, newValue) => {
-      //   setValue(newValue);
-      // }}
-      showLabels
-      className={classes.root}
-    >
-      <BottomNavigationAction component={Link} to='/home' label="Home" icon={<HomeIcon />} />
-      <BottomNavigationAction component={Link} to='/profile' label="Profile" icon={<PersonIcon />} />
-      <BottomNavigationAction component={Link} to='/search' label="Search" icon={<SearchIcon />} />
-      <BottomNavigationAction onClick={handleClick} label="Settings" icon={<SettingsIcon />} />
-    </BottomNavigation>
-
+      <BottomNavigation
+          value={props.value}        
+          showLabels
+          className={classes.root}
+      >
+        <BottomNavigationAction component={Link} to='/home' label="Home" icon={<HomeIcon />} />
+        <BottomNavigationAction component={Link} to='/profile' label="Profile" icon={<PersonIcon />} />
+        <BottomNavigationAction component={Link} to='/search' label="Search" icon={<SearchIcon />} />
+        <BottomNavigationAction onClick={handleClick} label="Settings" icon={<SettingsIcon />} />
+      </BottomNavigation>
     </div>
   );
 }
+
+export default Footer;

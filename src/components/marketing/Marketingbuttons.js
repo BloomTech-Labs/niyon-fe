@@ -4,9 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import './styles.scss';
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-  },
+  root: { display: 'flex' },
   buttons: {
     margin: "20% auto 0 auto",
     display: "flex",
@@ -14,7 +12,6 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: '10px',
-
   },
   button: {
     width: "250px",
@@ -25,24 +22,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Marketingbuttons() {
-    const classes = useStyles();
-
+function MarketingButtons() {
+  const classes = useStyles();
   return (
-      <div className="marketing-container">
-        <div className="container">
-          <h3>Connect with Mentors in your area!
-            </h3>
-            </div>    
-        <div className={classes.buttons}>
-        <Button variant="contained" color="primary" className={classes.button}>
-          Sign Up
-        </Button>
-        <Button variant="contained" color="secondary" className={classes.button}>
-          Login
-        </Button>
-        </div>
-        </div>
+    <div className="marketing-container" data-test="marketing-container">
+      <div className="container" data-test="marketing-second-container">
+        <h3 data-test="container-title">Connect with Mentors in your area!</h3>
+      </div>    
+      <div className={classes.buttons} data-test="buttons-container">
+        <Button variant="contained" color="primary" className={classes.button}>Sign Up</Button>
+        <Button variant="contained" color="secondary" className={classes.button}>Login</Button>
+      </div>
+    </div>
   );
 }
-export default Marketingbuttons;
+
+export default MarketingButtons;

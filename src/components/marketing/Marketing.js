@@ -12,7 +12,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Link } from "react-router-dom";
-import Marketingbuttons from './Marketingbuttons';
+import MarketingButtons from './MarketingButtons';
 import './styles.scss';
 
 
@@ -83,7 +83,7 @@ function Marketing() {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-function handleDrawerToggle() {
+  function handleDrawerToggle() {
     setMobileOpen(!mobileOpen)
   }
   const drawer = (
@@ -94,12 +94,12 @@ function handleDrawerToggle() {
       </List>
     </div>
   );
-return (
-    <div className={classes.root}>
+  return (
+    <div className={classes.root} data-test="marketing-page">
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>          
-          <div className='logo'></div>
+          <div className='logo' data-test="test-logo"></div>
           <div className="title-and-button">          
             <Typography variant="h6" noWrap>Niyon</Typography>
             <IconButton
@@ -113,30 +113,22 @@ return (
           </IconButton>
           </div>
         </Toolbar>
-      </AppBar>
-      
-      <nav className={classes.drawer}>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+      </AppBar>      
+      <nav className={classes.drawer}>        
         <Hidden smUp implementation="css">
           <Drawer
             variant="temporary"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
             onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
+            classes={{paper: classes.drawerPaper }}
+            ModalProps={{keepMounted: true}}
           >
-            <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}>
-              <CloseIcon/>
-            </IconButton>
+            <IconButton onClick={handleDrawerToggle} className={classes.closeMenuButton}><CloseIcon/></IconButton>
             {drawer}
           </Drawer>
         </Hidden>
-<Hidden xsDown implementation="css">
+        <Hidden xsDown implementation="css">
           <Drawer
             className={classes.drawer}
             variant="permanent"
@@ -149,8 +141,9 @@ return (
           </Drawer>  
         </Hidden>
       </nav>
-      <Marketingbuttons/>
+      <MarketingButtons/>
     </div>
   );
-}
+};
+
 export default Marketing;

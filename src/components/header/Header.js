@@ -1,6 +1,6 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -59,14 +59,13 @@ const useStyles = makeStyles(theme => ({
 function Header(props) {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-test="header-container">
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>          
-          <div className='logo'></div>
-          <div className="title-and-button">          
-            <Typography variant="h6">Welcome User!</Typography>
-         
+          <div className='logo' data-test="logo"></div>
+          <div className="title-and-button" data-test="title-and-button">          
+            <Typography variant="h6">Welcome User!</Typography>         
           </div>
         </Toolbar>
       </AppBar>
