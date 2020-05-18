@@ -1,47 +1,41 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import "./styles.scss";
 
-import useCustomForm from "../customHooks/useCustomForm";
-
 const Registration = () => {
-  const { inputs, handleInputChange, handleSubmit } = useCustomForm({
-    email: "",
-    password1: "",
-    password2: "",
-  });
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log(errors);
+
   return (
     <div className="formWrap">
-      <form className="formRegister" onSubmit={handleSubmit}>
-        <label>Email</label>
+      <form className="formRegister" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="email"
+          placeholder="Email"
           name="email"
-          onChange={handleInputChange}
-          value={inputs.email}
-          required
+          ref={register({ required: true })}
         />
-
-        <label>Password</label>
         <input
           type="password"
+          placeholder="Password"
           name="password1"
-          onChange={handleInputChange}
-          value={inputs.password1}
+          ref={register({ required: true })}
         />
-
-        <label>Repeat Password</label>
         <input
           type="password"
+          placeholder="Repeat Password"
           name="password2"
-          onChange={handleInputChange}
-          value={inputs.password2}
+          ref={register({
+            validate: (value) => {
+              return value === watch("password1"); // value is from password2 and watch will return value from password1
+            },
+          })}
         />
-
-        <select onChange={handleInputChange} value="roll">
-          <option value="mentor">Mentor</option>
-          <option value="mentee">Mentee</option>
+        <select name="Profession" ref={register({ required: true })}>
+          <option value="Mentor">Mentor</option>
+          <option value=" Mentee"> Mentee</option>
         </select>
-
         <button type="submit">Register</button>
       </form>
     </div>
