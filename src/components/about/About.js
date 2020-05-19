@@ -1,14 +1,18 @@
 import React from 'react';
-import Aboutus from './Aboutus';
 import Navbar from '../navbar/Navbar';
+import PersonCard from './PersonCard';
 import './styles.scss';
 
-function About({ team }) {
+function About( props ) {
 
 return (
     <div>
       <Navbar/>
-      <Aboutus team={team}/>
+      <div className="container" data-test="aboutUs-container">
+        <h1>Meet the Crew</h1>
+        <PersonCard 
+        />     
+    </div>
     </div>
   );
 };
