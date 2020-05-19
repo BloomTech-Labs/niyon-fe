@@ -22,14 +22,14 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board](https://trello.com/b/35RQNtt9/labspt10-niyon)
+[Trello Board](https://trello.com/b/35RQNtt9/labspt10-niyon)
 
-1️⃣ [Product Canvas](https://www.notion.so/ffa6c91910394e0cad11cf6c51219336?v=d32644f1e5734ecb943d2bad435c17ec)
+[Product Canvas](https://www.notion.so/ffa6c91910394e0cad11cf6c51219336?v=d32644f1e5734ecb943d2bad435c17ec)
 
 Niyon is an online platform that aims to connect young coders with mentors. Starting a job in a new location or new industry is extremely difficult. Niyon helps young professionals increase their confidence skills, meet colleagues in a new location and find support to help them develop the skills needed for their coding career. Niyon will be launching a pilot of its mentorship platform in West Africa and aims to reduce the unemployment rate in those countries.
 
 
-### 4️⃣ Key Features
+### Key Features
 
 -    Give the ability for inexperienced professionals who seek tech mentorship in West Africa to be connected with a mentor of their choosing via different filtering fields
 -    Give mentors and mentees the ability to text/video chat in real time
@@ -37,7 +37,7 @@ Niyon is an online platform that aims to connect young coders with mentors. Star
 -    Site contains a newsfeed that displays relevant tech/career articles
 -    Site has a map to visualize users around them for potential meetups
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
