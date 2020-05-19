@@ -29,7 +29,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
-    "coverage": "CI=true yarn test --coverage --watchAll=false || true",
+    "coverage": "CI=true npm test --coverage --watchAll=false || true",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -66,5 +66,4 @@
       "!**/coverage/**"
     ]
   }
-  
 }
