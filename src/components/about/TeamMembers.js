@@ -1,9 +1,4 @@
-import React from 'react';
-import Person from './Person'
-import './styles.scss';
-
-function Aboutus() {
-  const team = [
+const teammembers = [
     {
       name: 'Carlos Banks',
       position: 'Frontend Developer',
@@ -47,14 +42,5 @@ function Aboutus() {
       link: 'https://github.com/CarlosVillalpandoJr',
     },
   ];
-  return (
-      <div className="container" data-test="aboutUs-container">
-        <h1>Meet the Crew</h1>
-          <div className="team" data-test="team-container">
-          {team.map(team => <Person key={team.name} {...team} />) }
-          </div>
-      </div>
-  );
-};
 
-export default Aboutus;
+  export default teammembers;
