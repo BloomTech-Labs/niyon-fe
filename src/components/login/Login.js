@@ -15,7 +15,9 @@ const Login = () => {
           name="email"
           ref={register({ required: true })}
         />
-        {errors.email && "Email is required"}
+        {errors.email && (
+          <p style={{ color: "orange", marginTop: 10 }}>"Email is required"</p>
+        )}
       </div>
       <div>
         <input
@@ -24,7 +26,11 @@ const Login = () => {
           name="password"
           ref={register({ required: true })}
         />
-        {errors.password && "Password is required"}
+        {errors.password && (
+          <p style={{ color: "orange", marginTop: 10 }}>
+            "Password is required"
+          </p>
+        )}
       </div>
       <button type="submit">Login</button>
     </form>
