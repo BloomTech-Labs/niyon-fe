@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import { Link } from "react-router-dom";
 import './styles.scss';
 
 const useStyles = makeStyles(theme => ({
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function MarketingButtons() {
+function Marketingbuttons() {
   const classes = useStyles();
   return (
     <div className="marketing-container" data-test="marketing-container">
@@ -30,11 +31,15 @@ function MarketingButtons() {
         <h3 data-test="container-title">Connect with Mentors in your area!</h3>
       </div>    
       <div className={classes.buttons} data-test="buttons-container">
-        <Button variant="contained" color="primary" className={classes.button}>Sign Up</Button>
-        <Button variant="contained" color="secondary" className={classes.button}>Login</Button>
+        <Link to='/registration'>
+          <Button variant="contained" color="primary" className={classes.button}>Sign Up</Button>
+        </Link>
+        <Link to='/login'>
+          <Button variant="contained" color="secondary" className={classes.button}>Login</Button>
+        </Link>
       </div>
     </div>
   );
 }
 
-export default MarketingButtons;
+export default Marketingbuttons;

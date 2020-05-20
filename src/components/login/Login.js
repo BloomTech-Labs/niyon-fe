@@ -1,35 +1,42 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import "./styles.scss";
 
-import useCustomForm from "../customHooks/useCustomForm";
-
 const Login = () => {
-  const { inputs, handleInputChange, handleSubmit } = useCustomForm({
-    email: "",
-    password: "",
-  });
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = (data) => console.log(data);
+  console.log(errors);
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          onChange={handleInputChange}
-          value={inputs.email}
-          required
-        />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="formWrap">
+        <div className="formLogin">
+          <input
+            type="email"
+            placeholder="Email"
+            name="email"
+            ref={register({ required: true })}
+          />
+          {errors.email && (
+            <p style={{ color: "orange", marginTop: 10 }}>
+              "Email is required"
+            </p>
+          )}
+
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            ref={register({ required: true })}
+          />
+          {errors.password && (
+            <p style={{ color: "orange", marginTop: 10 }}>
+              "Password is required"
+            </p>
+          )}
+
+          <button type="submit">Login</button>
+        </div>
       </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={handleInputChange}
-          value={inputs.password}
-        />
-      </div>
-      <button type="submit">Login</button>
     </form>
   );
 };

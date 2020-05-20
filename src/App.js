@@ -8,6 +8,7 @@ import { Route } from "react-router-dom";
 import "./App.css";
 
 import Registration from "./components/registration/Registration";
+import Login from "./components/login/Login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/profile" component={Profile} />
       <Route path="/search" component={Search} />
       <Route path="/registration" component={Registration} />
+      <Route path="/login" component={Login} />
     </div>
   );
 }
