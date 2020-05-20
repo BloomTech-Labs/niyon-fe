@@ -1,12 +1,9 @@
 import React from 'react';
-import './styles.scss';
 import Select from "react-select";
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-
-
+import './styles.scss';
 
 function Profile(props) {
 
@@ -897,14 +894,15 @@ function Profile(props) {
       <Header />
       <div className='profile'>
       <h1>User Profile</h1>
-      <TextField id="outlined-basic" label="First Name" />
-      <TextField id="outlined-basic" label="Last Name" />
+      <TextField id="outlined-basic" variant='outlined' label="First Name" className='textfield'/>
+      <TextField id="outlined-basic" variant='outlined' label="Last Name" className='textfield'/>
       <TextField
           id="outlined-multiline-static"
           label="Bio"
           multiline
-          rows={4}
+          rows={3}
           variant="outlined"
+          className='textfield'
         />
       <h2>Job Title</h2>
       <Select
@@ -933,8 +931,8 @@ function Profile(props) {
         classNamePrefix="select"
       />
       <button>Save</button>
+      </div>
       <Footer value={1} />
-    </div>
     </div>
   );
 }

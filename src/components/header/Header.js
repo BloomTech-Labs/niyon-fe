@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import './styles.scss';
 
@@ -62,8 +63,10 @@ function Header(props) {
     <div className={classes.root} data-test="header-container">
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>          
-          <div className='logo' data-test="logo"></div>
+        <Toolbar>        
+          <Link to='/'>  
+            <div className='logo' data-test="logo"></div>
+          </Link>
           <div className="title-and-button" data-test="title-and-button">          
             <Typography variant="h6">Welcome User!</Typography>         
           </div>
