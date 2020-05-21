@@ -1,11 +1,31 @@
 import React from "react";
 import { useForm, ErrorMessage } from "react-hook-form";
+import Axios from "axios";
+import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 import "./styles.scss";
 
-const Registration = () => {
+const Registration = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  const onSubmit = (data) => handleOnSubmit(data);
+  //console.log(errors);
+
+  const handleOnSubmit = (props) => {
+    let userAuth = {
+      email: props.email,
+      user_type: props.user_type,
+      password: props.password,
+    };
+    axiosWithAuth()
+      .post("/auth/register", userAuth)
+      .then((res) => {
+        console.log("1", res);
+        //props.history.push("/Profile");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log("2", userAuth);
+  };
 
   return (
     <div className="formWrap">
@@ -45,7 +65,7 @@ const Registration = () => {
             "Passwords do not match"
           </p>
         )}
-        <select name="Profession" ref={register({ required: true })}>
+        <select name="user_type" ref={register({ required: true })}>
           <option value="Mentor">Mentor</option>
           <option value=" Mentee"> Mentee</option>
         </select>
