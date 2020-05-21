@@ -19,20 +19,28 @@ exports[`Marketing container testing should pass snapshot testing correctly 1`] 
     className="makeStyles-buttons-2"
     data-test="buttons-container"
   >
-    <WithStyles(ForwardRef(Button))
-      className="makeStyles-button-3"
-      color="primary"
-      variant="contained"
+    <Link
+      to="/registration"
     >
-      Sign Up
-    </WithStyles(ForwardRef(Button))>
-    <WithStyles(ForwardRef(Button))
-      className="makeStyles-button-3"
-      color="secondary"
-      variant="contained"
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-button-3"
+        color="primary"
+        variant="contained"
+      >
+        Sign Up
+      </WithStyles(ForwardRef(Button))>
+    </Link>
+    <Link
+      to="/login"
     >
-      Login
-    </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-button-3"
+        color="secondary"
+        variant="contained"
+      >
+        Login
+      </WithStyles(ForwardRef(Button))>
+    </Link>
   </div>
 </div>
 `;

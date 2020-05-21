@@ -6,7 +6,7 @@ import './styles.scss';
 function Marketing() {
 
   return (
-    <div>
+    <div data-test="marketing">
       <Navbar/>
       <Marketingbuttons/>
     </div>
