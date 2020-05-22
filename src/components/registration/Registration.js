@@ -1,8 +1,8 @@
 import React from "react";
-import { useForm, ErrorMessage } from "react-hook-form";
-import Axios from "axios";
+import { useForm } from "react-hook-form";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 import "./styles.scss";
+import Header from "../header/Header";
 
 const Registration = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
@@ -15,6 +15,7 @@ const Registration = (props) => {
       user_type: props.user_type,
       password: props.password,
     };
+
     axiosWithAuth()
       .post("/auth/register", userAuth)
       .then((res) => {
@@ -29,6 +30,7 @@ const Registration = (props) => {
 
   return (
     <div className="formWrap">
+      <Header />
       <form className="formRegister" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="email"

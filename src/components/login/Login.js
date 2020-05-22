@@ -1,14 +1,36 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 import "./styles.scss";
+import Header from "../header/Header";
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => handleOnSubmit(data);
   console.log(errors);
+
+  const handleOnSubmit = (props) => {
+    let userAuth = {
+      email: props.email,
+      password: props.password,
+    };
+
+    axiosWithAuth()
+      .post("/auth/login", userAuth)
+      .then((res) => {
+        console.log("1", res);
+        //props.history.push("/Profile");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log("2", userAuth);
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="formWrap">
+        <Header />
         <div className="formLogin">
           <input
             type="email"
