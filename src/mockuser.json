@@ -1,0 +1,29 @@
+{
+    "id": 12,
+    "first_name": "520",
+    "last_name": "User",
+    "bio": "2020",
+    "email": "520@example.com",
+    "user_type": "Mentor",
+    "job_title_id": 4,
+    "location_id": 6,
+    "job_title": "iOS Developer",
+    "location": "Benin, Nigeria",
+    "tech_stack": [
+        {
+            "name": "Ember",
+            "type": "Framework",
+            "id": 17
+        },
+        {
+            "name": "Python",
+            "type": "Language",
+            "id": 27
+        },
+        {
+            "name": "Communication",
+            "type": "Soft",
+            "id": 37
+        }
+    ]
+}
