@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from '../../UserContext'
 import Select from "react-select";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import TextField from "@material-ui/core/TextField";
 import "./styles.scss";
+import testUser from '../../mockuser.json'
 
 function Profile(props) {
+  const { user, setUser } = useContext(UserContext);
+
+  console.log(testUser)
+
   const technologies = [
     {
       value: 1,
@@ -926,11 +932,6 @@ function Profile(props) {
     });
   };
 
-  const user = {
-    first_name: 'Lambda',
-    job_title: [2]
-  }
-
   return (
     <div>
       <Header />
@@ -938,7 +939,7 @@ function Profile(props) {
         <h1>User Profile</h1>
         <TextField
           id="outlined-basic"
-          defaultValue={user.first_name}
+          defaultValue={'name'}
           variant="outlined"
           name="first_name"
           label="First Name"
@@ -965,7 +966,7 @@ function Profile(props) {
         />
         <h2>Job Title</h2>
         <Select
-          defaultValue={user.job_title[0]}
+          defaultValue={'job'}
           name="job_title"
           options={jobs}
           className="basic-multi-select"
@@ -992,7 +993,10 @@ function Profile(props) {
           classNamePrefix="select"
           onChange={handleTechChange}
         />
-        <button onClick={() => console.log(inputs)}>Save</button>
+        <button onClick={() => {
+          setUser(testUser)
+          console.log(user)}
+        }>Save</button>
       </div>
       <Footer value={1} />
     </div>

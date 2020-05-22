@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { UserContext } from './UserContext'
 import Marketing from "./components/marketing/Marketing";
 import About from "./components/about/About";
 import Home from "./components/home/Home";
@@ -11,15 +12,19 @@ import Registration from "./components/registration/Registration";
 import Login from "./components/login/Login";
 
 function App() {
+  const [user, setUser] = useState('word')
+
   return (
     <div className="App">
       <Route exact path="/" component={Marketing} />
       <Route path="/about" component={About} />
-      <Route path="/home" component={Home} />
-      <Route path="/profile" component={Profile} />
-      <Route path="/search" component={Search} />
-      <Route path="/registration" component={Registration} />
       <Route path="/login" component={Login} />
+      <Route path="/registration" component={Registration} />
+      <UserContext.Provider value={{user, setUser}}>
+        <Route path="/profile" component={Profile} />
+        <Route path="/home" component={Home} />
+        <Route path="/search" component={Search} />
+      </UserContext.Provider>
     </div>
   );
 }
