@@ -5,7 +5,7 @@ export const axiosWithAuth = () => {
   return axios.create({
     baseURL: "https://niyon-app.herokuapp.com",
     headers: {
-      Authorization: token,
+      authorization: token,
     },
   });
 };
