@@ -1,11 +1,11 @@
 import React from 'react';
-import teammembers from './TeamMembers'
+import TeamMembers from './TeamMembers'
 import './styles.scss';
 
 const PersonCard = (props) => {
 	return (
         <div className="person" data-test="person-image-container">
-          {teammembers.map((teammember) => {
+          {TeamMembers.map((teammember) => {
             return (
               <div>
               <a href={teammember.link}><img className="img2, personImg" src={teammember.src} alt="Niyon Team Members"/></a>
