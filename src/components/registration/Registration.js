@@ -19,13 +19,11 @@ const Registration = (props) => {
     axiosWithAuth()
       .post("/auth/register", userAuth)
       .then((res) => {
-        console.log("1", res);
         //props.history.push("/Profile");
       })
       .catch((err) => {
         console.log(err);
       });
-    console.log("2", userAuth);
   };
 
   return (
