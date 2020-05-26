@@ -47,7 +47,7 @@ Niyon is an online platform that aims to connect young coders with mentors. Star
 -    reusable Components - React provides a component based structure. You can re-use components anywhere you need. As a result, (1) your app has consistent look and feel, (2) code re-use makes it easier to maintain and grow your codebase, and (3) it is easier to develop your app.
 -    is such a popular library, many modules are available, as is plenty of up-to-date information about it.
 
-#### Front end deployed to `🚫insert service here`
+#### Front end deployed to AWS Amplify
 
 #### [Back end] built using: https://github.com/Lambda-School-Labs/niyon-be
 
@@ -57,25 +57,7 @@ Niyon is an online platform that aims to connect young coders with mentors. Star
 -    Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 -    Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 
-# 3️⃣ Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
-These are just examples, replace them with the specifics for your app
-
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
-
-
-# 4️⃣ Testing
+# Testing
 
 Jest Framework
 -Jest is a testing framework that focuses on simplicity. It was covered in the curriculum, have awesome documentation and practically covers every aspect of testing; from unit-test to snap-shot test, etc.
