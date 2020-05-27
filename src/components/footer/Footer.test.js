@@ -21,7 +21,6 @@ describe('<Footer /> component testing', () => {
          expect(toJSON(component)).toMatchSnapshot();
    })
   it('should render <Footer /> component correctly', () => {
-        //  console.log(component.debug());
          expect (component.exists()).toBe(true);
    });  
 
