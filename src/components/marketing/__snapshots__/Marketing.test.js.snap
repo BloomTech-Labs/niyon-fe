@@ -5,6 +5,6 @@ exports[`<Marketing /> component testing should match the snapshot testing 1`] =
   data-test="marketing"
 >
   <Navbar />
-  <Marketingbuttons />
+  <MarketingButtons />
 </div>
 `;

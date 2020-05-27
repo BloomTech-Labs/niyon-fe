@@ -7,6 +7,7 @@ exports[`<Search /> component testing should pass snaps shot testing 1`] = `
   <div
     className="formWrap"
   >
+    <Header />
     <div
       className="formLogin"
     >

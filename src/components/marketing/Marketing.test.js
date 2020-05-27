@@ -26,8 +26,8 @@ describe('<Marketing /> component testing', () => {
          expect(component.find('Navbar').exists()).toBe(true)
     });
 
-    it('should render <Marketingbuttons /> component correctly', () => {
-         expect(component.find('Marketingbuttons').exists()).toBe(true);
+    it('should render <MarketingButtons /> component correctly', () => {
+         expect(component.find('MarketingButtons').exists()).toBe(true);
     });
 
 })
