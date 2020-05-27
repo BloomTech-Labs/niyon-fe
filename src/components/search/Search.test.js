@@ -19,8 +19,7 @@ describe('<Search /> component testing', () => {
         expect(toJSON(component)).toMatchSnapshot();
    });
 
-   it('should render the <Search /> component correctly', () => {
-        console.log(component.debug());
+   it('should render the <Search /> component correctly', () => {        
         expect(component.exists()).toBe(true);
    });
    it('should render <Header /> component correctly', () => {
