@@ -6,15 +6,15 @@
 
 # Niyon
 
-1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+You can find the deployed project at https://master.d3p8i1bf0wxm1z.amplifyapp.com/
 
-## 4️⃣ Contributors
+## Contributors
 
-|                                       [Tim Mitzen](https://github.com/timmitzen)                                        |                                       [Joe Thompson](https://github.com/joe-thompson)                                        |                                       [Carlos Banks](https://github.com/carlostbanks)                                        |                                       [Farjad Fazli](https://github.com/farjadfazli)                                        |                                       [Venky Yagatilee](https://github.com/vy3194)                                        |
+|                                       [Tim Mitzen](github.com/timmitzen)                                        |                                       [Joe Thompson](https://github.com/joe-thompson)                                        |                                       [Carlos Banks](https://github.com/carlostbanks)                                        |                                       [Farjad Fazli](https://github.com/farjadfazli)                                        |                                       [Venky Yagatilee](https://github.com/vy3194)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
 |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](github.com/timmitzen)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Joe-Thompson)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/carlostbanks)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/farjadfazli)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/vy3191)             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/timmitzen/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/carlosbanks/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/farjadfazli/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/venkatesh08/) |
 
 <br>
 <br>
@@ -41,72 +41,28 @@ Niyon is an online platform that aims to connect young coders with mentors. Star
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
+-    Performance - ReactJS its using a virtual DOM that provides superior performance
+-    reusable Components - React provides a component based structure. You can re-use components anywhere you need. As a result, (1) your app has consistent look and feel, (2) code re-use makes it easier to maintain and grow your codebase, and (3) it is easier to develop your app.
+-    is such a popular library, many modules are available, as is plenty of up-to-date information about it.
 
--    point one
--    point two
--    point three
--    point four
+#### Front end deployed to AWS Amplify
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+#### [Back end] built using: https://github.com/Lambda-School-Labs/niyon-be
 
-#### Front end deployed to `🚫insert service here`
+#### Node/Express/Knex
 
-#### [Back end](🚫link to back end repo here) built using:
+-    Node is a server side environment where javascript can run. Having both our client and server code with the same language is helpful to our team's communication and integration.
+-    Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+-    Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
 
-#### 🚫 back end framework goes here
+# Testing
 
--    point one
--    point two
--    point three
-
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
-
-# APIs
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
-# 3️⃣ Environment Variables
-
-In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
-
-🚫These are just examples, replace them with the specifics for your app
-
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
-
-
-# 4️⃣ Testing
-
-🚫Document what you used for testing and why
+Jest Framework
+-Jest is a testing framework that focuses on simplicity. It was covered in the curriculum, have awesome documentation and practically covers every aspect of testing; from unit-test to snap-shot test, etc.
 
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/niyon-be) for details on the backend of our project.

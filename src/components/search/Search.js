@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../../UserContext'
 import './styles.scss';
 import Header from '../header/Header'
 import Footer from '../footer/Footer'
 
 function Search(props) {
+  const { user, setUser } = useContext(UserContext);
+
+  console.log(user)
+
   return (
     <div>
         <Header />

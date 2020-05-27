@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar/Navbar'
-import Marketingbuttons from './Marketingbuttons';
+import MarketingButtons from './Marketingbuttons';
 import './styles.scss';
 
 function Marketing() {
@@ -8,7 +8,7 @@ function Marketing() {
   return (
     <div data-test="marketing">
       <Navbar/>
-      <Marketingbuttons/>
+      <MarketingButtons/>
     </div>
   );
 };

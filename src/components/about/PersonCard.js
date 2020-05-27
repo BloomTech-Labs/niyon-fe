@@ -1,5 +1,5 @@
 import React from 'react';
-import teamMembers from './TeamMembers'
+import teamMembers from './TeamMembers';
 import './styles.scss';
 
 const PersonCard = (props) => {
