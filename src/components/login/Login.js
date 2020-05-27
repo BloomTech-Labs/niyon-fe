@@ -5,7 +5,7 @@ import "./styles.scss";
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => console.log(data);
-  console.log(errors);
+  
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="formWrap">
