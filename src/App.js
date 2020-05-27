@@ -12,15 +12,17 @@ import Registration from "./components/registration/Registration";
 import Login from "./components/login/Login";
 
 function App() {
-  const [user, setUser] = useState('word')
+  const [user, setUser] = useState(null)
+
+   const value = {user, setUser}
 
   return (
     <div className="App">
       <Route exact path="/" component={Marketing} />
       <Route path="/about" component={About} />
-      <Route path="/login" component={Login} />
-      <Route path="/registration" component={Registration} />
-      <UserContext.Provider value={{user, setUser}}>
+      <UserContext.Provider value={value}>
+        <Route path="/login" component={Login} />
+        <Route path="/registration" component={Registration} />
         <Route path="/profile" component={Profile} />
         <Route path="/home" component={Home} />
         <Route path="/search" component={Search} />
