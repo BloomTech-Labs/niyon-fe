@@ -1,3 +1,6 @@
 import { createContext } from 'react';
 
-export const UserContext = createContext('word');
+export const UserContext = createContext({ 
+    id: 0,
+    setUser: () => {}
+});
