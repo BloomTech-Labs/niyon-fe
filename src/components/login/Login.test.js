@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import findByTestAttr from '../../tests/utils';
 import Login from './Login';
 import { act } from 'react-dom/test-utils';
 
@@ -23,8 +22,7 @@ it('should pass snaps shot testing', () => {
     });
 
  it('should render <Login /> component correctly', () => {
-      expect(component.exists()).toBe(true);
-      console.log(component.debug());
+      expect(component.exists()).toBe(true);     
     });
 
  it('should render form correctly', () => {
@@ -55,11 +53,20 @@ it('should pass snaps shot testing', () => {
     });
 
     describe('Form submission', () => {
-        it('should submit when data filled',  () => {
+        it('should submit when data filled', async () => {
             const emailInput = component.find('input[type="email"]');
             // const passwordInput = component.find('input[type="password"]');            
             // emailInput.value = "test@email.com";
             // emailInput.dispatchEvent(new Event("input"));
+          await act( async() => {
+              emailInput.simulate('change', { target: { name:'email', value: 'test@email.com'}});
+              component.find('button').simulate('submit');
+           
+            });
+          // await act( async() => {            
+          //   component.find('button').simulate('submit');
+          //   expect(onSubmit).toHaveBeenCalled();
+          // })
         });
     });
 
