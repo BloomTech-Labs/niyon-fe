@@ -6,7 +6,7 @@ import Header from "../header/Header";
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data); 
+  const onSubmit = (data) => handleOnSubmit(data); 
 
   const handleOnSubmit = (props) => {
     let userAuth = {
@@ -18,7 +18,7 @@ const Login = () => {
       .post("/auth/login", userAuth)
       .then((res) => {
         console.log("1", res);
-        //props.history.push("/Profile");
+        window.location = "/home"
       })
       .catch((err) => {
         console.log(err);

@@ -939,7 +939,6 @@ function Profile(props) {
         <h1>User Profile</h1>
         <TextField
           id="outlined-basic"
-          defaultValue={'name'}
           variant="outlined"
           name="first_name"
           label="First Name"

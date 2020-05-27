@@ -12,9 +12,6 @@ const Registration = (props) => {
   //console.log(errors);
 
   const handleOnSubmit = (props) => {
-  };
-
-  useEffect(() => {
     let userAuth = {
       email: props.email,
       user_type: props.user_type,
@@ -26,15 +23,12 @@ const Registration = (props) => {
       console.log(res)
       window.localStorage.setItem("token", res.data.token)
       console.log(user)
-      // window.location = "/profile"
-      setUser({
-        id: 1
-      })
+      window.location = "/profile"
     })
     .catch((err) => {
       console.log(err);
     });
-  },[handleOnSubmit])
+  }
 
   return (
     <div className="formWrap">
