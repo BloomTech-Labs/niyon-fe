@@ -10,9 +10,8 @@ return (
       <Navbar/>
       <div className="container" data-test="aboutUs-container">
         <h1>Meet the Crew</h1>
-        <PersonCard 
-        />     
-    </div>
+        <PersonCard />     
+      </div>
     </div>
   );
 };
