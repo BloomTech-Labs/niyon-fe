@@ -6,8 +6,7 @@ import Header from "../header/Header";
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => handleOnSubmit(data);
-  console.log(errors);
+  const onSubmit = (data) => console.log(data); 
 
   const handleOnSubmit = (props) => {
     let userAuth = {
@@ -26,7 +25,6 @@ const Login = () => {
       });
     console.log("2", userAuth);
   };
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="formWrap">

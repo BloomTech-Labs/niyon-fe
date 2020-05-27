@@ -94,7 +94,7 @@ function Navbar(props) {
     </div>
   );
   return (
-      <div className={classes.root}>
+      <div className={classes.root} data-test="navbar-container">
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>          

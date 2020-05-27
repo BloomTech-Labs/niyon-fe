@@ -77,7 +77,7 @@ const Registration = (props) => {
         )}
         <select name="user_type" ref={register({ required: true })}>
           <option value="Mentor">Mentor</option>
-          <option value=" Mentee"> Mentee</option>
+          <option value=" Mentee">Mentee</option>
         </select>
         <button type="submit">Register</button>
       </form>

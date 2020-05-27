@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PersonCard /> component testing should pass the snapshot test correctly 1`] = `
+<div
+  className="person"
+  data-test="person-container"
+>
+  <div
+    data-test="person-image-container"
+    key="0"
+  >
+    <a
+      href="https://github.com/carlostbanks"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="/CB.jpeg"
+      />
+    </a>
+    <h2>
+      Carlos Banks
+    </h2>
+    <p>
+      Frontend Developer
+    </p>
+  </div>
+  <div
+    data-test="person-image-container"
+    key="1"
+  >
+    <a
+      href="https://github.com/wombat1972"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="/KB.jpeg"
+      />
+    </a>
+    <h2>
+      Kenneth Brook
+    </h2>
+    <p>
+      Frontend Developer
+    </p>
+  </div>
+  <div
+    data-test="person-image-container"
+    key="2"
+  >
+    <a
+      href="https://github.com/farjadfazli"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="/FF.jpeg"
+      />
+    </a>
+    <h2>
+      Farjad Fazli
+    </h2>
+    <p>
+      Frontend Developer
+    </p>
+  </div>
+  <div
+    data-test="person-image-container"
+    key="3"
+  >
+    <a
+      href="https://github.com/TimMitzen"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="/TM.jpeg"
+      />
+    </a>
+    <h2>
+      Tim Mitzen
+    </h2>
+    <p>
+      Backend Developer
+    </p>
+  </div>
+  <div
+    data-test="person-image-container"
+    key="4"
+  >
+    <a
+      href="https://github.com/Joe-Thompson"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="/JT.jpeg"
+      />
+    </a>
+    <h2>
+      Joe Thompson
+    </h2>
+    <p>
+      Backend Developer
+    </p>
+  </div>
+  <div
+    data-test="person-image-container"
+    key="5"
+  >
+    <a
+      href="https://github.com/vy3191"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="/VY.jpeg"
+      />
+    </a>
+    <h2>
+      Venky Yagatilee
+    </h2>
+    <p>
+      Front Developer
+    </p>
+  </div>
+  <div
+    data-test="person-image-container"
+    key="6"
+  >
+    <a
+      href="https://github.com/CarlosVillalpandoJr"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="/CV.jpeg"
+      />
+    </a>
+    <h2>
+      Carlos Villalpando
+    </h2>
+    <p>
+      Project Manager
+    </p>
+  </div>
+</div>
+`;
