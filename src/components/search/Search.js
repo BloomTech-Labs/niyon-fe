@@ -7,7 +7,7 @@ function Search(props) {
   return (
     <div>
         <Header />
-        <div className='search'>
+        <div className='search' data-test='search-container'>
             <div>
                 <h1 className='search-header'>Search</h1>
             </div>
