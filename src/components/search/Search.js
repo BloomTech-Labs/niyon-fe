@@ -5,9 +5,7 @@ import Header from '../header/Header'
 import Footer from '../footer/Footer'
 
 function Search(props) {
-  const { user, setUser } = useContext(UserContext);
-
-  console.log(user)
+  const { user, setUser } = useContext(UserContext); 
 
   return (
     <div>
