@@ -6,15 +6,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import findByTestAttr from '../../tests/utils';
-import { Icon } from '@material-ui/core';
 import Navbar from './Navbar';
 
 
@@ -29,16 +24,7 @@ describe('<Marketing /> component testing', () => {
       component = setUp();
    });
 
-  //  it('should call handleDrawerToggle function to toggle mobileOpen option', () =>{    
-  //         const isMobileOpen = false;
-  //         const mockSetMobileOpen = jest.fn();
-  //         const shallowComponent = createShallow();
-  //         React.useState = jest.fn(() => [isMobileOpen, mockSetMobileOpen]);
-  //         const button = shallowComponent(<Marketing />).find(IconButton).at(0);         
-  //         button.simulate('click');
-  //         expect(mockSetMobileOpen).toHaveBeenCalled();
-  //         expect(mockSetMobileOpen).toHaveBeenCalledWith(!isMobileOpen);
-  //  })
+  
    it('should pass snapshot testing correctly', () => {
             expect(toJSON(component)).toMatchSnapshot();
    });
@@ -65,11 +51,7 @@ describe('<Marketing /> component testing', () => {
    it('should render <MenuIcon /> component correctly', () => {
          expect(component.find(MenuIcon)).toHaveLength(1);
    });
-
-  //  it('should render logo div correctly', () => {
-  //       const logoWrapper = findByTestAttr(component, 'test-logo');
-  //       expect(logoWrapper.exists()).toBe(true);
-  //    });
+  
 
    it('should render title content with no errors', () => {
          expect(component.find(Typography)).toHaveLength(1);
