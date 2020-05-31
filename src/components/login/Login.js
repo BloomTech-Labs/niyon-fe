@@ -6,7 +6,7 @@ import Header from "../header/Header";
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => handleOnSubmit(data); 
+  const onSubmit = (data) => handleOnSubmit(data);
 
   const handleOnSubmit = (props) => {
     let userAuth = {
@@ -18,13 +18,16 @@ const Login = () => {
       .post("/auth/login", userAuth)
       .then((res) => {
         console.log("1", res);
-        window.location = "/home"
+        window.localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("id", res.data.user.id);
+        window.location = "/home";
       })
       .catch((err) => {
         console.log(err);
       });
     console.log("2", userAuth);
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="formWrap">
