@@ -1,16 +1,20 @@
 import React, { useState, useContext } from "react";
-import { UserContext } from '../../UserContext'
+import { UserContext } from "../../UserContext";
 import Select from "react-select";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import TextField from "@material-ui/core/TextField";
 import "./styles.scss";
-import testUser from '../../mockuser.json'
+import testUser from "../../mockuser.json";
 
 function Profile(props) {
   const { user, setUser } = useContext(UserContext);
 
-  console.log(testUser)
+  console.log(testUser);
+
+  const id = window.localStorage.getItem("id");
+
+  console.log("From localStorage", id);
 
   const technologies = [
     {
@@ -965,7 +969,7 @@ function Profile(props) {
         />
         <h2>Job Title</h2>
         <Select
-          defaultValue={'job'}
+          defaultValue={"job"}
           name="job_title"
           options={jobs}
           className="basic-multi-select"
@@ -992,10 +996,14 @@ function Profile(props) {
           classNamePrefix="select"
           onChange={handleTechChange}
         />
-        <button onClick={() => {
-          setUser(testUser)
-          console.log(user)}
-        }>Save</button>
+        <button
+          onClick={() => {
+            setUser(testUser);
+            console.log(user);
+          }}
+        >
+          Save
+        </button>
       </div>
       <Footer value={1} />
     </div>

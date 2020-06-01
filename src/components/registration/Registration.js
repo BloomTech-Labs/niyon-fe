@@ -1,60 +1,41 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
-import axios from 'axios';
-import { UserContext } from '../../UserContext'
 import "./styles.scss";
 import Header from "../header/Header";
 
 const Registration = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
-  // const onSubmit = (data) => handleOnSubmit(data);
-  const { user, setUser } = useContext(UserContext);
-  const [newUser, setNewUser] = useState({
-    email: "",
-    password: "",
-    user_type: ""
-  })
-  //console.log(errors);
+  const onSubmit = (data) => handleOnSubmit(data);
 
-  const handleChange = event => {
-    setNewUser({
-      ...newUser,
-      [event.target.name]: event.target.value
-    })
-    console.log(newUser)
-  }
+  const handleOnSubmit = (props) => {
+    let userAuth = {
+      email: props.email,
+      user_type: props.user_type,
+      password: props.password,
+    };
 
-  const handleSubmit2 = event => {
-    event.preventDefault()
-    axios.post('https://niyon-app.herokuapp.com/auth/register', newUser)
-      .then(res => {
-        console.log(res.data.user.id)
-        console.log(user)
-        setTimeout(
-          setUser({
-            id: res.data.user.id
-          }), 1000
-        )
-        window.localStorage.setItem("token", res.data.token)
-        setTimeout(
-          console.log(user), 2000
-        )
+    axiosWithAuth()
+      .post("/auth/register", userAuth)
+      .then((res) => {
+        window.localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("id", res.data.user.id);
+        window.location = "/profile";
       })
-      .catch(err => console.log(err))
-  }
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="formWrap">
       <Header />
-      <form className="formRegister" onSubmit={handleSubmit2}>
+      <form className="formRegister" onSubmit={handleSubmit(onSubmit)}>
         <input
           type="email"
           placeholder="Email"
           name="email"
           ref={register({ required: true })}
-          onChange={handleChange}
-          value={newUser.email}
         />
         {errors.email && (
           <p style={{ color: "orange", marginTop: 10 }}>"Email is required"</p>
@@ -64,8 +45,6 @@ const Registration = (props) => {
           placeholder="Password"
           name="password"
           ref={register({ required: true })}
-          onChange={handleChange}
-          value={newUser.password}
         />
         {errors.password && (
           <p style={{ color: "orange", marginTop: 10 }}>
@@ -87,12 +66,7 @@ const Registration = (props) => {
             "Passwords do not match"
           </p>
         )}
-        <select 
-          name="user_type" 
-          ref={register({ required: true })}
-          onChange={handleChange}
-          value={newUser.user_type}
-        >
+        <select name="user_type" ref={register({ required: true })}>
           <option value="Mentor">Mentor</option>
           <option value=" Mentee">Mentee</option>
         </select>
