@@ -1,22 +1,22 @@
 import React, { useState } from "react";
-import { UserContext } from './UserContext'
+import { UserContext } from "./UserContext";
 import Marketing from "./components/marketing/Marketing";
 import About from "./components/about/About";
 import Home from "./components/home/Home";
 import Profile from "./components/profile/Profile";
 import Search from "./components/search/Search";
 import { Route } from "react-router-dom";
-import "./App.css";
+import "./sass_master/index.scss";
 
 import Registration from "./components/registration/Registration";
 import Login from "./components/login/Login";
 
 function App() {
   const [user, setUser] = useState({
-    id: 0
-  })
+    id: 0,
+  });
 
-   const value = {user, setUser}
+  const value = { user, setUser };
 
   return (
     <div className="App">

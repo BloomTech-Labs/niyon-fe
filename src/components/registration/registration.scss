@@ -1,4 +1,10 @@
-.formLogin {
+.formWrap {
+  margin: 0 auto;
+  width: 100%;
+  background-color: white;
+}
+
+.formRegister {
   display: flex;
   flex-direction: column;
   margin-top: 45%;
@@ -8,8 +14,22 @@
   input {
     width: 70%;
     margin-top: 25px;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-align: center;
+    padding: 5px 0;
+    border-radius: 10px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+
+    p {
+      margin-top: 10px;
+      color: red;
+    }
+  }
+
+  select {
+    width: 70%;
+    margin-top: 25px;
+    font-size: 1.8rem;
     padding: 5px 0;
     border-radius: 10px;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -18,10 +38,10 @@
   button {
     margin-top: 25px;
     width: 70%;
-    font-size: 0.875rem;
+    font-size: 1.8rem;
     padding: 15px 0;
     border-radius: 25px;
-    background-color: #f50057;
+    background-color: #3f51b5;
     color: white;
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
       0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
