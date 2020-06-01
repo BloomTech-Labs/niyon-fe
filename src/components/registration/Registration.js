@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
-import "./styles.scss";
 import Header from "../header/Header";
 
 const Registration = (props) => {
