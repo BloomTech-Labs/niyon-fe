@@ -13,12 +13,12 @@ const Registration = (props) => {
       user_type: props.user_type,
       password: props.password,
     };
-
+    window.localStorage.setItem("user_type", props.user_type);
     axiosWithAuth()
       .post("/auth/register", userAuth)
       .then((res) => {
         window.localStorage.setItem("token", res.data.token);
-        window.localStorage.setItem("id", res.data.user.id);
+        window.localStorage.setItem("id", res.data.user.id);        
         window.location = "/profile";
       })
       .catch((err) => {
