@@ -8,36 +8,53 @@ import "./styles.scss";
 import { technology } from "./technologies";
 import { location } from "./location";
 import { job } from "./job";
+import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 
 function Profile(props) {
-  // const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   const id = window.localStorage.getItem("id");
-  console.log("From localStorage", id);
   const technologies = technology;
   const locations = location;
   const jobs = job;
+
+  console.log('this is on page load from context', user)
 
   const [inputs, setInputs] = useState({
     first_name: "",
     last_name: "",
     bio: "",
-    job_title: 0,
+    job_title_id: 0,
     location_id: 0,
     techs: [],
   });
+
+  const handleOnSave = () => {
+    axiosWithAuth()
+      .post(`/profile/${id}`, inputs)
+      .then((res) => {
+        console.log('this is from API response', res);
+        // window.location = "/home";
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      console.log('this is from the context', user)
+  };
 
   const handleTextFieldChange = (event) => {
     setInputs({
       ...inputs,
       [event.target.name]: event.target.value,
     });
+    setUser(inputs)
   };
 
   const handleJobChange = (selectedItem) => {
     setInputs({
       ...inputs,
-      job_title: selectedItem.value,
+      job_title_id: selectedItem.value,
     });
+    setUser(inputs)
   };
 
   const handleLocationChange = (selectedItem) => {
@@ -45,6 +62,7 @@ function Profile(props) {
       ...inputs,
       location_id: selectedItem.value,
     });
+    setUser(inputs)
   };
 
   const handleTechChange = (selectedItem) => {
@@ -53,7 +71,21 @@ function Profile(props) {
       ...inputs,
       techs: technologies,
     });
+    setUser(inputs)
   };
+
+  let techs = []
+
+  const handleTechs = () => {
+    if (user.techs) {
+      techs = user.techs.map(tech => tech)
+      console.log(techs)
+    } else {
+      techs = [0]
+    }
+  }
+
+  handleTechs()
 
   return (
     <div>
@@ -61,6 +93,7 @@ function Profile(props) {
       <div className="profile">
         <h1>User Profile</h1>
         <TextField
+          defaultValue={user.first_name}
           id="outlined-basic"
           variant="outlined"
           name="first_name"
@@ -69,6 +102,7 @@ function Profile(props) {
           onChange={handleTextFieldChange}
         />
         <TextField
+          defaultValue={user.last_name}
           id="outlined-basic"
           variant="outlined"
           name="last_name"
@@ -77,6 +111,7 @@ function Profile(props) {
           onChange={handleTextFieldChange}
         />
         <TextField
+          defaultValue={user.bio}
           id="outlined-multiline-static"
           label="Bio"
           multiline
@@ -88,8 +123,8 @@ function Profile(props) {
         />
         <h2>Job Title</h2>
         <Select
-          defaultValue={"job"}
-          name="job_title"
+          defaultValue={[job[user.job_title_id - 1]]}
+          name="job_title_id"
           options={jobs}
           className="basic-multi-select"
           classNamePrefix="select"
@@ -97,7 +132,7 @@ function Profile(props) {
         />
         <h2>Location</h2>
         <Select
-          defaultValue={[]}
+          defaultValue={[location[user.location_id - 1]]}
           name="location_id"
           options={locations}
           className="basic-multi-select"
@@ -107,7 +142,7 @@ function Profile(props) {
 
         <h2>Technologies</h2>
         <Select
-          defaultValue={[]}
+          defaultValue={techs}
           isMulti
           name="techs"
           options={technologies}
@@ -117,7 +152,8 @@ function Profile(props) {
         />
         <button
           onClick={() => {
-            console.log('user');
+            console.log('inputs from state', inputs)
+            handleOnSave()
           }}
         >
           Save
