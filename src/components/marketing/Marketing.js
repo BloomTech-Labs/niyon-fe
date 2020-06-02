@@ -13,4 +13,4 @@ function Marketing() {
   );
 };
 
-export default Marketing; 
+export default Marketing;
