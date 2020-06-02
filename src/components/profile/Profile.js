@@ -5,15 +5,12 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import TextField from "@material-ui/core/TextField";
 import "./styles.scss";
-import testUser from "../../mockuser.json";
-
 import { technology } from "./technologies";
 import { location } from "./location";
 import { job } from "./job";
 
 function Profile(props) {
-  const { user, setUser } = useContext(UserContext);
-  console.log(testUser);
+  // const { user, setUser } = useContext(UserContext);
   const id = window.localStorage.getItem("id");
   console.log("From localStorage", id);
   const technologies = technology;
@@ -120,8 +117,7 @@ function Profile(props) {
         />
         <button
           onClick={() => {
-            setUser(testUser);
-            console.log(user);
+            console.log('user');
           }}
         >
           Save
