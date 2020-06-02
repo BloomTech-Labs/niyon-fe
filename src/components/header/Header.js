@@ -59,6 +59,7 @@ const useStyles = makeStyles(theme => ({
 
 function Header(props) {
   const classes = useStyles();
+  const userType = window.localStorage.getItem('user_type');
   return (
     <div className={classes.root} data-test="header-container">
       <CssBaseline />
@@ -68,7 +69,7 @@ function Header(props) {
             <div className='logo' data-test="logo"></div>
           </Link>
           <div className="title-and-button" data-test="title-and-button">          
-            <Typography variant="h6">Welcome User!</Typography>         
+            <Typography variant="h6">Welcome {userType}{''}!</Typography>         
           </div>
         </Toolbar>
       </AppBar>
