@@ -30,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --verbose --env=jsdom",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
     "coverage": "CI=true npm test --coverage --watchAll=false || true",
     "eject": "react-scripts eject"
