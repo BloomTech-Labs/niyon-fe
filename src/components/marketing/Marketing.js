@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar/Navbar'
-import MarketingButtons from './Marketingbuttons';
+import MarketingButtons from './MarketingButtons';
 import './styles.scss';
 
 function Marketing() {

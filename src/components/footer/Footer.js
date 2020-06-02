@@ -9,6 +9,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import PersonIcon from '@material-ui/icons/Person';
 import SettingsIcon from '@material-ui/icons/Settings';
 import Menu from '@material-ui/core/Menu';
+import { signout } from '../apiStuff/signout'
 import MenuItem from '@material-ui/core/MenuItem';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -42,7 +43,7 @@ function Footer(props) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}><Brightness4Icon /><div>&nbsp;Dark Mode</div></MenuItem>
-        <MenuItem onClick={handleClose}><ExitToAppIcon /><div>&nbsp;Log Out</div></MenuItem>
+        <MenuItem onClick={e => signout(e)}><ExitToAppIcon /><div>&nbsp;Log Out</div></MenuItem>
       </Menu>
       <BottomNavigation
           value={props.value}        

@@ -1,40 +1,30 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
-import { UserContext } from '../../UserContext'
-import "./styles.scss";
 import Header from "../header/Header";
 
 const Registration = (props) => {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => handleOnSubmit(data);
-  const { user, setUser } = useContext(UserContext);
-  //console.log(errors);
 
   const handleOnSubmit = (props) => {
-  };
-
-  useEffect(() => {
     let userAuth = {
       email: props.email,
       user_type: props.user_type,
       password: props.password,
     };
+
     axiosWithAuth()
-    .post("/auth/register", userAuth)
-    .then((res) => {
-      console.log(res)
-      window.localStorage.setItem("token", res.data.token)
-      console.log(user)
-      // window.location = "/profile"
-      setUser({
-        id: 1
+      .post("/auth/register", userAuth)
+      .then((res) => {
+        window.localStorage.setItem("token", res.data.token);
+        window.localStorage.setItem("id", res.data.user.id);
+        window.location = "/profile";
       })
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  },[handleOnSubmit])
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="formWrap">
