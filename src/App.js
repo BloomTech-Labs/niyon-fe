@@ -12,9 +12,7 @@ import Registration from "./components/registration/Registration";
 import Login from "./components/login/Login";
 
 function App() {
-  const [user, setUser] = useState({
-    id: 0,
-  });
+  const [user, setUser] = useState({});
 
   const value = { user, setUser };
 
