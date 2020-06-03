@@ -34,6 +34,9 @@ function Profile(props) {
       .then((res) => {
         console.log('this is from API response', res);
         // window.location = "/home";
+        if(res) {
+          setUser({...res})
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -46,7 +49,7 @@ function Profile(props) {
       ...inputs,
       [event.target.name]: event.target.value,
     });
-    setUser(inputs)
+    // setUser(inputs)
   };
 
   const handleJobChange = (selectedItem) => {
@@ -54,7 +57,7 @@ function Profile(props) {
       ...inputs,
       job_title_id: selectedItem.value,
     });
-    setUser(inputs)
+    // setUser(inputs)
   };
 
   const handleLocationChange = (selectedItem) => {
@@ -62,7 +65,7 @@ function Profile(props) {
       ...inputs,
       location_id: selectedItem.value,
     });
-    setUser(inputs)
+    // setUser(inputs)
   };
 
   const handleTechChange = (selectedItem) => {
@@ -71,7 +74,7 @@ function Profile(props) {
       ...inputs,
       techs: technologies,
     });
-    setUser(inputs)
+    // setUser(inputs)
   };
 
   let techs = []
@@ -86,7 +89,7 @@ function Profile(props) {
   }
 
   handleTechs()
-
+  console.log('this is from the context>>>>>>>>>>>>>>>>>>>', user)
   return (
     <div>
       <Header />
