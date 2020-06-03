@@ -17,16 +17,16 @@ function Profile(props) {
   const locations = location;
   const jobs = job;
 
-  console.log('this is on page load from context', user)
-
-  const [inputs, setInputs] = useState({
+  const defaultState = {
     first_name: "",
     last_name: "",
     bio: "",
     job_title_id: 0,
     location_id: 0,
     techs: [],
-  });
+  }
+
+  const [inputs, setInputs] = useState(defaultState);
 
   const handleOnSave = () => {
     axiosWithAuth()
@@ -37,8 +37,9 @@ function Profile(props) {
       })
       .catch((err) => {
         console.log(err);
+        setInputs(defaultState)
+        setUser(defaultState)
       });
-      console.log('this is from the context', user)
   };
 
   const handleTextFieldChange = (event) => {
@@ -71,17 +72,24 @@ function Profile(props) {
       ...inputs,
       techs: technologies,
     });
-    setUser(inputs)
+    console.log(inputs.techs)
+    setUser({
+      ...inputs,
+      techs: technologies,
+    })
   };
 
-  let techs = []
-
+  let arrayFromContext = []
+  
   const handleTechs = () => {
     if (user.techs) {
-      techs = user.techs.map(tech => tech)
-      console.log(techs)
-    } else {
-      techs = [0]
+      arrayFromContext = technology.filter((item, index) => {
+        if (user.techs.includes(index + 1)) {
+          return item
+        } else {
+          return false;
+        }
+      })
     }
   }
 
@@ -142,7 +150,7 @@ function Profile(props) {
 
         <h2>Technologies</h2>
         <Select
-          defaultValue={techs}
+          defaultValue={arrayFromContext}
           isMulti
           name="techs"
           options={technologies}
