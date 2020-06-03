@@ -18,7 +18,7 @@ const Login = () => {
       .then((res) => {
         console.log("1", res);
         window.localStorage.setItem("token", res.data.token);
-        window.localStorage.setItem("id", res.data.user.id);
+        window.localStorage.setItem("id", res.data.user.user_id);
         window.location = "/home";
       })
       .catch((err) => {
