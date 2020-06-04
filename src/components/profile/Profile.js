@@ -3,12 +3,12 @@ import { UserContext } from "../../UserContext";
 import Select from "react-select";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import text-field from "@material-ui/core/text-field";
-import "./styles.scss";
 import { technology } from "./technologies";
 import { location } from "./location";
 import { job } from "./job";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
+import TextField from "@material-ui/core/TextField";
+import "./styles.scss";
 
 function Profile(props) {
   const defaultState = {
@@ -97,25 +97,25 @@ function Profile(props) {
       <Header />
       <div className="profile">
         <h1>User Profile</h1>
-        <text-field
+        <TextField
           defaultValue={user.first_name}
-          id="outlined-basic"
+          id="outlined-basic1"
           variant="outlined"
           name="first_name"
           label="First Name"
           className="text-field"
           onChange={handleTextFieldChange}
         />
-        <text-field
+        <TextField
           defaultValue={user.last_name}
-          id="outlined-basic"
+          id="outlined-basic2"
           variant="outlined"
           name="last_name"
           label="Last Name"
           className="text-field"
           onChange={handleTextFieldChange}
         />
-        <text-field
+        <TextField
           defaultValue={user.bio}
           id="outlined-multiline-static"
           label="Bio"
