@@ -17,7 +17,7 @@ function Profile(props) {
   const locations = location;
   const jobs = job;
 
-  console.log('this is on page load from context', user)
+  console.log("this is on page load from context", user);
 
   const [inputs, setInputs] = useState({
     first_name: "",
@@ -32,13 +32,13 @@ function Profile(props) {
     axiosWithAuth()
       .post(`/profile/${id}`, inputs)
       .then((res) => {
-        console.log('this is from API response', res);
+        console.log("this is from API response", res);
         // window.location = "/home";
       })
       .catch((err) => {
         console.log(err);
       });
-      console.log('this is from the context', user)
+    console.log("this is from the context", user);
   };
 
   const handleTextFieldChange = (event) => {
@@ -46,7 +46,7 @@ function Profile(props) {
       ...inputs,
       [event.target.name]: event.target.value,
     });
-    setUser(inputs)
+    setUser(inputs);
   };
 
   const handleJobChange = (selectedItem) => {
@@ -54,7 +54,7 @@ function Profile(props) {
       ...inputs,
       job_title_id: selectedItem.value,
     });
-    setUser(inputs)
+    setUser(inputs);
   };
 
   const handleLocationChange = (selectedItem) => {
@@ -62,7 +62,7 @@ function Profile(props) {
       ...inputs,
       location_id: selectedItem.value,
     });
-    setUser(inputs)
+    setUser(inputs);
   };
 
   const handleTechChange = (selectedItem) => {
@@ -71,21 +71,24 @@ function Profile(props) {
       ...inputs,
       techs: technologies,
     });
-    setUser(inputs)
+    setUser({
+      ...inputs,
+      techs: technologies,
+    });
   };
 
-  let techs = []
+  let techs = [];
 
   const handleTechs = () => {
     if (user.techs) {
-      techs = user.techs.map(tech => tech)
-      console.log(techs)
+      techs = user.techs.map((tech) => tech);
+      console.log(techs);
     } else {
-      techs = [0]
+      techs = [0];
     }
-  }
+  };
 
-  handleTechs()
+  handleTechs();
 
   return (
     <div>
@@ -152,8 +155,8 @@ function Profile(props) {
         />
         <button
           onClick={() => {
-            console.log('inputs from state', inputs)
-            handleOnSave()
+            console.log("inputs from state", inputs);
+            handleOnSave();
           }}
         >
           Save
