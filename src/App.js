@@ -14,13 +14,11 @@ import Login from "./components/login/Login";
 function App() {
   const [user, setUser] = useState({});
 
-  const value = { user, setUser };
-
   return (
     <div className="App">
       <Route exact path="/" component={Marketing} />
       <Route path="/about" component={About} />
-      <UserContext.Provider value={value}>
+      <UserContext.Provider value={{user, setUser}}>
         <Route path="/login" component={Login} />
         <Route path="/registration" component={Registration} />
         <Route path="/profile" component={Profile} />
