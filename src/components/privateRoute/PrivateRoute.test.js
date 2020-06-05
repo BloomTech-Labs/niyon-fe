@@ -1,13 +1,13 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
 import { shallow } from 'enzyme';
-import PrivateRoutes from './PrivateRoutes';
+import PrivateRoute from './PrivateRoute';
 
 
 describe('<Routes />', () => {
    let component;
    beforeEach(() => {
-      component = shallow(<PrivateRoutes />);
+      component = shallow(<PrivateRoute />);
    });
 
    it('should pass snapshot testing', () => {
