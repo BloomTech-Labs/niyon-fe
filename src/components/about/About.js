@@ -1,19 +1,17 @@
-import React from 'react';
-import Navbar from '../navbar/Navbar';
-import PersonCard from './PersonCard';
-import './styles.scss';
+import React from "react";
+import Navbar from "../navbar/Navbar";
+import PersonCard from "./PersonCard";
 
-function About( props ) {
-
-return (
+function About(props) {
+  return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className="container" data-test="aboutUs-container">
         <h1>Meet the Crew</h1>
-        <PersonCard />     
+        <PersonCard />
       </div>
     </div>
   );
-};
+}
 
 export default About;

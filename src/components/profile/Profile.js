@@ -11,7 +11,7 @@ import TextField from "@material-ui/core/TextField";
 import "./styles.scss";
 
 function Profile(props) {
-  const defaultState = {
+const defaultState = {
     first_name: "",
     last_name: "",
     bio: "",
@@ -69,7 +69,6 @@ function Profile(props) {
       ...inputs,
       techs: technologies,
     });
-
     console.log(inputs.techs)
     setUser({
       ...inputs,
@@ -89,9 +88,10 @@ function Profile(props) {
         }
       })
     }
-  }
-
+  };
+  
   handleTechs()  
+
   return (
     <div>
       <Header />
@@ -157,8 +157,8 @@ function Profile(props) {
         />
         <button
           onClick={() => {
-            console.log('inputs from state', inputs)
-            handleOnSave()
+            console.log("inputs from state", inputs);
+            handleOnSave();
           }}
         >
           Save
