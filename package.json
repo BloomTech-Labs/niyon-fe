@@ -32,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
-    "coverage": "npm test -- --coverage  --watchAll=false || true",
+    "coverage": "npm test -- --coverage --watchAll=false || true",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -56,5 +56,17 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
     "jest-enzyme": "^7.1.2"
-  }
+  },
+  "jest": {    
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/_tests__/**",
+      "!**/*.{spec,test}.{js,jsx}",
+      "!**/coverage/**"
+    ],
+    "coverageReporters": ["lcov", "json-summary", "text"]
+   
+  }  
 }
