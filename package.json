@@ -64,7 +64,9 @@
       "!**/vendor/**",
       "!**/_tests__/**",
       "!**/*.{spec,test}.{js,jsx}",
-      "!**/coverage/**"
+      "!**/coverage/**",
+      "!**/setUpTests.{js,jsx}",
+      "!**/index.{js,jsx}"
     ],
     "coverageReporters": [
       "lcov",
