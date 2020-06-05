@@ -1,12 +1,11 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
-import { createShallow } from '@material-ui/core/test-utils';
+import { shallow } from 'enzyme';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import Footer from './Footer';
 
-const setUp = (props={}) => {
-  let shallowWrapper = createShallow();
-  const wrapper = shallowWrapper(<Footer {...props} />);
+const setUp = (props={}) => {  
+  const wrapper = shallow(<Footer {...props} />);
   return wrapper;
 }
 

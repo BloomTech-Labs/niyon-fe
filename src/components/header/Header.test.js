@@ -50,6 +50,6 @@ describe('<Header /> component testing', () => {
     });
 
     it('should render header title with no errors', () => {
-       expect(component.find(Typography).text()).toEqual('Welcome User!');
+       expect(component.find(Typography).text()).toEqual('Welcome !');
     });
 });

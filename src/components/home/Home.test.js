@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import Home from './Home';
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
@@ -16,17 +17,21 @@ describe('<Home /> component testing', () => {
     beforeAll(() => {
       component = setUp();
     });
+    it('should render the component correctly', () => {
+         expect(component.exists()).toBe(true);
+    })
     it('should render the <Home /> component correctly', () => {
+        console.log(component.debug());
         const homeContainer = findByTestAttr(component, 'home-container');
         expect(homeContainer.length).toBe(1);
     });
     it('should render <Header /> component correctly', () => {
-        expect(component.find(Header)).toHaveLength(1);
+        expect(component.find('Header')).toHaveLength(1);
     });
     it('should render <Connections /> component correctly', () => {
-        expect(component.find(Connections)).toHaveLength(1);
+        expect(component.find('Connections')).toHaveLength(1);
     });
     it('should render <Footer /> component correctly', () => {
-       expect(component.find(Footer)).toHaveLength(1);
+       expect(component.find('Footer')).toHaveLength(1);
     });
 });

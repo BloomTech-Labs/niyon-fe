@@ -8,9 +8,7 @@ import './styles.scss';
 
 const Home = (props) => {
   const { user, setUser } = useContext(UserContext);
-  const id = window.localStorage.getItem("id");  
-  
-
+  const id = window.localStorage.getItem("id"); 
   useEffect(() => {
     const apiCall = async () => {
     const result = await axiosWithAuth()
