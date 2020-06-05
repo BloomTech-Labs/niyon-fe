@@ -1,6 +1,6 @@
 {
-    "setupFiles": ["<rootDir>/src/setupTests.js"],
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.js?$",
+    "setupFiles" : ["<rootDir>/src/setupTests.js"],
+    "testRegex" : "(/__tests__/.*|(\\.|/)(test|spec))\\.js?$",
     "collectCoverage": true,
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
@@ -8,7 +8,8 @@
       "!**/vendor/**",
       "!**/_tests__/**",
       "!**/*.{spec,test}.{js,jsx}",
-      "!**/coverage/**"
+      "!**/coverage/**",
+      "!setUpTests.js",
     ],
     "coverageReporters": ["lcov", "json-summary", "text"],
     "moduleDirectories": ["node_modules", "src"]

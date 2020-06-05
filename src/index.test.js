@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import App from  './src/App';
+import App from  './App';
 
 jest.mock("react-dom", () => ({render: jest.fn()}));
 
-describe('Index.js testing>>>>>>Application root', () => {
+describe('Application root', () => {
     it('should render without crashing', () => {
          const div = document.createElement("div");
          div.id = "root";
