@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import Connections from '../connections/Connections'
@@ -11,18 +11,23 @@ import './styles.scss';
 const Home = (props) => {
   const { user, setUser } = useContext(UserContext);
   const id = window.localStorage.getItem("id");  
+  const [profiles, setProfiles] = useState([]);
+  const [profilesToDisplay, setProfilesToDisplay] = useState([]);
+
   
 
   useEffect(() => {
     const apiCall = async () => {
-    const result = await axiosWithAuth()
-                    .get(`/profile/${id}`)
-                    .then((res) => {                   
-                    if(res) setUser({...user, ...res.data});                     
-                    })
-                    .catch(err => console.log(err))
-            }
-    apiCall();        
+      await axiosWithAuth()
+        .get(`/profile/${id}`)
+        .then((res) => {                   
+          if(res) {
+            setUser({...user, ...res.data});
+          }                     
+        })
+        .catch(err => console.log(err))
+      }
+      apiCall();        
   },[id, user]);
  
   return (
