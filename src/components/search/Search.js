@@ -1,21 +1,66 @@
-import React from 'react';
-// import { UserContext } from '../../UserContext'
-import './styles.scss';
-import Header from '../header/Header'
-import Footer from '../footer/Footer'
+import React, { useContext, useState, useEffect } from "react";
+import { UserContext } from "../../UserContext";
+import "./styles.scss";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+import Select from "react-select";
+import { job } from "../profile/job";
+import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 
 function Search(props) {
-  // const { user, setUser } = useContext(UserContext); 
+  const { user, setUser } = useContext(UserContext);
+  const [profiles, setProfiles] = useState([]);
+  const [profilesToDisplay, setProfilesToDisplay] = useState([]);
+  const jobs = job;
+
+  const handleJobChange = (selectedItem) => {
+    if (selectedItem) {
+      console.log('Selected job title', selectedItem);
+      const usersToDisplay = profiles.filter(user => user.job_title_id === selectedItem.value)
+      console.log('Users to display', usersToDisplay)
+      setProfilesToDisplay(usersToDisplay)
+    }
+  };
+
+  useEffect(() => {
+    const apiCall = async () => {
+      await axiosWithAuth()
+        .get("/profile")
+        .then((res) => {
+          if (res) {
+            let data = res.data;
+            console.log("API response", res.data);
+            setProfiles(data);
+          }
+        })
+        .catch((err) => console.log(err));
+    };
+    apiCall();
+  }, []);
 
   return (
     <div>
-        <Header />
-        <div className='search' data-test='search-container'>
-            <div>
-                <h1 className='search-header'>Search</h1>
+      <Header />
+      <div className="search" data-test="search-container">
+        <div>
+          <h1 className="search-header">Search</h1>
+          <h2>Job Title</h2>
+          <Select
+            name="job_title_id"
+            options={jobs}
+            className="basic-multi-select"
+            classNamePrefix="select"
+            onChange={handleJobChange}
+          />
+          <p>Users with Selected Job Title</p>
+          {profilesToDisplay.map(profile => (
+            <div key={profile.id}>
+              {profile.first_name} {profile.last_name} {profile.user_type} {profile.location}
             </div>
+          ))}
         </div>
-        <Footer value={2} />
+      </div>
+      <Footer value={2} />
     </div>
   );
 }
