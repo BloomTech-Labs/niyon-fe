@@ -30,9 +30,9 @@ const defaultState = {
     axiosWithAuth()
       .post(`/profile/${id}`, inputs)
       .then((res) => {       
-        // window.location = "/home";
         if(res) {
           setUser({...res})
+          window.location = "/home";
         }
       })
       .catch((err) => {

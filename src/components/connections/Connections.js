@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Paper from '@material-ui/core/Paper';
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -42,16 +42,8 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-    width: 'auto',
-  },
-}));
-
 function Connections(props) {
 
-  const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = useState(0);
 
@@ -67,19 +59,19 @@ function Connections(props) {
 
     <div className="connections" data-test="connections">
       <div data-test="second-wrapper">
-        <Paper elevation={1}>
-        <h1 className="c" data-test="my-connections">
+        <Paper className="paper" elevation={1}>
+        <h1 className="container-header" data-test="my-connections">
           My Connections (Sum)
         </h1>
-        <div className={classes.root}>
+        <div>
       <AppBar position="static" color="default">
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
+          indicatorColor="secondary"
           textColor="primary"
           variant="fullWidth"
-          aria-label="full width tabs example"
+          aria-label="tabs"
         >
           <Tab label="Mentors (#)" {...a11yProps(0)} />
           <Tab label="Mentees (#)" {...a11yProps(1)} />
@@ -91,10 +83,10 @@ function Connections(props) {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          Mentors go here
+          <Typography className='text'>Mentor cards go here</Typography>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Mentees go here
+        <Typography className='text'>Mentee cards go here</Typography>
         </TabPanel>
       </SwipeableViews>
     </div>
