@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../UserContext";
-import "./styles.scss";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import Select from "react-select";
@@ -15,10 +14,12 @@ function Search(props) {
 
   const handleJobChange = (selectedItem) => {
     if (selectedItem) {
-      console.log('Selected job title', selectedItem);
-      const usersToDisplay = profiles.filter(user => user.job_title_id === selectedItem.value)
-      console.log('Users to display', usersToDisplay)
-      setProfilesToDisplay(usersToDisplay)
+      console.log("Selected job title", selectedItem);
+      const usersToDisplay = profiles.filter(
+        (user) => user.job_title_id === selectedItem.value
+      );
+      console.log("Users to display", usersToDisplay);
+      setProfilesToDisplay(usersToDisplay);
     }
   };
 
@@ -53,11 +54,11 @@ function Search(props) {
             onChange={handleJobChange}
           />
           <p>Users with Selected Job Title</p>
-          {profilesToDisplay.map(profile => (
+          {profilesToDisplay.map((profile) => (
             <div key={profile.id}>
-              {profile.first_name} 
-              {profile.last_name} 
-              {profile.user_type} 
+              {profile.first_name}
+              {profile.last_name}
+              {profile.user_type}
               {profile.location}
             </div>
           ))}
