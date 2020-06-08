@@ -25,13 +25,13 @@ describe('<Home /> component testing', () => {
         const homeContainer = findByTestAttr(component, 'home-container');
         expect(homeContainer.length).toBe(1);
     });
-    it('should render <Header /> component correctly', () => {
+    xit('should render <Header /> component correctly', () => {
         expect(component.find('Header')).toHaveLength(1);
     });
-    it('should render <Connections /> component correctly', () => {
+    xit('should render <Connections /> component correctly', () => {
         expect(component.find('Connections')).toHaveLength(1);
     });
-    it('should render <Footer /> component correctly', () => {
+    xit('should render <Footer /> component correctly', () => {
        expect(component.find('Footer')).toHaveLength(1);
     });
 });
