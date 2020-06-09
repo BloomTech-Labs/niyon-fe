@@ -8,7 +8,6 @@ import { location } from "./location";
 import { job } from "./job";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 import TextField from "@material-ui/core/TextField";
-import "./styles.scss";
 
 function Profile(props) {
   const defaultState = {
@@ -18,7 +17,7 @@ function Profile(props) {
     job_title_id: 0,
     location_id: 0,
     techs: [],
-  }
+  };
   const { user, setUser } = useContext(UserContext);
   const [inputs, setInputs] = useState(defaultState);
   const id = window.localStorage.getItem("id");
@@ -29,16 +28,16 @@ function Profile(props) {
   const handleOnSave = () => {
     axiosWithAuth()
       .post(`/profile/${id}`, inputs)
-      .then((res) => {       
-        // window.location = "/home";
-        if(res) {
-          setUser({...res})
+      .then((res) => {
+        if (res) {
+          setUser({ ...res });
+          window.location = "/home";
         }
       })
       .catch((err) => {
         console.log(err);
-        setInputs(defaultState)
-        setUser(defaultState)
+        setInputs(defaultState);
+        setUser(defaultState);
       });
   };
 
@@ -46,21 +45,21 @@ function Profile(props) {
     setInputs({
       ...inputs,
       [event.target.name]: event.target.value,
-    });    
+    });
   };
 
   const handleJobChange = (selectedItem) => {
     setInputs({
       ...inputs,
       job_title_id: selectedItem.value,
-    });   
+    });
   };
 
   const handleLocationChange = (selectedItem) => {
     setInputs({
       ...inputs,
       location_id: selectedItem.value,
-    });    
+    });
   };
 
   const handleTechChange = (selectedItem) => {
@@ -69,29 +68,29 @@ function Profile(props) {
       ...inputs,
       techs: technologies,
     });
-
-    console.log(inputs.techs)
+    console.log(inputs.techs);
     setUser({
       ...inputs,
       techs: technologies,
-    })
+    });
   };
 
-  let arrayFromContext = []
-  
+  let arrayFromContext = [];
+
   const handleTechs = () => {
     if (user.techs) {
       arrayFromContext = technology.filter((item, index) => {
         if (user.techs.includes(index + 1)) {
-          return item
+          return item;
         } else {
           return false;
         }
-      })
+      });
     }
-  }
+  };
 
-  handleTechs()  
+  handleTechs();
+
   return (
     <div>
       <Header />
@@ -157,8 +156,8 @@ function Profile(props) {
         />
         <button
           onClick={() => {
-            console.log('inputs from state', inputs)
-            handleOnSave()
+            console.log("inputs from state", inputs);
+            handleOnSave();
           }}
         >
           Save
