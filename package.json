@@ -30,9 +30,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test -u",
+    "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
-    "coverage": "npm test -- --coverage --watchAll=false || true",
+    "coverage": "npm test -- --coverage --watchAll=true || true",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
