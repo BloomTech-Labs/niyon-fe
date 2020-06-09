@@ -32,7 +32,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
-    "coverage": "npm test -- --coverage --watchAll=true || true",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "coverage": "npm test -- --coverage --watchAll=false || true",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -57,7 +58,7 @@
     "enzyme-to-json": "^3.4.4",
     "jest-enzyme": "^7.1.2"
   },
-  "jest": {
+  "jest": {    
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
       "!**/node_modules/**",
