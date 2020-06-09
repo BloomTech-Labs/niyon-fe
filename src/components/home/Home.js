@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import Connections from '../connections/Connections'
@@ -7,7 +7,7 @@ import { UserContext } from "../../UserContext";
 import './styles.scss';
 
 const Home = (props) => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = React.useContext(UserContext);
   const id = window.localStorage.getItem("id"); 
   useEffect(() => {
     const apiCall = async () => {

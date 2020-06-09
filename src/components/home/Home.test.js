@@ -6,9 +6,18 @@ import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import Connections from '../connections/Connections'
 import findByTestAttr from '../../tests/utils';
+import  { UserContext } from '../../UserContext';
 
-const setUp = (props={}) => {
-  const wrapper = shallow(<Home { ...props } />);
+
+const setUp = (props={}) => {  
+  const contextValues = {user: {}, setUser: () => {}};
+  jest.spyOn(React, 'useContext')
+      .mockImplementation(() => contextValues);
+  const wrapper = shallow(
+      <UserContext.Provider>
+        <Home />
+      </UserContext.Provider>
+  ).dive();
   return wrapper;
 }
 
@@ -25,13 +34,13 @@ describe('<Home /> component testing', () => {
         const homeContainer = findByTestAttr(component, 'home-container');
         expect(homeContainer.length).toBe(1);
     });
-    xit('should render <Header /> component correctly', () => {
+    it('should render <Header /> component correctly', () => {
         expect(component.find('Header')).toHaveLength(1);
     });
-    xit('should render <Connections /> component correctly', () => {
+    it('should render <Connections /> component correctly', () => {
         expect(component.find('Connections')).toHaveLength(1);
     });
-    xit('should render <Footer /> component correctly', () => {
+    it('should render <Footer /> component correctly', () => {
        expect(component.find('Footer')).toHaveLength(1);
     });
 });
