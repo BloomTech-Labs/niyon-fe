@@ -14,8 +14,6 @@ const Home = (props) => {
   const [profiles, setProfiles] = useState([]);
   const [profilesToDisplay, setProfilesToDisplay] = useState([]);
 
-  
-
   useEffect(() => {
     const apiCall = async () => {
       await axiosWithAuth()
@@ -29,6 +27,8 @@ const Home = (props) => {
       }
       apiCall();        
   },[id, user]);
+
+
  
   return (
     <div className="home" data-test="home-container">

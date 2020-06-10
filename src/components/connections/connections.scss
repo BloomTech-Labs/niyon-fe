@@ -7,9 +7,18 @@
 .connections, .connection-req, .rec-connect{
     border: 1px solid lightgrey;
     width: 90%;
-    margin: 75px auto 0 auto;
     border-radius: 5px;
 }
+
+.connections {
+    margin: 75px auto 0 auto;
+}
+
+.connection-req, .rec-connect{
+    margin: 40px auto 0 auto;
+
+}
+
 
 .text {
     font-size: 1.5rem !important;

@@ -54,7 +54,8 @@ function Search(props) {
           />
           <p>Users with Selected Job Title</p>
           {profilesToDisplay.map(profile => (
-            <div key={profile.id}>
+            <div 
+              key={profile.id}>
               {profile.first_name} 
               {profile.last_name} 
               {profile.user_type} 
