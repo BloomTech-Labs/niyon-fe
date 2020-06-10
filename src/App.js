@@ -22,7 +22,7 @@ function App() {
         <UserContext.Provider value={{user, setUser}}>
           <Route path="/registration" component={Registration} />
           <Route path="/login" component={Login} />
-          <Route path="/home" component={Home} />
+          <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/search" component={Search} />        
         </UserContext.Provider>
