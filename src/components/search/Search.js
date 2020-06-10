@@ -44,17 +44,16 @@ function Search(props) {
     if (selectedItem) {
       console.log("Selected technology", selectedItem)
       const selectedTechStack = selectedItem.map(item => item.value)
-      const isContainedInSelectedTechStack = (value) => selectedTechStack.includes(value)
       const usersWhoHaveSelectedTechs = [];
-      // for (let i = 0; i < profiles.length, i++) {
-      //   if (profiles[i].tech_stack.every(isContainedInSelectedTechStack)) {
-      //     usersWhoHaveSelectedTechs.push(profiles[i])
-      //   }
-      // }
+      const mappingFunction = profiles.map(profile => {
+        if (selectedTechStack.every(value => profile.techs.includes(value))) {
+          usersWhoHaveSelectedTechs.push(profile);
+          setTechnologiesToDisplay(usersWhoHaveSelectedTechs)
+        }
+      })
+      console.log('selectedTechStack', selectedTechStack)
       console.log("usersWhoHaveSelectedTechs", usersWhoHaveSelectedTechs);
-      console.log(selectedTechStack)
-    }
-  }
+  }}
 
   useEffect(() => {
     const apiCall = async () => {
@@ -122,6 +121,14 @@ function Search(props) {
             onChange={handleTechChange}
           />
           <p>Users with Selected Technology</p>
+          {technologiesToDisplay.map((profile) => (
+            <div key={profile.id}>
+              {profile.first_name}
+              {profile.last_name}
+              {profile.user_type}
+              {profile.location}
+            </div>
+          ))}
         </div>
       </div>
       <Footer value={2} />
