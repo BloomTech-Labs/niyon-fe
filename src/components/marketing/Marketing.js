@@ -1,16 +1,14 @@
-import React from 'react';
-import Navbar from '../navbar/Navbar'
-import MarketingButtons from './MarketingButtons';
-import './styles.scss';
+import React from "react";
+import Navbar from "../navbar/Navbar";
+import MarketingButtons from "./MarketingButtons";
 
 function Marketing() {
-
   return (
     <div data-test="marketing">
-      <Navbar/>
-      <MarketingButtons/>
+      <Navbar />
+      <MarketingButtons />
     </div>
   );
-};
+}
 
 export default Marketing;

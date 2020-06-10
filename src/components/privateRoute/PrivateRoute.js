@@ -1,15 +1,22 @@
-import React, { Component } from 'react';
-import './styles.scss';
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
 
-class PrivateRoute extends Component {
-  render() {
+
+const PrivateRoute = ({component:Component, ...rest}) => {  
+    const token = window.localStorage.getItem("token");
+    console.log('token>>>>>>>',token);
+    console.log('props>>>>>>>>>', {...rest} );
     return (
-      <div>
-        
-      </div>
+     <Route {...rest} render={(props) => 
+         token ? (
+                  <Component {...props} />
+            ) : (
+                  <Redirect to="/login" />
+            )
+        } 
+     />
     );
-  }
-}
+  };
 
 export default PrivateRoute;
