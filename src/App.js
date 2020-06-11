@@ -13,6 +13,8 @@ import "./sass_master/index.scss";
 
 function App() {
   const [user, setUser] = useState({});
+  const token = window.localStorage.getItem("token");
+  const authorized = token ? true : false;
   return (
     <div className="App" data-test="app">
       <Switch>
@@ -21,9 +23,9 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/registration" component={Registration} />
           <Route path="/login" component={Login} />
-          <PrivateRoute path="/home" component={Home} />
-          <PrivateRoute path="/profile" component={Profile} />
-          <PrivateRoute path="/search" component={Search} />        
+          <PrivateRoute path="/home" auth={authorized} component={Home} />
+          <PrivateRoute path="/profile" auth={authorized} component={Profile} />
+          <PrivateRoute path="/search" auth={authorized} component={Search} />        
         </UserContext.Provider>
       </Switch>
     </div>
