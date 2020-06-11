@@ -20,6 +20,9 @@ const setUp = (props={}, state=null) => {
 
 describe('<Marketing /> component testing', () => {
    let component;   
+   const setState = jest.fn();
+   const useStateSpy = jest.spyOn(React, 'useState');
+   useStateSpy.mockImplementation((init) => [init, setState]);
    beforeEach(() => {
       component = setUp();
    });
@@ -93,4 +96,25 @@ describe('<Marketing /> component testing', () => {
              expect(hiddenWrapper2.find('.makeStyles-toolbar-5').exists()).toBe(true);
        });
      });     
+
+     describe('Actions in <Navbar /> component', () => {
+        it('should toggle the first IconButton', () => {
+            const handleDrawerToggle = () => jest.fn();  
+            component.find(Toolbar)
+                      .find(IconButton)
+                      .props()
+                      .onClick(handleDrawerToggle);
+            expect(setState).toHaveBeenCalled();
+        });
+
+        it('should toggle the first Drawer', () => {
+            const handleDrawerToggle = () => jest.fn();  
+            component.find(Hidden)
+                      .at(0)
+                      .find(Drawer)
+                      .props()
+                      .onClose(handleDrawerToggle);
+            expect(setState).toHaveBeenCalled();
+        });
+     })
 });

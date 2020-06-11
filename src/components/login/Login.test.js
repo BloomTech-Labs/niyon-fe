@@ -7,10 +7,10 @@ import { act } from 'react-dom/test-utils';
 
 describe('<Login /> component testing', () => {
   let component;
-  let onSubmit;
+  let onMockSubmit;
   beforeEach(() => {
-    onSubmit = jest.fn();
-    component = shallow(<Login onSubmit={onSubmit} />);
+    onMockSubmit = () => jest.fn();
+    component = shallow(<Login onSubmit={onMockSubmit} />);
   });
 
   afterEach(() => {
@@ -54,27 +54,13 @@ it('should pass snaps shot testing', () => {
           const event = { preventDefault: jest.fn};
           const form = component.find('form');
          //  console.log(button.debug());
-          await form.simulate('click');
+          await form.props().onSubmit();
           console.log(component.debug());
-          expect(onSubmit).toHaveBeenCalled
+          expect(onMockSubmit).toHaveBeenCalled();
          })
 
     })
-    // it('should submit when data filled', async () => {
-    //     const emailInput = component.find('input[type="email"]');
-    //     const passwordInput = component.find('input[type="password"]');            
-    //     emailInput.value = "test@email.com";
-    //     emailInput.dispatchEvent(new Event("input"));
-    //   await act( async() => {
-    //       emailInput.simulate('change', { target: { name:'email', value: 'test@email.com'}});
-    //       component.find('button').simulate('submit');
-        
-    //     });
-    //   await act( async() => {            
-    //     component.find('button').simulate('submit');
-    //     expect(onSubmit).toHaveBeenCalled();
-    //   })
-    //     });
+   
     });
 
 });  
