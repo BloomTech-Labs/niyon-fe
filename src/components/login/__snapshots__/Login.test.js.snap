@@ -1,3 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Login /> component testing should pass snaps shot testing 1`] = `""`;
+exports[`<Login /> component testing should pass snaps shot testing 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="formWrap"
+  >
+    <Header />
+    <div
+      className="formLogin"
+    >
+      <input
+        name="email"
+        placeholder="Email"
+        type="email"
+      />
+      <input
+        name="password"
+        placeholder="Password"
+        type="password"
+      />
+      <button
+        type="submit"
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</form>
+`;

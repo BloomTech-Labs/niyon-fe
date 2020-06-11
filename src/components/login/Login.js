@@ -23,8 +23,7 @@ const Login = () => {
       })
       .catch((err) => {
         console.log(err);
-      });
-    console.log("2", userAuth);
+      });    
   };
 
   return (
@@ -39,9 +38,7 @@ const Login = () => {
             ref={register({ required: true })}
           />
           {errors.email && (
-            <p style={{ color: "orange", marginTop: 10 }}>
-              "Email is required"
-            </p>
+            <p>"Email is required"</p>
           )}
 
           <input
@@ -51,9 +48,7 @@ const Login = () => {
             ref={register({ required: true })}
           />
           {errors.password && (
-            <p style={{ color: "orange", marginTop: 10 }}>
-              "Password is required"
-            </p>
+            <p>"Password is required"</p>
           )}
 
           <button type="submit">Login</button>
