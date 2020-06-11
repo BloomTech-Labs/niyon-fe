@@ -1,5 +1,6 @@
 import React from "react";
 import Paper from '@material-ui/core/Paper';
+import SwipeTabs from './SwipeTabs';
 
 function ConnectionRequests(props) {
 
@@ -11,7 +12,7 @@ function ConnectionRequests(props) {
         <h1 className="container-header" data-test="my-connections">
           Connection Requests (#)
         </h1>
-        <p className="container-body">Cards go here</p>
+        <SwipeTabs/>
         </Paper>
         </div>
       </div>
