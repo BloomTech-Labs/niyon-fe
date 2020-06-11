@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Connections from '../connections/Connections'
+import Connections from './Connections'
 import findByTestAttr from '../../tests/utils';
 
 const setUp = (props={}) => {

@@ -13,13 +13,12 @@ import "./sass_master/index.scss";
 
 function App() {
   const [user, setUser] = useState({});
-
   return (
-    <div className="App">
+    <div className="App" data-test="app">
       <Switch>
-        <Route exact path="/" component={Marketing} />
-        <Route path="/about" component={About} />
         <UserContext.Provider value={{user, setUser}}>
+          <Route exact path="/" component={Marketing} />
+          <Route path="/about" component={About} />
           <Route path="/registration" component={Registration} />
           <Route path="/login" component={Login} />
           <PrivateRoute path="/home" component={Home} />
