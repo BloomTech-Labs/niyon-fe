@@ -2,6 +2,7 @@
 
 exports[`<Login /> component testing should pass snaps shot testing 1`] = `
 <form
+  data-test="form"
   onSubmit={[Function]}
 >
   <div
@@ -12,16 +13,19 @@ exports[`<Login /> component testing should pass snaps shot testing 1`] = `
       className="formLogin"
     >
       <input
+        data-test="email"
         name="email"
         placeholder="Email"
         type="email"
       />
       <input
+        data-test="password"
         name="password"
         placeholder="Password"
         type="password"
       />
       <button
+        data-test="submit"
         type="submit"
       >
         Login

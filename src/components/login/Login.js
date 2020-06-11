@@ -27,7 +27,7 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} data-test="form">
       <div className="formWrap">
         <Header />
         <div className="formLogin">
@@ -36,9 +36,10 @@ const Login = () => {
             placeholder="Email"
             name="email"
             ref={register({ required: true })}
+            data-test="email"
           />
           {errors.email && (
-            <p>"Email is required"</p>
+            <p>Email is required</p>
           )}
 
           <input
@@ -46,12 +47,13 @@ const Login = () => {
             placeholder="Password"
             name="password"
             ref={register({ required: true })}
+            data-test="password"
           />
           {errors.password && (
-            <p>"Password is required"</p>
+            <p>Password is required</p>
           )}
 
-          <button type="submit">Login</button>
+          <button type="submit" data-test="submit">Login</button>
         </div>
       </div>
     </form>
