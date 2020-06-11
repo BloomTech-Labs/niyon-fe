@@ -6,7 +6,7 @@ import Home from "./components/home/Home";
 import Profile from "./components/profile/Profile";
 import Search from "./components/search/Search";
 import { Route, Switch } from "react-router-dom";
-import PrivateRoute from './components/privateRoute/PrivateRoute';
+import { PrivateRoute } from './components/privateRoute/PrivateRoute';
 import Registration from "./components/registration/Registration";
 import Login from "./components/login/Login";
 import "./sass_master/index.scss";

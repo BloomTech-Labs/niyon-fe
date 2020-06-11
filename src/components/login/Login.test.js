@@ -22,7 +22,7 @@ it('should pass snaps shot testing', () => {
     });
 
  it('should render <Login /> component correctly', () => {
-      console.log(component.debug());
+      // console.log(component.debug());
       expect(component.exists()).toBe(true);     
     });
 
@@ -49,17 +49,17 @@ it('should pass snaps shot testing', () => {
     });
 
   describe('Form submission', () => {
-    it('should show email error message if clicked on login button without email',  async () => {
-         await act(async () => {
-          const event = { preventDefault: jest.fn};
-          const form = component.find('form');
-         //  console.log(button.debug());
-          await form.props().onSubmit();
-          console.log(component.debug());
-          expect(onMockSubmit).toHaveBeenCalled();
-         })
+    // it('should show email error message if clicked on login button without email',  async () => {
+    //      await act(async () => {
+    //       const event = { preventDefault: jest.fn};
+    //       const form = component.find('form');
+    //      //  console.log(button.debug());
+    //       await form.props().onSubmit();
+    //       // console.log(component.debug());
+    //       expect(onMockSubmit).toHaveBeenCalled();
+    //      })
 
-    })
+    // });
    
     });
 
