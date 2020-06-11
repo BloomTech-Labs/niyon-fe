@@ -32,8 +32,7 @@ describe('<Footer /> component testing', () => {
    it('should match the snapshot test for  <Footer /> component', () => {
          expect(toJSON(component)).toMatchSnapshot();
    })
-  it('should render <Footer /> component correctly', () => {
-         console.log(component.debug());
+  it('should render <Footer /> component correctly', () => {        
          expect (component.exists()).toBe(true);
    });  
    
@@ -43,8 +42,7 @@ describe('<Footer /> component testing', () => {
          beforeEach(() => {
                menu = component.find('WithStyles(ForwardRef(Menu))');
          })
-      it('should render <Menu /> correctly',() => {
-      //   const instance = component.instance();
+      it('should render <Menu /> correctly',() => {      
             expect(menu.exists()).toBe(true);
             expect(menu.length).toBe(1);
       });   
@@ -96,5 +94,5 @@ describe('<Footer /> component testing', () => {
       });
 
    });
-   
+
 });
