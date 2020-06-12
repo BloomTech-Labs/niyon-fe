@@ -15,5 +15,5 @@ describe('<ConnectionRequests /> component', () => {
 
     it('should render the component correctly', () => {
         expect(component.exists()).toBe(true);
-    })
+    });
 })
