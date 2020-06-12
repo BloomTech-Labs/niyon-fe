@@ -15,6 +15,7 @@ describe('<Search /> component testing', () => {
    const user = {}  ;
    const setUser = jest.fn();
    let component;
+   const profiles = [];
    beforeEach(() => {
       component = mount(
           <UserContext.Provider value={{user,setUser}}>
@@ -78,7 +79,16 @@ describe('<Search /> component testing', () => {
                      .text()
                      .trim())
                      .toEqual('Users with Selected Job Title');
-});
+    });
+
+    it('should render profiles container correctly', () => {
+          const container = findByTestAttr(component, 'search-profile');
+          if(profiles.length === 0) {
+            expect(container.length).toBe(0);
+          } else {
+            expect(container.length).toBe(1);
+          }
+    })
 
    it('should render the <Footer /> component correctly', () => {
         expect(component.find('Footer').length).toBe(1);
