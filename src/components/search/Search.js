@@ -13,12 +13,10 @@ function Search(props) {
   const jobs = job;
 
   const handleJobChange = (selectedItem) => {
-    if (selectedItem) {
-      console.log("Selected job title", selectedItem);
+    if (selectedItem) {    
       const usersToDisplay = profiles.filter(
         (user) => user.job_title_id === selectedItem.value
-      );
-      console.log("Users to display", usersToDisplay);
+      );      
       setProfilesToDisplay(usersToDisplay);
     }
   };

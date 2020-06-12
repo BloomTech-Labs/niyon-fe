@@ -4,7 +4,7 @@ import Marketing from "./components/marketing/Marketing";
 import About from "./components/about/About";
 import Home from "./components/home/Home";
 import Profile from "./components/profile/Profile";
-import Search from "./components/search/Search";
+import Search from "./components/search/Search.test";
 import { Route, Switch } from "react-router-dom";
 import { PrivateRoute } from './components/privateRoute/PrivateRoute';
 import Registration from "./components/registration/Registration";

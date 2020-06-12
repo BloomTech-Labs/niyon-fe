@@ -17,11 +17,7 @@ describe('<Home /> component testing', () => {
         <Home />
         </MemoryRouter>
       </UserContext.Provider> );
-    });
-
-    it('should render the component correctly', () => {      
-         expect(toJSON(component)).toMatchSnapshot();
-    });
+    });   
 
     it('should render the <Home /> component correctly', () => {        
         const homeContainer = findByTestAttr(component, 'home-container');
