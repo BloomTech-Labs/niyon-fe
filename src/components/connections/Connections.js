@@ -56,43 +56,42 @@ function Connections(props) {
   };
 
   return (
-
     <div className="connections" data-test="connections">
       <div data-test="second-wrapper">
-        <Paper className="paper" elevation={1}>
-        <h1 className="container-header" data-test="my-connections">
-          My Connections (Sum)
-        </h1>
-        <div>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="primary"
-          variant="fullWidth"
-          aria-label="tabs"
-        >
-          <Tab label="Mentors (#)" {...a11yProps(0)} />
-          <Tab label="Mentees (#)" {...a11yProps(1)} />
-        </Tabs>
-      </AppBar>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      >
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          <Typography className='text'>Mentor cards go here</Typography>
-        </TabPanel>
-        <TabPanel value={value} index={1} dir={theme.direction}>
-        <Typography className='text'>Mentee cards go here</Typography>
-        </TabPanel>
-      </SwipeableViews>
-    </div>
-        </Paper>
-        </div>
+        <Paper className="paper" elevation={1} data-test="paper" >
+          <h1 className="container-header" data-test="my-connections">
+            My Connections(Sum)
+          </h1>
+          <div>
+            <AppBar position="static" color="default" data-test="app-bar">
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="secondary"
+                textColor="primary"
+                variant="fullWidth"
+                aria-label="tabs"
+              >
+              <Tab label="Mentors (#)" {...a11yProps(0)} />
+              <Tab label="Mentees (#)" {...a11yProps(1)} />
+              </Tabs>
+            </AppBar>
+            <SwipeableViews
+              axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+              index={value}
+              onChangeIndex={handleChangeIndex}
+            >
+              <TabPanel value={value} index={0} dir={theme.direction}>
+                <Typography className='text'>Mentor cards go here</Typography>
+              </TabPanel>
+              <TabPanel value={value} index={1} dir={theme.direction}>
+              <Typography className='text'>Mentee cards go here</Typography>
+              </TabPanel>
+            </SwipeableViews>
+          </div>
+      </Paper>
       </div>
+  </div>
   );
 }
 
