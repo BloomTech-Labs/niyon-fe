@@ -1,18 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import toJSON from 'enzyme-to-json';
-import Search from './Search';
+import { Search } from './Search';
 import { MemoryRouter } from 'react-router-dom';
-import findByTestAttr from '../../tests/utils';
 import  { UserContext } from '../../UserContext';
+import findByTestAttr from '../../tests/utils';
 
-// const setUp = (props={}) => {
-//    const wrapper = shallow(<Search />);
-//    return wrapper;
-// }
 
 describe('<Search /> component testing', () => {
-   const user = {}  ;
+   const user = {};
    const setUser = jest.fn();
    let component;
    const profiles = [];
@@ -26,13 +21,10 @@ describe('<Search /> component testing', () => {
       )
    });
 
-//    it('should pass snaps shot testing', () => {
-//         expect(toJSON(component)).toMatchSnapshot();
-//    });
-
    it('should render the <Search /> component correctly', () => { 
         expect(component.exists()).toBe(true);
    });
+
    it('should render <Header /> component correctly', () => {
         expect(component.find('Header').length).toBe(1);
    });
@@ -66,6 +58,7 @@ describe('<Search /> component testing', () => {
             expect(selectWrapper.exists()).toBe(true);
          
         });
+
         it('it should change the job title on change correctly', () => {
             selectWrapper.props().onChange(handleChange);
             expect(setState).toHaveBeenCalled();
@@ -93,4 +86,5 @@ describe('<Search /> component testing', () => {
    it('should render the <Footer /> component correctly', () => {
         expect(component.find('Footer').length).toBe(1);
    });
+
 });

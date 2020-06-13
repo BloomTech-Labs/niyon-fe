@@ -42,12 +42,12 @@ function a11yProps(index) {
   };
 }
 
-function Connections(props) {
+export default function Connections(props) {
 
   const theme = useTheme();
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
 
@@ -80,11 +80,12 @@ function Connections(props) {
               axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
               index={value}
               onChangeIndex={handleChangeIndex}
+              data-test="swipeable-views"
             >
-              <TabPanel value={value} index={0} dir={theme.direction}>
+              <TabPanel value={value} index={0} dir={theme.direction} data-test="tab-panel-1">
                 <Typography className='text'>Mentor cards go here</Typography>
               </TabPanel>
-              <TabPanel value={value} index={1} dir={theme.direction}>
+              <TabPanel value={value} index={1} dir={theme.direction} data-test="tab-panel-2">
               <Typography className='text'>Mentee cards go here</Typography>
               </TabPanel>
             </SwipeableViews>
@@ -93,6 +94,4 @@ function Connections(props) {
       </div>
   </div>
   );
-}
-
-export default Connections;
+};

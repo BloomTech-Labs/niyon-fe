@@ -6,7 +6,7 @@ import Select from "react-select";
 import { job } from "../profile/job";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 
-function Search(props) {
+export function Search(props) {
   const { user, setUser } = useContext(UserContext);
   const [profiles, setProfiles] = useState([]);
   const [profilesToDisplay, setProfilesToDisplay] = useState([]);
