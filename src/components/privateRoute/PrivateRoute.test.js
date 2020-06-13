@@ -1,8 +1,8 @@
 import React from 'react';
 import toJSON from 'enzyme-to-json';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import {PrivateRoute} from './PrivateRoute';
-import { MemoryRouter, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const setUp = (props={}) => {
     const expectedProps = {
@@ -48,8 +48,6 @@ describe('<Routes />', () => {
           const Component = wrapper.prop('render');       
           const authComponent = shallow(<Component location="/lambda-school" />);
           expect(authComponent.props()).toEqual({"location": "/lambda-school"});
-
-      })
-    })
-
+      });
+    });
 });
