@@ -23,9 +23,9 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/registration" component={Registration} />
           <Route path="/login" component={Login} />
-          <PrivateRoute path="/home" auth={authorized} component={Home} />
-          <PrivateRoute path="/profile" auth={authorized} component={Profile} />
-          <PrivateRoute path="/search" auth={authorized} component={Search} />        
+          <PrivateRoute path="/home" isAuthenticated={authorized} component={Home} />
+          <PrivateRoute path="/profile" isAuthenticated={authorized} component={Profile} />
+          <PrivateRoute path="/search" isAuthenticated={authorized} component={Search} />        
         </UserContext.Provider>
       </Switch>
     </div>
