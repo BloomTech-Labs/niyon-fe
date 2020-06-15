@@ -11,11 +11,16 @@ checks:
     config:
       threshold: 50
 exclude_patterns:
-  - "tests/"
-  - "spec/"
-  - "**/*.spec.js"
-  - "**/*.spec.jsx"
-  - "**/*.spec.ts"
-  - "**/*.spec.tsx"
-  - "**/vendor/"
+  - "config/"
+  - "db/"
+  - "dist/"
+  - "features/"
   - "**/node_modules/"
+  - "script/"
+  - "**/spec/"
+  - "**/test/"
+  - "**/tests/"
+  - "Tests/"
+  - "**/vendor/"
+  - "**/*_test.go"
+  - "**/*.d.ts"

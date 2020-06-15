@@ -20,6 +20,7 @@ const Home = (props) => {
         .then((res) => {
           if (res) {
             setUser({ ...user, ...res.data });
+            console.info('Response>>>>>>', res);
           }
         })
         .catch((err) => console.log(err));

@@ -5,12 +5,12 @@ import Registration from './Registration';
 
 
 
-describe('<Search /> component testing', () => {
+describe('<Registration /> component testing', () => {
   let component;
-  let onSubmit = jest.fn();
+  let mockSubmit;
   beforeEach(() => {
-    onSubmit = jest.fn();
-    component = shallow(<Registration onSubmit={onSubmit} />);
+    mockSubmit = jest.fn();
+    component = shallow(<Registration onSubmit={mockSubmit} />);
   });
 
   afterEach(() => {
@@ -21,11 +21,12 @@ it('should pass snaps shot testing', () => {
       expect(toJSON(component)).toMatchSnapshot();
     });
 
- it('should render <Registration /> component correctly', () => {
+ it('should render <Registration /> component correctly', () => {      
       expect(component.exists()).toBe(true);     
     });
 
  it('should render form correctly with class name formRegister', () => {
+     
       expect(component.find('form').exists()).toBe(true);
       expect(component.find('form').hasClass('formRegister')).toBe(true);
      });

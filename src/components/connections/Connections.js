@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import SwipeTabs from './SwipeTabs';
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 
-function Connections(props) {
+export default function Connections(props) {
 
   const [profilesToDisplay, setProfilesToDisplay] = useState([]);
   const [profiles, setProfiles] = useState([]);
@@ -23,13 +23,11 @@ function Connections(props) {
     };
     apiCallUsers();
   }, []);
-
-
-
+ 
   return (
-
     <div className="connections" data-test="connections">
       <div data-test="second-wrapper">
+
         <Paper className="paper" elevation={1}>
         <h1 className="container-header" data-test="my-connections">
           My Connections (Sum)
@@ -40,7 +38,6 @@ function Connections(props) {
         </Paper>
         </div>
       </div>
+  </div>
   );
-}
-
-export default Connections;
+};
