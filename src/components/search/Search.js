@@ -21,7 +21,7 @@ export function Search(props) {
   const handleJobChange = (selectedItem) => {
 
     if (selectedItem) {    
-      const usersToDisplay = profiles.filter(
+      const usersToDisplayByJobTitle = profiles.filter(
         (user) => user.job_title_id === selectedItem.value
       );     
       setJobTitlesToDisplay(usersToDisplayByJobTitle);
