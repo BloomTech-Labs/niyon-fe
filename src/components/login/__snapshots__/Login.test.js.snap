@@ -1,36 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Login /> component testing should pass snaps shot testing 1`] = `
-<form
-  data-test="form"
+<Formik
+  initialValues={
+    Object {
+      "email": "",
+      "password": "",
+    }
+  }
   onSubmit={[Function]}
+  validationSchema={[Function]}
 >
-  <div
-    className="formWrap"
-  >
-    <Header />
-    <div
-      className="formLogin"
-    >
-      <input
-        data-test="email"
-        name="email"
-        placeholder="Email"
-        type="email"
-      />
-      <input
-        data-test="password"
-        name="password"
-        placeholder="Password"
-        type="password"
-      />
-      <button
-        data-test="submit"
-        type="submit"
-      >
-        Login
-      </button>
-    </div>
-  </div>
-</form>
+  <Component />
+</Formik>
 `;

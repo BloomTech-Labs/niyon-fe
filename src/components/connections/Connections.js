@@ -24,7 +24,7 @@ export default function Connections(props) {
     apiCallUsers();
   }, []);
  
-  return (
+  return ( 
     <div className="connections" data-test="connections">
       <div data-test="second-wrapper">
 
@@ -38,6 +38,5 @@ export default function Connections(props) {
         </Paper>
         </div>
       </div>
-  </div>
   );
 };
