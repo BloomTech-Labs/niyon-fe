@@ -4,22 +4,53 @@ import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import Select from "react-select";
 import { job } from "../profile/job";
+import { location } from "../profile/location";
+import { technology } from "../profile/technologies";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 
 export function Search(props) {
   const { user, setUser } = useContext(UserContext);
   const [profiles, setProfiles] = useState([]);
-  const [profilesToDisplay, setProfilesToDisplay] = useState([]);
+  const [jobTitlesToDisplay, setJobTitlesToDisplay] = useState([]);
+  const [locationsToDisplay, setLocationsToDisplay] = useState([]);
+  const [technologiesToDisplay, setTechnologiesToDisplay] = useState([]);
   const jobs = job;
+  const locations = location;
+  const technologies = technology;
 
   const handleJobChange = (selectedItem) => {
+
     if (selectedItem) {    
       const usersToDisplay = profiles.filter(
         (user) => user.job_title_id === selectedItem.value
-      );      
-      setProfilesToDisplay(usersToDisplay);
+      );     
+      setJobTitlesToDisplay(usersToDisplayByJobTitle);
     }
   };
+
+  const handleLocationChange = (selectedItem) => {
+    if (selectedItem) {     
+      const usersToDisplayByLocation = profiles.filter(
+        (location) => location.location_id === selectedItem.value
+      );     
+      setLocationsToDisplay(usersToDisplayByLocation);
+    }
+  };
+
+  const handleTechChange = (selectedItem) => {
+    if (selectedItem) {
+      console.log("Selected technology", selectedItem)
+      const selectedTechStack = selectedItem.map(item => item.value)
+      const usersWhoHaveSelectedTechs = [];
+      const mappingFunction = profiles.map(profile => {
+        if (selectedTechStack.every(value => profile.techs.includes(value))) {
+          usersWhoHaveSelectedTechs.push(profile);
+          setTechnologiesToDisplay(usersWhoHaveSelectedTechs)
+        }
+      })
+      console.log('selectedTechStack', selectedTechStack)
+      console.log("usersWhoHaveSelectedTechs", usersWhoHaveSelectedTechs);
+  }}
 
   useEffect(() => {
     const apiCall = async () => {
@@ -52,8 +83,43 @@ export function Search(props) {
             onChange={handleJobChange}
           />
           <p>Users with Selected Job Title</p>
-          {profilesToDisplay.map((profile) => (
-            <div key={profile.id} data-test='search-profile'>
+          {jobTitlesToDisplay.map((profile) => (
+            <div key={profile.id}>
+              {profile.first_name}
+              {profile.last_name}
+              {profile.user_type}
+              {profile.location}
+            </div>
+          ))}
+          <h2>Location</h2>
+          <Select
+            name="location_id"
+            options={locations}
+            className="basic-multi-select"
+            classNamePrefix="select"
+            onChange={handleLocationChange}
+          />
+          <p>Users with Selected Location</p>
+          {locationsToDisplay.map((profile) => (
+            <div key={profile.id}>
+              {profile.first_name}
+              {profile.last_name}
+              {profile.user_type}
+              {profile.location}
+            </div>
+          ))}
+          <h2>Technologies</h2>
+          <Select
+            isMulti
+            name="techs"
+            options={technologies}
+            className="basic-multi-select"
+            classNamePrefix="select"
+            onChange={handleTechChange}
+          />
+          <p>Users with Selected Technology</p>
+          {technologiesToDisplay.map((profile) => (
+            <div key={profile.id}>
               {profile.first_name}
               {profile.last_name}
               {profile.user_type}
