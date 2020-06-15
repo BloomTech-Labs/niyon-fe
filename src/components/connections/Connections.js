@@ -71,6 +71,7 @@ export default function Connections(props) {
                 textColor="primary"
                 variant="fullWidth"
                 aria-label="tabs"
+                data-test="app-bar-tabs"
               >
               <Tab label="Mentors (#)" {...a11yProps(0)} />
               <Tab label="Mentees (#)" {...a11yProps(1)} />

@@ -15,4 +15,6 @@ export const PrivateRoute = ({isAuthenticated, component:Component, ...rest}) =>
      />
     );
   };
+
+
   

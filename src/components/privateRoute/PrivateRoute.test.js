@@ -3,10 +3,11 @@ import toJSON from 'enzyme-to-json';
 import { shallow } from 'enzyme';
 import {PrivateRoute} from './PrivateRoute';
 import { Redirect } from 'react-router-dom';
+import { mockDiv } from '../../tests/mocks'
 
 const setUp = (props={}) => {
     const expectedProps = {
-        component: <div>Lambda School-Test</div>,
+        component: mockDiv,
         isAuthenticated: false,
         ...props
     }
@@ -32,8 +33,7 @@ describe('<Routes />', () => {
    });
    describe('Verifying Routes are secured', () => {
       it('should pass proper props to the routes', () => {
-          const {wrapper} = setUp({path:'/lambda-school'})
-          console.log(wrapper.debug());
+          const {wrapper} = setUp({path:'/lambda-school'});          
           expect(wrapper.find('Route').prop('path')).toBe('/lambda-school');
       }) 
       it('should redirect the user to login page if user has not been authenticated', () => {

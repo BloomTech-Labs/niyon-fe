@@ -27,12 +27,15 @@ describe('<Connections /> component testing', () => {
          expect(wrapper.find('WithStyles(ForwardRef(Paper))').length).toBe(1);
     })
     describe('<AppBar /> component', () => {
-        let wrapper
+        let wrapper;        
         const setState = jest.fn();
         const useStateSpy = jest.spyOn(React, 'useState');
         useStateSpy.mockImplementation((init) => [init, setState])
         beforeEach(() => {
             wrapper = findByTestAttr(component, 'app-bar');
+        });
+        afterEach(() => {
+            jest.clearAllMocks();
         })
         it('should render <AppBar /> component correctly', () => {             
              expect(wrapper.exists()).toBe(true);
@@ -43,7 +46,9 @@ describe('<Connections /> component testing', () => {
 
         it('should set the correct value on change', () => {
             // this needs to be implemented once the functionality is built
-        })
+            
+        });
+
         it('should render two <Tab /> components inside <Tabs /> component', () => {
              expect(wrapper.find('WithStyles(ForwardRef(Tab))').length).toBe(2);
         })
