@@ -25,7 +25,7 @@ const Login = (props) => {
   return (
     <div className="formLogin">
       <Header />
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} data-test="form">
         <div className="inputWrap">
           <div>
             {touched.username && errors.username && <p>{errors.username}</p>}
@@ -36,7 +36,7 @@ const Login = (props) => {
             <Field type="password" name="password" placeholder="Password" />
           </div>
           <br />
-          <button className="button" disabled={isSubmitting}>
+          <button className="button" disabled={isSubmitting} data-test="submit">
             Login
           </button>
         </div>

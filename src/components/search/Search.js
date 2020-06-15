@@ -8,7 +8,7 @@ import { location } from "../profile/location";
 import { technology } from "../profile/technologies";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 
-function Search(props) {
+export function Search(props) {
   const { user, setUser } = useContext(UserContext);
   const [profiles, setProfiles] = useState([]);
   const [jobTitlesToDisplay, setJobTitlesToDisplay] = useState([]);
@@ -19,23 +19,20 @@ function Search(props) {
   const technologies = technology;
 
   const handleJobChange = (selectedItem) => {
-    if (selectedItem) {
-      console.log("Selected job title", selectedItem);
-      const usersToDisplayByJobTitle = profiles.filter(
+
+    if (selectedItem) {    
+      const usersToDisplay = profiles.filter(
         (user) => user.job_title_id === selectedItem.value
-      );
-      console.log("Users to display", usersToDisplayByJobTitle);
+      );     
       setJobTitlesToDisplay(usersToDisplayByJobTitle);
     }
   };
 
   const handleLocationChange = (selectedItem) => {
-    if (selectedItem) {
-      console.log("Selected location", selectedItem);
+    if (selectedItem) {     
       const usersToDisplayByLocation = profiles.filter(
         (location) => location.location_id === selectedItem.value
-      );
-      console.log("Locations to display", usersToDisplayByLocation);
+      );     
       setLocationsToDisplay(usersToDisplayByLocation);
     }
   };
