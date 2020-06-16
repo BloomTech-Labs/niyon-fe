@@ -19,8 +19,7 @@ const Home = (props) => {
         .get(`/profile/${id}`)
         .then((res) => {
           if (res) {
-            setUser({ ...user, ...res.data });
-            console.info('Response>>>>>>', res);
+            setUser(res.data);           
           }
         })
         .catch((err) => console.log(err));

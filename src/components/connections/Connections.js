@@ -13,10 +13,8 @@ export default function Connections(props) {
       await axiosWithAuth()
         .get("/profile")
         .then((results) => {
-          if (results) {
-            let data = results.data;
-            console.log("API response", results.data);
-            setProfiles(data);
+          if (results) {                  
+            setProfiles(results.data);
           }
         })
         .catch((err) => console.log(err));
@@ -27,8 +25,7 @@ export default function Connections(props) {
   return ( 
     <div className="connections" data-test="connections">
       <div data-test="second-wrapper">
-
-        <Paper className="paper" elevation={1}>
+        <Paper className="paper" elevation={1} data-test="paper">
         <h1 className="container-header" data-test="my-connections">
           My Connections (Sum)
         </h1>
