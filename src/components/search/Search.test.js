@@ -40,8 +40,8 @@ describe('<Search /> component testing', () => {
    });
 
    it('should render search title correctly', () => {
-     expect(component.find('h2').exists()).toBe(true);
-     expect(component.find('h2').render().text().trim()).toEqual('Job Title');
+     expect(findByTestAttr(component, 'job-title').exists()).toBe(true);
+     expect(findByTestAttr(component, 'job-title').render().text().trim()).toEqual('Job Title');
    });
 
    describe('<select /> component', () => {
@@ -60,7 +60,8 @@ describe('<Search /> component testing', () => {
         });
 
         it('it should change the job title on change correctly', () => {
-            selectWrapper.props().onChange(handleChange);
+            const jobSearch = findByTestAttr(component, 'job-title-search');
+            jobSearch.props().onChange(handleChange);
             expect(setState).toHaveBeenCalled();
         });
    });
