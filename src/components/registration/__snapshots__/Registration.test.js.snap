@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Search /> component testing should pass snaps shot testing 1`] = `
+exports[`<Registration /> component testing should pass snaps shot testing 1`] = `
 <div
   className="formWrap"
 >

@@ -1,15 +1,20 @@
-import React, { Component } from 'react';
-import './styles.scss';
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
 
 
-class PrivateRoute extends Component {
-  render() {
+
+export const PrivateRoute = ({isAuthenticated, component:Component, ...rest}) => {      
     return (
-      <div>
-        
-      </div>
+     <Route {...rest} render={(props) => 
+         isAuthenticated ? (
+                  <Component {...props} />
+            ) : (
+                  <Redirect to="/login" />
+            )
+        } 
+     />
     );
-  }
-}
+  };
 
-export default PrivateRoute;
+
+  

@@ -1,66 +1,63 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { withFormik, Form, Field } from "formik";
+import * as Yup from "yup";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 import Header from "../header/Header";
 
-const Login = () => {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => handleOnSubmit(data);
+const Login = (props) => {
+  const { values, errors, touched, isSubmitting } = props;
 
-  const handleOnSubmit = (props) => {
-    let userAuth = {
-      email: props.email,
-      password: props.password,
-    };
-
+  const handleSubmit = (event) => {
+    let login = { email: values.email, password: values.password };
+    event.preventDefault();
     axiosWithAuth()
-      .post("/auth/login", userAuth)
+      .post("/auth/login", values)
       .then((res) => {
-        console.log("1", res);
         window.localStorage.setItem("token", res.data.token);
-        window.localStorage.setItem("id", res.data.user.user_id);
+        window.localStorage.setItem("id", res.data.user.id);
         window.location = "/home";
       })
       .catch((err) => {
         console.log(err);
       });
-    console.log("2", userAuth);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="formWrap">
-        <Header />
-        <div className="formLogin">
-          <input
-            type="email"
-            placeholder="Email"
-            name="email"
-            ref={register({ required: true })}
-          />
-          {errors.email && (
-            <p style={{ color: "orange", marginTop: 10 }}>
-              "Email is required"
-            </p>
-          )}
-
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            ref={register({ required: true })}
-          />
-          {errors.password && (
-            <p style={{ color: "orange", marginTop: 10 }}>
-              "Password is required"
-            </p>
-          )}
-
-          <button type="submit">Login</button>
+    <div className="formLogin">
+      <Header />
+      <Form onSubmit={handleSubmit} data-test="form">
+        <div className="inputWrap">
+          <div>
+            {touched.username && errors.username && <p>{errors.username}</p>}
+            <Field type="email" name="email" placeholder="Email" />
+          </div>
+          <div>
+            {touched.password && errors.password && <p>{errors.password}</p>}
+            <Field type="password" name="password" placeholder="Password" />
+          </div>
+          <br />
+          <button className="button" disabled={isSubmitting} data-test="submit">
+            Login
+          </button>
         </div>
-      </div>
-    </form>
+      </Form>
+    </div>
   );
 };
 
-export default Login;
+const FormikLogin = withFormik({
+  mapPropsToValues({ email, password }) {
+    return {
+      email: email || "",
+      password: password || "",
+    };
+  },
+  validationSchema: Yup.object().shape({
+    email: Yup.string().required("Email is required"),
+    password: Yup.string()
+      .min(6, "Password must be 6 chracters or longer")
+      .required("Password is required"),
+  }),
+})(Login);
+
+export default FormikLogin;

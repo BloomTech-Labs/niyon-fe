@@ -1,16 +1,16 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import Login from './Login';
 import { act } from 'react-dom/test-utils';
 
 
-describe('<Search /> component testing', () => {
+describe('<Login /> component testing', () => {
   let component;
-  let onSubmit = jest.fn();
+  let onMockSubmit;
   beforeEach(() => {
-    onSubmit = jest.fn();
-    component = shallow(<Login onSubmit={onSubmit} />);
+    onMockSubmit = () => jest.fn();
+    component = shallow(<Login onSubmit={onMockSubmit} />);
   });
 
   afterEach(() => {
@@ -22,6 +22,7 @@ it('should pass snaps shot testing', () => {
     });
 
  it('should render <Login /> component correctly', () => {
+      // console.log(component.debug());
       expect(component.exists()).toBe(true);     
     });
 
@@ -38,6 +39,7 @@ it('should pass snaps shot testing', () => {
       expect(component.find('div').at(1).exists()).toBe(true);
       expect(component.find('div').at(1).hasClass('formLogin')).toBe(true);
     });
+
   it('should render the input for email correctly', () => {
       expect(component.find('input[type="email"]').exists()).toBe(true);
     });
@@ -46,29 +48,19 @@ it('should pass snaps shot testing', () => {
       expect(component.find('input[type="password"]').exists()).toBe(true);
     });
 
-  it('should render submit button correctly with its text', () => {
-      const button = component.find('button');
-      expect(button.exists()).toBe(true);
-      expect(button.text()).toEqual('Login');
-    });
+  describe('Form submission', () => {
+    // it('should show email error message if clicked on login button without email',  async () => {
+    //      await act(async () => {
+    //       const event = { preventDefault: jest.fn};
+    //       const form = component.find('form');
+    //      //  console.log(button.debug());
+    //       await form.props().onSubmit();
+    //       // console.log(component.debug());
+    //       expect(onMockSubmit).toHaveBeenCalled();
+    //      })
 
-    describe('Form submission', () => {
-        it('should submit when data filled', async () => {
-            const emailInput = component.find('input[type="email"]');
-            // const passwordInput = component.find('input[type="password"]');            
-            // emailInput.value = "test@email.com";
-            // emailInput.dispatchEvent(new Event("input"));
-          await act( async() => {
-              emailInput.simulate('change', { target: { name:'email', value: 'test@email.com'}});
-              component.find('button').simulate('submit');
-           
-            });
-          // await act( async() => {            
-          //   component.find('button').simulate('submit');
-          //   expect(onSubmit).toHaveBeenCalled();
-          // })
-        });
+    // });
+   
     });
-
 
 });  

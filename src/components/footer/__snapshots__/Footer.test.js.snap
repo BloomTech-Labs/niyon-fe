@@ -31,6 +31,7 @@ exports[`<Footer /> component testing should match the snapshot test for  <Foote
     showLabels={true}
   >
     <WithStyles(ForwardRef(BottomNavigationAction))
+      className="icon"
       component={
         Object {
           "$$typeof": Symbol(react.forward_ref),
