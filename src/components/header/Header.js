@@ -68,7 +68,7 @@ function Header(props) {
           </Link>
           <div className="title-and-button" data-test="title-and-button">
             <Typography variant="h6">
-              Welcome {userType}
+              Welcome, {userType}
               {""}!
             </Typography>
           </div>

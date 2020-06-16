@@ -74,13 +74,14 @@ export function Search(props) {
       <div className="search" data-test="search-container">
         <div>
           <h1 className="search-header">Search</h1>
-          <h2>Job Title</h2>
+          <h2 data-test="job-title">Job Title</h2>
           <Select
             name="job_title_id"
             options={jobs}
             className="basic-multi-select"
             classNamePrefix="select"
             onChange={handleJobChange}
+            data-test="job-title-search"
           />
           <p>Users with Selected Job Title</p>
           {jobTitlesToDisplay.map((profile) => (
