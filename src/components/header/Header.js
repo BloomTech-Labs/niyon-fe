@@ -53,6 +53,11 @@ const useStyles = makeStyles((theme) => ({
     margin: "15px 0",
     textTransform: "capitalize",
   },
+  titleandbutton: {
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis"
+  }
 }));
 
 function Header(props) {
@@ -66,10 +71,9 @@ function Header(props) {
           <Link to="/">
             <div className="logo" data-test="logo"></div>
           </Link>
-          <div className="title-and-button" data-test="title-and-button">
+          <div className={classes.titleandbutton} data-test="title-and-button">
             <Typography variant="h6">
-              Welcome, {userType}
-              {""}!
+              Welcome, {userType}!
             </Typography>
           </div>
         </Toolbar>

@@ -8,21 +8,7 @@ export default function Connections(props) {
   const [profilesToDisplay, setProfilesToDisplay] = useState([]);
   const [profiles, setProfiles] = useState([]);
 
-  useEffect(() => {
-    const apiCallUsers = async () => {
-      await axiosWithAuth()
-        .get("/profile")
-        .then((results) => {
-          if (results) {
-            let data = results.data;
-            console.log("API response", results.data);
-            setProfiles(data);
-          }
-        })
-        .catch((err) => console.log(err));
-    };
-    apiCallUsers();
-  }, []);
+
  
   return ( 
     <div className="connections" data-test="connections">

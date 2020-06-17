@@ -1,4 +1,4 @@
-import React, {useState } from "react";
+import React, {useState, useContext } from "react";
 import PropTypes from 'prop-types';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@material-ui/core/styles';
@@ -9,9 +9,13 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import UserCard from './UserCard'
 import MockUser from './MockUser.json'
+import { UserContext } from "../../UserContext";
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
+
+
   
     return (
       <div
@@ -47,6 +51,12 @@ function TabPanel(props) {
   
     const theme = useTheme();
     const [value, setValue] = useState(0);
+    const { user, setUser } = useContext(UserContext);
+
+    const myRequests = user.myRequests;
+
+    console.log('user from context in Swipe Tabs>>>', myRequests);
+
   
     const handleChange = (event, newValue) => {
       setValue(newValue);
@@ -55,7 +65,6 @@ function TabPanel(props) {
     const handleChangeIndex = (index) => {
       setValue(index);
     };
-
 
 
     return (
@@ -69,25 +78,34 @@ function TabPanel(props) {
           variant="fullWidth"
           aria-label="tabs"
         >
-          <Tab label="Mentors (#)" {...a11yProps(0)} />
+          <Tab className="tabStyles" label="Mentors (#)" {...a11yProps(0)} />
           <Tab label="Mentees (#)" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
-      <SwipeableViews
+
+      <React.Fragment>
+      { myRequests && myRequests.length > 0 && <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
         <div>
-            <UserCard value = {MockUser}/>
+          {myRequests.length > 0 && myRequests.map(request => {
+            if (request) {
+              return <UserCard value={request}/>
+            }
+          }) }
         </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
         <Typography className='text'>Mentee cards go here</Typography>
         </TabPanel>
-      </SwipeableViews>
+      </SwipeableViews>}
+      {!myRequests && <p>No connection requests....</p>}
+      </React.Fragment>
       </div>
+
 );
 }
 
