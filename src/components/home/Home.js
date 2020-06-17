@@ -13,6 +13,8 @@ const Home = (props) => {
   const [profiles, setProfiles] = useState([]);
   const [profilesToDisplay, setProfilesToDisplay] = useState([]);
 
+  const [requests, setRequests] = useState([]);
+
   useEffect(() => {
     const apiCall = async () => {
       await axiosWithAuth()
@@ -20,19 +22,19 @@ const Home = (props) => {
         .then((res) => {
           if (res) {
             setUser({ ...user, ...res.data });
-            console.info('Response>>>>>>', res);
+            setRequests(res.data.myRequests);
           }
         })
         .catch((err) => console.log(err));
     };
     apiCall();
-  }, [id, user]);
+  },[]);
 
   return (
     <div className="home" data-test="home-container">
       <Header />
       <Connections />
-      <ConnectionRequests />
+      <ConnectionRequests requests={user.myRequests}/>
       <RecommendedConnections />
       <Footer value={0} />
     </div>

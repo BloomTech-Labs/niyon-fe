@@ -14,7 +14,8 @@ const Login = (props) => {
       .post("/auth/login", values)
       .then((res) => {
         window.localStorage.setItem("token", res.data.token);
-        window.localStorage.setItem("id", res.data.user.id);
+        window.localStorage.setItem("id", res.data.user.user_id);
+        window.localStorage.setItem("user_type", res.data.user.user_type);
         window.location = "/home";
       })
       .catch((err) => {
