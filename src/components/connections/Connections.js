@@ -1,26 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Paper from '@material-ui/core/Paper';
-import SwipeTabs from './SwipeTabs';
+import SwipeTabsConnections from './SwipeTabsConnections';
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 
-export default function Connections(props) {
-
-  const [profilesToDisplay, setProfilesToDisplay] = useState([]);
-  const [profiles, setProfiles] = useState([]);
-
-  useEffect(() => {
-    const apiCallUsers = async () => {
-      await axiosWithAuth()
-        .get("/profile")
-        .then((results) => {
-          if (results) {                  
-            setProfiles(results.data);
-          }
-        })
-        .catch((err) => console.log(err));
-    };
-    apiCallUsers();
-  }, []);
+export default function Connections() { 
  
   return ( 
     <div className="connections" data-test="connections">
@@ -30,7 +13,7 @@ export default function Connections(props) {
           My Connections (Sum)
         </h1>
         <div>
-        <SwipeTabs/>
+        <SwipeTabsConnections/>
         </div>
         </Paper>
         </div>
