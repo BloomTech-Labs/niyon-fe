@@ -7,6 +7,9 @@ import { job } from "../profile/job";
 import { location } from "../profile/location";
 import { technology } from "../profile/technologies";
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
+import SwipeTabsJobTitle from "./SwipeTabsJobTitle";
+import SwipeTabsLocation from "./SwipeTabsLocation";
+import SwipeTabsTechnology from "./SwipeTabsTechnology";
 
 export function Search(props) {
   const { user, setUser } = useContext(UserContext);
@@ -20,9 +23,10 @@ export function Search(props) {
 
   const handleJobChange = (selectedItem) => {
 
-    if (selectedItem) {    
+    if (selectedItem) {
+      console.log(profiles)    
       const usersToDisplayByJobTitle = profiles.filter(
-        (user) => user.job_title_id === selectedItem.value
+        (job) => job.job_title_id === selectedItem.value
       );     
       setJobTitlesToDisplay(usersToDisplayByJobTitle);
     }
@@ -84,14 +88,15 @@ export function Search(props) {
             data-test="job-title-search"
           />
           <p>Users with Selected Job Title</p>
-          {jobTitlesToDisplay.map((profile) => (
+          <SwipeTabsJobTitle jobTitlesToDisplay={jobTitlesToDisplay} />
+          {/* {jobTitlesToDisplay.map((profile) => (
             <div key={profile.id}>
               {profile.first_name}
               {profile.last_name}
               {profile.user_type}
               {profile.location}
             </div>
-          ))}
+          ))} */}
           <h2>Location</h2>
           <Select
             name="location_id"
@@ -101,14 +106,15 @@ export function Search(props) {
             onChange={handleLocationChange}
           />
           <p>Users with Selected Location</p>
-          {locationsToDisplay.map((profile) => (
+          <SwipeTabsLocation locationsToDisplay={locationsToDisplay} />
+          {/* {locationsToDisplay.map((profile) => (
             <div key={profile.id}>
               {profile.first_name}
               {profile.last_name}
               {profile.user_type}
               {profile.location}
             </div>
-          ))}
+          ))} */}
           <h2>Technologies</h2>
           <Select
             isMulti
@@ -119,14 +125,15 @@ export function Search(props) {
             onChange={handleTechChange}
           />
           <p>Users with Selected Technology</p>
-          {technologiesToDisplay.map((profile) => (
+          <SwipeTabsTechnology technologiesToDisplay={technologiesToDisplay} />
+          {/* {technologiesToDisplay.map((profile) => (
             <div key={profile.id}>
               {profile.first_name}
               {profile.last_name}
               {profile.user_type}
               {profile.location}
             </div>
-          ))}
+          ))} */}
         </div>
       </div>
       <Footer value={2} />
