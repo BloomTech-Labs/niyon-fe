@@ -75,8 +75,5 @@ describe('<Home /> component testing', () => {
     it('should render <Footer /> component correctly', () => {
        expect(component.find('Footer')).toHaveLength(1);
     });
-    it('should log the details', () => {
-        // console.log(component.debug());
-        // expect(setUser).toHaveBeenCalled();
-    })
+    
 });

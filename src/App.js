@@ -5,13 +5,11 @@ import "./sass_master/index.scss";
 
 function App() {
   const [user, setUser] = useState({});  
-  return (
-    <div className="App" data-test="app">     
-        <UserContext.Provider value={{user, setUser}}>
-          <Routes />                
-        </UserContext.Provider>      
-    </div>
+  return (      
+      <UserContext.Provider value={{user, setUser}}>
+        <Routes />                
+      </UserContext.Provider>     
   );
-}
+};
 
 export default App;
