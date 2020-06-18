@@ -30,8 +30,7 @@ describe('<App /> Component', () => {
      
 
      it('should render <Routes /> component correctly', () => {
-          const wrapper = component.dive();
-          console.log(wrapper.debug());
+          const wrapper = component.dive();          
           expect(wrapper.find('Routes').exists()).toBe(true);
      });    
 });
