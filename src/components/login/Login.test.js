@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import Login from './Login';
-import { act } from 'react-dom/test-utils';
+
 
 
 describe('<Login /> component testing', () => {
