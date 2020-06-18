@@ -9,12 +9,10 @@ export default function Connections() {
     <div className="connections" data-test="connections">
       <div data-test="second-wrapper">
         <Paper className="paper" elevation={1} data-test="paper">
-        <h1 className="container-header" data-test="my-connections">
-          My Connections (Sum)
-        </h1>
-        <div>
-        <SwipeTabsConnections/>
-        </div>
+          <h1 className="container-header" data-test="my-connections">My Connections (Sum)</h1>
+          <div>
+            <SwipeTabsConnections/>
+          </div>
         </Paper>
         </div>
       </div>

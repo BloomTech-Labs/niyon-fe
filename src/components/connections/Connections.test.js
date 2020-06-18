@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 import Connections from './Connections'
 import findByTestAttr from '../../tests/utils';
 
@@ -13,6 +14,10 @@ describe('<Connections /> component testing', () => {
     beforeEach(() => {
       component = setUp();
     });
+    it('should match snapshot tests', () => {
+        expect(toJSON(component)).toMatchSnapshot();
+    })
+
     it('should render <Connections /> component correctly', () => {
         const connectionsWrapper = findByTestAttr(component, 'connections');
         expect(connectionsWrapper.length).toBe(1);
@@ -23,14 +28,17 @@ describe('<Connections /> component testing', () => {
          expect(secondWrapper.exists()).toBe(true);
     });
     it('should render <Paper /> component correctly', () => {
-      const wrapper = findByTestAttr(component, 'paper');
-        //  expect(wrapper.find('WithStyles(ForwardRef(Paper))').length).toBe(1);
+      const wrapper = findByTestAttr(component, 'paper');       
         expect(wrapper.exists()).toBe(true);
     });    
     
     it('should render mani title in the component', () => {
             const h1 = findByTestAttr(component, 'my-connections');
             expect(h1.length).toBe(1);
-    });      
-        
+            expect(h1.text().trim()).toEqual('My Connections (Sum)');
+    }); 
+    
+    it('should render <SwipeTabsConnections /> component correctly', () => {
+         expect(component.find('SwipeTabsConnections').exists()).toBe(true);
+    });        
 });
