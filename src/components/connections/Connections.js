@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Paper from '@material-ui/core/Paper';
-import SwipeTabs from './SwipeTabs';
+import SwipeTabsConnections from './SwipeTabsConnections';
 import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
 
 export default function Connections(props) {
@@ -19,7 +19,7 @@ export default function Connections(props) {
           My Connections (Sum)
         </h1>
         <div>
-        <SwipeTabs/>
+        <SwipeTabsConnections/>
         </div>
         </Paper>
         </div>

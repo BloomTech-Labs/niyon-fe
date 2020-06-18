@@ -47,7 +47,7 @@ function TabPanel(props) {
     };
   }
   
-  function SwipeTabs(props) {
+  function SwipeTabsRequests(props) {
   
     const theme = useTheme();
     const [value, setValue] = useState(0);
@@ -66,6 +66,7 @@ function TabPanel(props) {
       setValue(index);
     };
 
+    const endpoint = "response"
 
     return (
         <div>
@@ -92,14 +93,20 @@ function TabPanel(props) {
         <TabPanel value={value} index={0} dir={theme.direction}>
         <div>
           {myRequests.length > 0 && myRequests.map(request => {
-            if (request) {
-              return <UserCard value={request}/>
+            if (request.user_type.trim().toLowerCase() === "mentor") {
+              return <UserCard value={request} endpoint={endpoint}/>
             }
           }) }
         </div>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-        <Typography className='text'>Mentee cards go here</Typography>
+        <div>
+          {myRequests.length > 0 && myRequests.map(request => {
+            if (request.user_type.trim().toLowerCase() === "mentee") {
+              return <UserCard value={request} endpoint={endpoint}/>
+            }
+          }) }
+        </div>
         </TabPanel>
       </SwipeableViews>}
       {!myRequests && <p>No connection requests....</p>}
@@ -109,4 +116,4 @@ function TabPanel(props) {
 );
 }
 
-export default SwipeTabs;
+export default SwipeTabsRequests;
