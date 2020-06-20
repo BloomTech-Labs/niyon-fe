@@ -44,6 +44,41 @@ describe('<Search /> component testing', () => {
      expect(findByTestAttr(component, 'job-title').render().text().trim()).toEqual('Job Title');
    });
 
+   it('should render the selected job title paragraph correctly', () => {
+     expect(component.find('p').length).toBe(3);
+     expect(component.find('p')
+                     .at(0)
+                     .render()
+                     .text()
+                     .trim())
+                     .toEqual('Users with Selected Job Title');
+     expect(component.find('p')
+                     .at(1)
+                     .render()
+                     .text()
+                     .trim())
+                     .toEqual('Users with Selected Location');  
+     expect(component.find('p')
+                     .at(2)
+                     .render()
+                     .text()
+                     .trim())
+                     .toEqual('Users with Selected Technology');                                        
+    });
+
+    it('should render profiles container correctly', () => {
+          const container = findByTestAttr(component, 'search-profile');
+          if(profiles.length === 0) {
+            expect(container.length).toBe(0);
+          } else {
+            expect(container.length).toBe(1);
+          }
+    })
+
+   it('should render the <Footer /> component correctly', () => {
+        expect(component.find('Footer').length).toBe(1);
+   });
+
    describe('<select /> component', () => {
          let selectWrapper;
          const setState = jest.fn();
@@ -60,32 +95,11 @@ describe('<Search /> component testing', () => {
         });
 
         it('it should change the job title on change correctly', () => {
-            const jobSearch = findByTestAttr(component, 'job-title-search');
-            jobSearch.props().onChange(handleChange);
+            const searchContainer = findByTestAttr(component, 'search-container');
+            const select = findByTestAttr(searchContainer, 'job-title-search');          
+            select.first().props().onChange(handleChange);
             expect(setState).toHaveBeenCalled();
         });
-   });
-
-   it('should render the selected job title paragraph correctly', () => {
-     expect(component.find('p').length).toBe(1);
-     expect(component.find('p')
-                     .render()
-                     .text()
-                     .trim())
-                     .toEqual('Users with Selected Job Title');
-    });
-
-    it('should render profiles container correctly', () => {
-          const container = findByTestAttr(component, 'search-profile');
-          if(profiles.length === 0) {
-            expect(container.length).toBe(0);
-          } else {
-            expect(container.length).toBe(1);
-          }
-    })
-
-   it('should render the <Footer /> component correctly', () => {
-        expect(component.find('Footer').length).toBe(1);
-   });
+   });   
 
 });
