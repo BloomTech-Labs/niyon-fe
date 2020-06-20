@@ -18,7 +18,7 @@ const Registration = (props) => {
       .post("/auth/register", userAuth)
       .then((res) => {
         window.localStorage.setItem("token", res.data.token);
-        window.localStorage.setItem("id", res.data.user.user_id);        
+        window.localStorage.setItem("id", res.data.user.id);
         window.location = "/profile";
       })
       .catch((err) => {
