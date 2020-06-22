@@ -1,27 +1,28 @@
-import React from "react";
-import { withFormik, Form, Field } from "formik";
-import * as Yup from "yup";
-import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
-import Header from "../header/Header";
+import React from 'react'
+import { withFormik, Form, Field } from 'formik'
+import * as Yup from 'yup'
+import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import Header from '../header/Header'
 
 const Login = (props) => {
-  const { values, errors, touched, isSubmitting } = props;
+  const { values, errors, touched, isSubmitting } = props
 
   const handleSubmit = (event) => {
-    let login = { email: values.email, password: values.password };
-    event.preventDefault();
+    /*eslint-disable */
+    const login = { email: values.email, password: values.password }
+    event.preventDefault()
     axiosWithAuth()
-      .post("/auth/login", values)
+      .post('/auth/login', values)
       .then((res) => {
-        window.localStorage.setItem("token", res.data.token);
-        window.localStorage.setItem("id", res.data.user.user_id);
-        window.localStorage.setItem("user_type", res.data.user.user_type);
-        window.location = "/home";
+        window.localStorage.setItem('token', res.data.token)
+        window.localStorage.setItem('id', res.data.user.user_id)
+        window.localStorage.setItem('user_type', res.data.user.user_type)
+        window.location = '/home'
       })
       .catch((err) => {
-        console.log(err);
-      });
-  };
+        console.log(err)
+      })
+  }
 
   return (
     <div className="formLogin">
@@ -43,22 +44,22 @@ const Login = (props) => {
         </div>
       </Form>
     </div>
-  );
-};
+  )
+}
 
 const FormikLogin = withFormik({
-  mapPropsToValues({ email, password }) {
+  mapPropsToValues ({ email, password }) {
     return {
-      email: email || "",
-      password: password || "",
-    };
+      email: email || '',
+      password: password || ''
+    }
   },
   validationSchema: Yup.object().shape({
-    email: Yup.string().required("Email is required"),
+    email: Yup.string().required('Email is required'),
     password: Yup.string()
-      .min(6, "Password must be 6 chracters or longer")
-      .required("Password is required"),
-  }),
-})(Login);
+      .min(6, 'Password must be 6 chracters or longer')
+      .required('Password is required')
+  })
+})(Login)
 
-export default FormikLogin;
+export default FormikLogin

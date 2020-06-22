@@ -2,11 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 import Connections from './Connections'
-import findByTestAttr from '../../tests/utils';
+import findByTestAttr from '../../tests/utils'
 
-const setUp = (props={}) => {
-  const wrapper = shallow(<Connections { ...props } />);
-  return wrapper;
+const setUp = (props = {}) => {
+  const wrapper = shallow(<Connections { ...props } />)
+  return wrapper
 }
 
 describe('<Connections /> component testing', () => {

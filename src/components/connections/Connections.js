@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Paper from '@material-ui/core/Paper';
-import SwipeTabsConnections from './SwipeTabsConnections';
-import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
+import React from 'react'
+import Paper from '@material-ui/core/Paper'
+import SwipeTabsConnections from './SwipeTabsConnections'
 
-export default function Connections() { 
- 
-  return ( 
+export default function Connections () {
+  return (
     <div className="connections" data-test="connections">
       <div data-test="second-wrapper">
         <Paper className="paper" elevation={1} data-test="paper">
@@ -14,7 +12,7 @@ export default function Connections() {
             <SwipeTabsConnections/>
           </div>
         </Paper>
-        </div>
       </div>
-  );
+    </div>
+  )
 };

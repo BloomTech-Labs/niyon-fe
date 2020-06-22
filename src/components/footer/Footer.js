@@ -1,36 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import HomeIcon from "@material-ui/icons/Home";
-import SearchIcon from "@material-ui/icons/Search";
-import PersonIcon from "@material-ui/icons/Person";
-import SettingsIcon from "@material-ui/icons/Settings";
-import Menu from "@material-ui/core/Menu";
-import { signOut } from "../apiStuff/signout";
-import MenuItem from "@material-ui/core/MenuItem";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
+import BottomNavigation from '@material-ui/core/BottomNavigation'
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
+import HomeIcon from '@material-ui/icons/Home'
+import SearchIcon from '@material-ui/icons/Search'
+import PersonIcon from '@material-ui/icons/Person'
+import SettingsIcon from '@material-ui/icons/Settings'
+import Menu from '@material-ui/core/Menu'
+import { signOut } from '../apiStuff/signout'
+import MenuItem from '@material-ui/core/MenuItem'
+import Brightness4Icon from '@material-ui/icons/Brightness4'
+import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 
 const useStyles = makeStyles({
   root: {
-    width: "100%",
-    position: "fixed",
+    width: '100%',
+    position: 'fixed',
     bottom: 0,
-    color: "primary",
-  },
-});
+    color: 'primary'
+  }
+})
 
-function Footer(props) {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+function Footer (props) {
+  const classes = useStyles()
+  const [anchorEl, setAnchorEl] = React.useState(null)
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   return (
     <div>
@@ -77,7 +77,7 @@ function Footer(props) {
         />
       </BottomNavigation>
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

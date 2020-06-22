@@ -32,14 +32,25 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint **/*.js --fix",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "coverage": "npm test -- --coverage --watchAll=true || true",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",     
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [
@@ -58,7 +69,19 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
-    "jest-enzyme": "^7.1.2"
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "jest-enzyme": "^7.1.2",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "prettier-eslint": "^11.0.0",
+    "prettier-eslint-cli": "^5.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -76,7 +99,7 @@
       "json-summary",
       "text"
     ]
-  },
+  }, 
   "resolutions": {
     "react-scripts/jest": "23.3.0"
   }
