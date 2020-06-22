@@ -12,6 +12,7 @@ import SwipeTabsLocation from './SwipeTabsLocation'
 import SwipeTabsTechnology from './SwipeTabsTechnology'
 
 export function Search (props) {
+  /*eslint-disable */
   const { user, setUser } = useContext(UserContext)
   const [profiles, setProfiles] = useState([])
   const [jobTitlesToDisplay, setJobTitlesToDisplay] = useState([])

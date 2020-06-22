@@ -8,6 +8,7 @@ const Login = (props) => {
   const { values, errors, touched, isSubmitting } = props
 
   const handleSubmit = (event) => {
+    /*eslint-disable */
     const login = { email: values.email, password: values.password }
     event.preventDefault()
     axiosWithAuth()

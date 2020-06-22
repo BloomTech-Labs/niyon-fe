@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
 import AddBoxIcon from '@material-ui/icons/AddBox'
-import ChatIcon from '@material-ui/icons/Chat'
+// import ChatIcon from '@material-ui/icons/Chat'
 import { UserContext } from '../../UserContext'
 import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
 
@@ -19,6 +19,7 @@ const useStyles = makeStyles({
 
 function UserCard (props) {
   const classes = useStyles()
+  /*eslint-disable */
   const { user, setUser } = useContext(UserContext)
 
   console.log('user from context in CARD>>>', user)

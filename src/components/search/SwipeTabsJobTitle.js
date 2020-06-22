@@ -46,6 +46,7 @@ function a11yProps (index) {
 function SwipeTabsJobTitle (props) {
   const theme = useTheme()
   const [value, setValue] = useState(0)
+  /*eslint-disable */
   const { user, setUser } = useContext(UserContext)
 
   const myConnections = props.jobTitlesToDisplay

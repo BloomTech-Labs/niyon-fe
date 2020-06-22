@@ -37,7 +37,7 @@ const Registration = (props) => {
           ref={register({ required: true })}
         />
         {errors.email && (
-          <p style={{ color: 'orange', marginTop: 10 }}>"Email is required"</p>
+          <p style={{ color: 'orange', marginTop: 10 }}>Email is required</p> /*eslint-disable */
         )}
         <input
           type="password"
@@ -47,7 +47,7 @@ const Registration = (props) => {
         />
         {errors.password && (
           <p style={{ color: 'orange', marginTop: 10 }}>
-            "Password is required"
+            Password is required
           </p>
         )}
         <input
@@ -62,7 +62,7 @@ const Registration = (props) => {
         />
         {errors.password2 && (
           <p style={{ color: 'orange', marginTop: 10 }}>
-            "Passwords do not match"
+            Passwords do not match
           </p>
         )}
         <select name="user_type" ref={register({ required: true })}>

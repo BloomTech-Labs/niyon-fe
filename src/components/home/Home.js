@@ -10,9 +10,10 @@ import { UserContext } from '../../UserContext'
 const Home = (props) => {
   const { user, setUser } = useContext(UserContext)
   const id = window.localStorage.getItem('id')
+  /*eslint-disable */
   const [profiles, setProfiles] = useState([])
   const [profilesToDisplay, setProfilesToDisplay] = useState([])
-
+/*eslint-disable */
   const [requests, setRequests] = useState([])
 
   useEffect(() => {

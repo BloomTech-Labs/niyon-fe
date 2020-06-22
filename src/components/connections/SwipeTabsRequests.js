@@ -8,7 +8,7 @@ import Tab from '@material-ui/core/Tab'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import UserCard from './UserCard'
-import MockUser from './MockUser.json'
+// import MockUser from './MockUser.json'  /*eslint-disable */
 import { UserContext } from '../../UserContext'
 
 function TabPanel (props) {
@@ -47,6 +47,7 @@ function a11yProps (index) {
 function SwipeTabsRequests (props) {
   const theme = useTheme()
   const [value, setValue] = useState(0)
+  /*eslint-disable */
   const { user, setUser } = useContext(UserContext)
 
   const myRequests = user.myRequests
