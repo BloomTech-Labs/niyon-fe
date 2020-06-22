@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-function Routes(props) {
+function Routes (props) {
   return (
     <div>
-      
+
     </div>
-  );
+  )
 }
 
-export default Routes;
+export default Routes
