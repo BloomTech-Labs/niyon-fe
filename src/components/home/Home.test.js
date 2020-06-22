@@ -1,6 +1,5 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import toJSON from 'enzyme-to-json'
 import Home from './Home'
 import { MemoryRouter } from 'react-router-dom'
 import findByTestAttr from '../../tests/utils'
@@ -68,15 +67,8 @@ describe('<Home /> component testing', () => {
     expect(component.find('ConnectionRequests')).toHaveLength(1)
   })
 
-  it('should render  <RecommendedConnections /> component correctly', () => {
-    expect(component.find('RecommendedConnections')).toHaveLength(1)
-  })
-
-  it('should render <Footer /> component correctly', () => {
-    expect(component.find('Footer')).toHaveLength(1)
-  })
-  it('should log the details', () => {
-    // console.log(component.debug());
-    // expect(setUser).toHaveBeenCalled();
-  })
-})
+    it('should render <Footer /> component correctly', () => {
+       expect(component.find('Footer')).toHaveLength(1);
+    });
+    
+});

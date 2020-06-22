@@ -13,7 +13,4 @@ describe('<Routes />', () => {
     expect(toJSON(component)).toMatchSnapshot()
   })
 
-  it('should render the component correctly', () => {
-    expect(component.exists()).toBe(true)
-  })
-})
+});

@@ -1,8 +1,9 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import toJSON from 'enzyme-to-json'
-import Login from './Login'
-import { act } from 'react-dom/test-utils'
+import React from 'react';
+import { shallow, } from 'enzyme';
+import toJSON from 'enzyme-to-json';
+import Login from './Login';
+
+
 
 describe('<Login /> component testing', () => {
   let component
