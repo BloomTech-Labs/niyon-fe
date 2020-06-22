@@ -32,11 +32,25 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint **/*.js --fix",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
     "coverage": "npm test -- --coverage --watchAll=true || true",
     "eject": "react-scripts eject"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+
+  "lint-staged": {
+    "*.js": [
+      "npm run lint:fix",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [
@@ -64,6 +78,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.2.5",
     "jest-enzyme": "^7.1.2",
+    "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0"
@@ -84,12 +99,7 @@
       "json-summary",
       "text"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx eslint **/src/*.js"
-    }
-  },
+  }, 
   "resolutions": {
     "react-scripts/jest": "23.3.0"
   }
