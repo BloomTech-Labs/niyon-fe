@@ -87,7 +87,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run eslint **/src/*.js"
+      "pre-commit": "npx eslint **/src/*.js"
     }
   },
   "resolutions": {

@@ -8,7 +8,7 @@ function Marketing () {
       <Navbar />
       <MarketingButtons />
     </div>
-       )
+  )
 };
 
-export default Marketing;
+export default Marketing
