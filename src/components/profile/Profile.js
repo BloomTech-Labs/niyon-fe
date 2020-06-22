@@ -68,7 +68,6 @@ function Profile (props) {
       ...inputs,
       techs: technologies
     })
-    console.log(inputs.techs)
     setUser({
       ...inputs,
       techs: technologies
@@ -156,7 +155,6 @@ function Profile (props) {
         />
         <button
           onClick={() => {
-            console.log('inputs from state', inputs)
             handleOnSave()
           }}
         >

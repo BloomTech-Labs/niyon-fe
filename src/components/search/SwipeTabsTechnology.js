@@ -48,10 +48,7 @@ function SwipeTabsTechnology (props) {
   const [value, setValue] = useState(0)
   /*eslint-disable */
   const { user, setUser } = useContext(UserContext)
-
-  const myConnections = props.technologiesToDisplay
-
-  console.log('user from context in Swipe Tabs>>>', myConnections)
+  const myConnections = props.technologiesToDisplay 
 
   const handleChange = (event, newValue) => {
     setValue(newValue)

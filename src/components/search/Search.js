@@ -24,7 +24,6 @@ export function Search (props) {
 
   const handleJobChange = (selectedItem) => {
     if (selectedItem) {
-      console.log(profiles)
       const usersToDisplayByJobTitle = profiles.filter(
         (job) => job.job_title_id === selectedItem.value
       )
@@ -42,8 +41,7 @@ export function Search (props) {
   }
 
   const handleTechChange = (selectedItem) => {
-    if (selectedItem) {
-      console.log('Selected technology', selectedItem)
+    if (selectedItem) {      
       const selectedTechStack = selectedItem.map(item => item.value)
       const usersWhoHaveSelectedTechs = []
       const mappingFunction = profiles.map(profile => {
@@ -51,9 +49,7 @@ export function Search (props) {
           usersWhoHaveSelectedTechs.push(profile)
           setTechnologiesToDisplay(usersWhoHaveSelectedTechs)
         }
-      })
-      console.log('selectedTechStack', selectedTechStack)
-      console.log('usersWhoHaveSelectedTechs', usersWhoHaveSelectedTechs)
+      })     
     }
   }
 
@@ -64,7 +60,6 @@ export function Search (props) {
         .then((res) => {
           if (res) {
             const data = res.data
-            console.log('API response', res.data)
             setProfiles(data)
           }
         })

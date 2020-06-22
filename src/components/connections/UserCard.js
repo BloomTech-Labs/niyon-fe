@@ -21,25 +21,17 @@ function UserCard (props) {
   const classes = useStyles()
   /*eslint-disable */
   const { user, setUser } = useContext(UserContext)
-
-  console.log('user from context in CARD>>>', user)
-
   const myRequests = user.myRequests
-
-  console.log('value>>>>', props.value)
-  // console.log("John Does requests>>>>", myRequests);
-
   const id = window.localStorage.getItem('id')
-
-  const payload = props.endpoint === 'request' ? { mentor_id: props.value.id } : { status: true, rejected: false, userReq: props.value.id }
-
+  const payload = props.endpoint === 'request'
+             ? { mentor_id: props.value.id } 
+             : { status: true, rejected: false, userReq: props.value.id }
   const handleRequest = () => {
     axiosWithAuth()
       .post(`/connection/${props.endpoint}/${id}`, payload)
       .then(res => console.log(res))
       .catch(err => console.log(err))
   }
-
   return (
     <React.Fragment>
       { myRequests && <Card className='userCard'>

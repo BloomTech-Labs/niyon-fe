@@ -52,7 +52,7 @@ function SwipeTabsConnections (props) {
 
   const myConnections = user.myConnections
 
-  console.log('user from context in Swipe Tabs>>>', myConnections)
+
 
   const handleChange = (event, newValue) => {
     setValue(newValue)

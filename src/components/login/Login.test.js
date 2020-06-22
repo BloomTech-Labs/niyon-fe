@@ -21,8 +21,7 @@ describe('<Login /> component testing', () => {
     expect(toJSON(component)).toMatchSnapshot()
   })
 
-  it('should render <Login /> component correctly', () => {
-    // console.log(component.debug());
+  it('should render <Login /> component correctly', () => {   
     expect(component.exists()).toBe(true)
   })
 
@@ -47,19 +46,5 @@ describe('<Login /> component testing', () => {
   it('should render the input for email correctly', () => {
     expect(component.find('input[type="password"]').exists()).toBe(true)
   })
-
-  describe('Form submission', () => {
-    // it('should show email error message if clicked on login button without email',  async () => {
-    //      await act(async () => {
-    //       const event = { preventDefault: jest.fn};
-    //       const form = component.find('form');
-    //      //  console.log(button.debug());
-    //       await form.props().onSubmit();
-    //       // console.log(component.debug());
-    //       expect(onMockSubmit).toHaveBeenCalled();
-    //      })
-
-    // });
-
-  })
+  
 })

@@ -48,13 +48,9 @@ function SwipeTabsJobTitle (props) {
   const [value, setValue] = useState(0)
   /*eslint-disable */
   const { user, setUser } = useContext(UserContext)
-
   const myConnections = props.jobTitlesToDisplay
-
-  console.log('user from context in Swipe Tabs>>>', myConnections)
-
   const endpoint = 'request'
-
+  
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
