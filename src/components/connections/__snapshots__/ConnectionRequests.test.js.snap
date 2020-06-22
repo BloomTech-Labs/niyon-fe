@@ -18,7 +18,7 @@ exports[`<ConnectionRequests /> component should match the snapshot test 1`] = `
       >
         Connection Requests (#)
       </h1>
-      <SwipeTabs />
+      <SwipeTabsRequests />
     </WithStyles(ForwardRef(Paper))>
   </div>
 </div>
