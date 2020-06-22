@@ -62,6 +62,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
     "jest-enzyme": "^7.1.2",
     "prettier": "^2.0.5",
     "prettier-eslint": "^11.0.0",
@@ -83,6 +84,11 @@
       "json-summary",
       "text"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run eslint **/src/*.js"
+    }
   },
   "resolutions": {
     "react-scripts/jest": "23.3.0"
