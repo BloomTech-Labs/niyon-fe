@@ -44,14 +44,14 @@ export function Search (props) {
     if (selectedItem) {      
       const selectedTechStack = selectedItem.map(item => item.value)
       const usersWhoHaveSelectedTechs = []
-      const mappingFunction = profiles.map(profile => {
+         const mappingFunction = profiles.map(profile => {
         if (selectedTechStack.every(value => profile.techs.includes(value))) {
-          usersWhoHaveSelectedTechs.push(profile)
+              usersWhoHaveSelectedTechs.push(profile)
           setTechnologiesToDisplay(usersWhoHaveSelectedTechs)
         }
       })     
     }
-  }
+  };
 
   useEffect(() => {
     const apiCall = async () => {
@@ -84,15 +84,7 @@ export function Search (props) {
             data-test="job-title-search"
           />
           <p>Users with Selected Job Title</p>
-          <SwipeTabsJobTitle jobTitlesToDisplay={jobTitlesToDisplay} />
-          {/* {jobTitlesToDisplay.map((profile) => (
-            <div key={profile.id}>
-              {profile.first_name}
-              {profile.last_name}
-              {profile.user_type}
-              {profile.location}
-            </div>
-          ))} */}
+          <SwipeTabsJobTitle jobTitlesToDisplay={jobTitlesToDisplay} />          
           <h2>Location</h2>
           <Select
             name="location_id"
@@ -102,15 +94,7 @@ export function Search (props) {
             onChange={handleLocationChange}
           />
           <p>Users with Selected Location</p>
-          <SwipeTabsLocation locationsToDisplay={locationsToDisplay} />
-          {/* {locationsToDisplay.map((profile) => (
-            <div key={profile.id}>
-              {profile.first_name}
-              {profile.last_name}
-              {profile.user_type}
-              {profile.location}
-            </div>
-          ))} */}
+          <SwipeTabsLocation locationsToDisplay={locationsToDisplay} />          
           <h2>Technologies</h2>
           <Select
             isMulti
@@ -121,15 +105,7 @@ export function Search (props) {
             onChange={handleTechChange}
           />
           <p>Users with Selected Technology</p>
-          <SwipeTabsTechnology technologiesToDisplay={technologiesToDisplay} />
-          {/* {technologiesToDisplay.map((profile) => (
-            <div key={profile.id}>
-              {profile.first_name}
-              {profile.last_name}
-              {profile.user_type}
-              {profile.location}
-            </div>
-          ))} */}
+          <SwipeTabsTechnology technologiesToDisplay={technologiesToDisplay} />         
         </div>
       </div>
       <Footer value={2} />

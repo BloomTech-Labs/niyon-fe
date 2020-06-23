@@ -61,14 +61,7 @@ describe('<Search /> component testing', () => {
       expect(setState).toHaveBeenCalled()
   })
 
-  it('should render the selected job title paragraph correctly', () => {
-    expect(component.find('p').length).toBe(1)
-    expect(component.find('p')
-      .render()
-      .text()
-      .trim())
-      .toEqual('Users with Selected Job Title')
-  })
+  
 
   it('should render profiles container correctly', () => {
     const container = findByTestAttr(component, 'search-profile')
@@ -83,8 +76,7 @@ describe('<Search /> component testing', () => {
       let selectWrapper;
       const setState = jest.fn();
       const useStateSpy = jest.spyOn(React, 'useState');
-      useStateSpy.mockImplementation((init) => [init, setState]);
-      const handleChange = setState();
+      useStateSpy.mockImplementation((init) => [init, setState]);      
       beforeEach(() => {
           selectWrapper = component.find('Select');
       });
@@ -96,7 +88,8 @@ describe('<Search /> component testing', () => {
 
     it('it should change the job title on change correctly', () => {
         const searchContainer = findByTestAttr(component, 'search-container');
-        const select = findByTestAttr(searchContainer, 'job-title-search');          
+        const select = findByTestAttr(searchContainer, 'job-title-search');  
+        const handleChange = setState();        
         select.first().props().onChange(handleChange);
         expect(setState).toHaveBeenCalled();
     });
