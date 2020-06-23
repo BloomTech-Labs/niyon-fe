@@ -46,7 +46,7 @@ function UserCard (props) {
             <p>{props.value.location}</p>
           </Typography>
           <Typography variant="h6" gutterBottom>
-            <p>{props.value.job}</p>
+            <p>{props.value.job_title}</p>
           </Typography>
         </div>
         <div className='addIcon'>

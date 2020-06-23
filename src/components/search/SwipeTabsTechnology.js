@@ -71,8 +71,8 @@ function SwipeTabsTechnology (props) {
           variant="fullWidth"
           aria-label="tabs"
         >
-          <Tab className="tabStyles" label="Mentors (#)" {...a11yProps(0)} />
-          <Tab label="Mentees (#)" {...a11yProps(1)} />
+          <Tab className="tabStyles" label="Mentors" {...a11yProps(0)} />
+          <Tab label="Mentees" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
 

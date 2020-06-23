@@ -52,8 +52,6 @@ function SwipeTabsRequests (props) {
 
   const myRequests = user.myRequests
 
-  console.log('user from context in Swipe Tabs>>>', myRequests)
-
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
@@ -75,8 +73,8 @@ function SwipeTabsRequests (props) {
           variant="fullWidth"
           aria-label="tabs"
         >
-          <Tab className="tabStyles" label="Mentors (#)" {...a11yProps(0)} />
-          <Tab label="Mentees (#)" {...a11yProps(1)} />
+          <Tab className="tabStyles" label="Mentors" {...a11yProps(0)} />
+          <Tab label="Mentees" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
 
