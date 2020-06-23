@@ -50,7 +50,6 @@ function SwipeTabsJobTitle (props) {
   const { user, setUser } = useContext(UserContext)
   const myConnections = props.jobTitlesToDisplay
   const endpoint = 'request'
-  
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }
@@ -70,8 +69,8 @@ function SwipeTabsJobTitle (props) {
           variant="fullWidth"
           aria-label="tabs"
         >
-          <Tab className="tabStyles" label="Mentors (#)" {...a11yProps(0)} />
-          <Tab label="Mentees (#)" {...a11yProps(1)} />
+          <Tab className="tabStyles" label="Mentors" {...a11yProps(0)} />
+          <Tab label="Mentees" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
 

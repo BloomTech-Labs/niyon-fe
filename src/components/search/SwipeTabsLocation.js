@@ -50,7 +50,7 @@ function SwipeTabsLocation (props) {
   const { user, setUser } = useContext(UserContext)
 
   const myConnections = props.locationsToDisplay
-
+  const endpoint = 'request'
   console.log('user from context in Swipe Tabs>>>', myConnections)
 
   const handleChange = (event, newValue) => {
@@ -72,8 +72,8 @@ function SwipeTabsLocation (props) {
           variant="fullWidth"
           aria-label="tabs"
         >
-          <Tab className="tabStyles" label="Mentors (#)" {...a11yProps(0)} />
-          <Tab label="Mentees (#)" {...a11yProps(1)} />
+          <Tab className="tabStyles" label="Mentors" {...a11yProps(0)} />
+          <Tab label="Mentees" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
 
@@ -87,7 +87,7 @@ function SwipeTabsLocation (props) {
             <div>
               {myConnections.length > 0 && myConnections.map(request => {
                 if (request.user_type.trim().toLowerCase() === 'mentor') {
-                  return <UserCard value={request}/>
+                  return <UserCard value={request} endpoint={endpoint}/>
                 }
               }) }
             </div>
@@ -96,7 +96,7 @@ function SwipeTabsLocation (props) {
             <div>
               {myConnections.length > 0 && myConnections.map(request => {
                 if (request.user_type.trim().toLowerCase() === 'mentee') {
-                  return <UserCard value={request}/>
+                  return <UserCard value={request} endpoint={endpoint}/>
                 }
               }) }
             </div>

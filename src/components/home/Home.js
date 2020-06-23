@@ -15,6 +15,8 @@ const Home = (props) => {
   const [profilesToDisplay, setProfilesToDisplay] = useState([])
 /*eslint-disable */
   const [requests, setRequests] = useState([])
+  const [sumConnections, setSumConnections] = useState(0)
+  const [sumRequests, setSumRequests] = useState(0)
 
   useEffect(() => {
     const apiCall = async () => {
@@ -24,6 +26,8 @@ const Home = (props) => {
           if (res) {
             setUser({ ...user, ...res.data })
             setRequests(res.data.myRequests)
+            setSumConnections(res.data.myConnections.length)
+            setSumRequests(res.data.myRequests.length)
           }
         })
         .catch((err) => console.log(err))
@@ -34,9 +38,9 @@ const Home = (props) => {
   return (
     <div className="home" data-test="home-container">
       <Header />
-      <Connections />
-      <ConnectionRequests requests={user.myRequests}/>
-      <RecommendedConnections />
+      <Connections sumConnections={sumConnections} />
+      <ConnectionRequests requests={user.myRequests} sumRequests={sumRequests}/>
+      {/* <RecommendedConnections /> */}
       <Footer value={0} />
     </div>
   )
