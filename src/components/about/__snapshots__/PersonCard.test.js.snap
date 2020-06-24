@@ -15,14 +15,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/CB.jpeg"
+        src="CB.jpeg"
       />
     </a>
     <h2>
       Carlos Banks
     </h2>
     <p>
-      Frontend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -35,14 +35,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/KB.jpeg"
+        src="KB.jpeg"
       />
     </a>
     <h2>
       Kenneth Brook
     </h2>
     <p>
-      Frontend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -55,14 +55,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/FF.jpeg"
+        src="FF.jpeg"
       />
     </a>
     <h2>
       Farjad Fazli
     </h2>
     <p>
-      Frontend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -75,14 +75,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/TM.jpeg"
+        src="TM.jpeg"
       />
     </a>
     <h2>
       Tim Mitzen
     </h2>
     <p>
-      Backend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -95,14 +95,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/JT.jpeg"
+        src="JT.jpeg"
       />
     </a>
     <h2>
       Joe Thompson
     </h2>
     <p>
-      Backend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -115,14 +115,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/VY.jpeg"
+        src="VY.jpeg"
       />
     </a>
     <h2>
       Venky Yagatilee
     </h2>
     <p>
-      Front Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -130,19 +130,39 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
     key="6"
   >
     <a
+      href="https://github.com/jeremyRogel"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="JR.jpeg"
+      />
+    </a>
+    <h2>
+      Jeremy Rogel
+    </h2>
+    <p>
+      Team Lead (RC2)
+    </p>
+  </div>
+  <div
+    data-test="person-image-container"
+    key="7"
+  >
+    <a
       href="https://github.com/CarlosVillalpandoJr"
     >
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/CV.jpeg"
+        src="CV.jpeg"
       />
     </a>
     <h2>
       Carlos Villalpando
     </h2>
     <p>
-      Project Manager
+      Team Lead (RC1)
     </p>
   </div>
 </div>
