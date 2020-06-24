@@ -7,5 +7,7 @@
     "niyon",
     "playlyfe",
     "swipeable"
-  ]
+  ],
+  "editor.formatOnSave": true,
+  "prettier.eslintIntegration": true
 }
