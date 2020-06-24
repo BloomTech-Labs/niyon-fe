@@ -32,8 +32,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint": "eslint **/*.js",
-    "lint:fix": "eslint **/*.js --fix",
+    "lint": "eslint '**/*.js'",
+    "lint:fix": "eslint '**/*.js' --fix",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
@@ -45,10 +45,9 @@
       "pre-commit": "lint-staged"
     }
   },
-
   "lint-staged": {
     "*.js": [
-      "npm run lint:fix",     
+      "npm run lint:fix",
       "git add"
     ]
   },
@@ -99,7 +98,7 @@
       "json-summary",
       "text"
     ]
-  }, 
+  },
   "resolutions": {
     "react-scripts/jest": "23.3.0"
   }

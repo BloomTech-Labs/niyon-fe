@@ -83,8 +83,15 @@ export function Search (props) {
             onChange={handleJobChange}
             data-test="job-title-search"
           />
-          <p>Users with Selected Job Title</p>
-          <SwipeTabsJobTitle jobTitlesToDisplay={jobTitlesToDisplay} />          
+          <SwipeTabsJobTitle jobTitlesToDisplay={jobTitlesToDisplay} />
+          {/* {jobTitlesToDisplay.map((profile) => (
+            <div key={profile.id}>
+              {profile.first_name}
+              {profile.last_name}
+              {profile.user_type}
+              {profile.location}
+            </div>
+          ))} */}
           <h2>Location</h2>
           <Select
             name="location_id"
@@ -93,8 +100,15 @@ export function Search (props) {
             classNamePrefix="select"
             onChange={handleLocationChange}
           />
-          <p>Users with Selected Location</p>
-          <SwipeTabsLocation locationsToDisplay={locationsToDisplay} />          
+          <SwipeTabsLocation locationsToDisplay={locationsToDisplay} />
+          {/* {locationsToDisplay.map((profile) => (
+            <div key={profile.id}>
+              {profile.first_name}
+              {profile.last_name}
+              {profile.user_type}
+              {profile.location}
+            </div>
+          ))} */}
           <h2>Technologies</h2>
           <Select
             isMulti
@@ -104,8 +118,7 @@ export function Search (props) {
             classNamePrefix="select"
             onChange={handleTechChange}
           />
-          <p>Users with Selected Technology</p>
-          <SwipeTabsTechnology technologiesToDisplay={technologiesToDisplay} />         
+          <SwipeTabsTechnology technologiesToDisplay={technologiesToDisplay} />
         </div>
       </div>
       <Footer value={2} />

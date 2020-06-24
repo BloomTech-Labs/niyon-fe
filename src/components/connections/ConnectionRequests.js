@@ -9,7 +9,7 @@ function ConnectionRequests (props) {
       <div data-test="second-wrapper">
         <Paper className="paper" elevation={1}>
           <h1 className="container-header" data-test="my-connections">
-          Connection Requests (#)
+          Connection Requests ({props.sumRequests})
           </h1>
           <SwipeTabsRequests/>
         </Paper>

@@ -50,9 +50,11 @@ function SwipeTabsTechnology (props) {
   const { user, setUser } = useContext(UserContext)
   const myConnections = props.technologiesToDisplay 
 
+  const endpoint = "request"
+
   const handleChange = (event, newValue) => {
     setValue(newValue)
-  }
+  } 
 
   const handleChangeIndex = (index) => {
     setValue(index)
@@ -69,8 +71,8 @@ function SwipeTabsTechnology (props) {
           variant="fullWidth"
           aria-label="tabs"
         >
-          <Tab className="tabStyles" label="Mentors (#)" {...a11yProps(0)} />
-          <Tab label="Mentees (#)" {...a11yProps(1)} />
+          <Tab className="tabStyles" label="Mentors" {...a11yProps(0)} />
+          <Tab label="Mentees" {...a11yProps(1)} />
         </Tabs>
       </AppBar>
 
@@ -84,7 +86,7 @@ function SwipeTabsTechnology (props) {
             <div>
               {myConnections.length > 0 && myConnections.map(request => {
                 if (request.user_type.trim().toLowerCase() === 'mentor') {
-                  return <UserCard value={request}/>
+                  return <UserCard value={request} endpoint={endpoint} />
                 }
               }) }
             </div>
@@ -93,7 +95,7 @@ function SwipeTabsTechnology (props) {
             <div>
               {myConnections.length > 0 && myConnections.map(request => {
                 if (request.user_type.trim().toLowerCase() === 'mentee') {
-                  return <UserCard value={request}/>
+                  return <UserCard value={request} endpoint={endpoint} />
                 }
               }) }
             </div>
@@ -102,7 +104,6 @@ function SwipeTabsTechnology (props) {
         {!myConnections && <p>No connection requests....</p>}
       </React.Fragment>
     </div>
-
   )
 }
 
