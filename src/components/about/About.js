@@ -1,8 +1,8 @@
-import React from "react";
-import Navbar from "../navbar/Navbar";
-import PersonCard from "./PersonCard";
+import React from 'react'
+import Navbar from '../navbar/Navbar'
+import PersonCard from './PersonCard'
 
-function About(props) {
+function About (props) {
   return (
     <div>
       <Navbar />
@@ -11,7 +11,7 @@ function About(props) {
         <PersonCard />
       </div>
     </div>
-  );
+  )
 }
 
-export default About;
+export default About

@@ -1,84 +1,84 @@
-import React from "react";
-import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
-import List from "@material-ui/core/List";
-import MenuIcon from "@material-ui/icons/Menu";
-import CloseIcon from "@material-ui/icons/Close";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+import React from 'react'
+import AppBar from '@material-ui/core/AppBar'
+import Button from '@material-ui/core/Button'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import Drawer from '@material-ui/core/Drawer'
+import Hidden from '@material-ui/core/Hidden'
+import IconButton from '@material-ui/core/IconButton'
+import List from '@material-ui/core/List'
+import MenuIcon from '@material-ui/icons/Menu'
+import CloseIcon from '@material-ui/icons/Close'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { Link } from 'react-router-dom'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
+    display: 'flex'
   },
   drawer: {
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
-      flexShrink: 0,
-    },
+      flexShrink: 0
+    }
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 1
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
-      display: "none",
-    },
+    [theme.breakpoints.up('sm')]: {
+      display: 'none'
+    }
   },
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
-    width: drawerWidth,
+    width: drawerWidth
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(3)
   },
   closeMenuButton: {
-    marginRight: "auto",
-    marginLeft: 0,
+    marginRight: 'auto',
+    marginLeft: 0
   },
   buttons: {
-    margin: "20% auto 0 auto",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: "10px",
+    margin: '20% auto 0 auto',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: '10px'
   },
   button: {
-    width: "250px",
-    borderRadius: "50px",
-    height: "50px",
-    margin: "15px 0",
-    textTransform: "capitalize",
+    width: '250px',
+    borderRadius: '50px',
+    height: '50px',
+    margin: '15px 0',
+    textTransform: 'capitalize'
   },
   list: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "start",
-    paddingLeft: "10px",
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'start',
+    paddingLeft: '10px'
   },
   menulink: {
-    color: "black",
-    textTransform: "capitalize",
-    textDecoration: "none",
-  },
-}));
+    color: 'black',
+    textTransform: 'capitalize',
+    textDecoration: 'none'
+  }
+}))
 
-function Navbar(props) {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  function handleDrawerToggle() {
-    setMobileOpen(!mobileOpen);
+function Navbar (props) {
+  const classes = useStyles()
+  const theme = useTheme()
+  const [mobileOpen, setMobileOpen] = React.useState(false)
+  function handleDrawerToggle () {
+    setMobileOpen(!mobileOpen)
   }
   const drawer = (
     <div>
@@ -91,7 +91,7 @@ function Navbar(props) {
         </Link>
       </List>
     </div>
-  );
+  )
   return (
     <div className={classes.root} data-test="navbar-container">
       <CssBaseline />
@@ -119,14 +119,14 @@ function Navbar(props) {
         <Hidden smUp implementation="css">
           <Drawer
             variant="temporary"
-            anchor={theme.direction === "rtl" ? "right" : "left"}
+            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
             onClose={handleDrawerToggle}
             classes={{
-              paper: classes.drawerPaper,
+              paper: classes.drawerPaper
             }}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true // Better open performance on mobile.
             }}
           >
             <IconButton
@@ -143,7 +143,7 @@ function Navbar(props) {
             className={classes.drawer}
             variant="permanent"
             classes={{
-              paper: classes.drawerPaper,
+              paper: classes.drawerPaper
             }}
           >
             <div className={classes.toolbar} />
@@ -152,7 +152,7 @@ function Navbar(props) {
         </Hidden>
       </nav>
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

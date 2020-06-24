@@ -1,0 +1,13 @@
+{
+  "cSpell.words": [
+    "browserslist",
+    "chracters",
+    "inmemory",
+    "lcov",
+    "niyon",
+    "playlyfe",
+    "swipeable"
+  ],
+  "editor.formatOnSave": true,
+  "prettier.eslintIntegration": true
+}

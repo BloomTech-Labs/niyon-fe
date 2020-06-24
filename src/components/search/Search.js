@@ -1,72 +1,72 @@
-import React, { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../UserContext";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
-import Select from "react-select";
-import { job } from "../profile/job";
-import { location } from "../profile/location";
-import { technology } from "../profile/technologies";
-import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
+import React, { useContext, useState, useEffect } from 'react'
+import { UserContext } from '../../UserContext'
+import Header from '../header/Header'
+import Footer from '../footer/Footer'
+import Select from 'react-select'
+import { job } from '../profile/job'
+import { location } from '../profile/location'
+import { technology } from '../profile/technologies'
+import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import SwipeTabsJobTitle from './SwipeTabsJobTitle'
+import SwipeTabsLocation from './SwipeTabsLocation'
+import SwipeTabsTechnology from './SwipeTabsTechnology'
 
-export function Search(props) {
-  const { user, setUser } = useContext(UserContext);
-  const [profiles, setProfiles] = useState([]);
-  const [jobTitlesToDisplay, setJobTitlesToDisplay] = useState([]);
-  const [locationsToDisplay, setLocationsToDisplay] = useState([]);
-  const [technologiesToDisplay, setTechnologiesToDisplay] = useState([]);
-  const jobs = job;
-  const locations = location;
-  const technologies = technology;
+export function Search (props) {
+  /*eslint-disable */
+  const { user, setUser } = useContext(UserContext)
+  const [profiles, setProfiles] = useState([])
+  const [jobTitlesToDisplay, setJobTitlesToDisplay] = useState([])
+  const [locationsToDisplay, setLocationsToDisplay] = useState([])
+  const [technologiesToDisplay, setTechnologiesToDisplay] = useState([])
+  const jobs = job
+  const locations = location
+  const technologies = technology
 
   const handleJobChange = (selectedItem) => {
-
-    if (selectedItem) {    
+    if (selectedItem) {
       const usersToDisplayByJobTitle = profiles.filter(
-        (user) => user.job_title_id === selectedItem.value
-      );     
-      setJobTitlesToDisplay(usersToDisplayByJobTitle);
+        (job) => job.job_title_id === selectedItem.value
+      )
+      setJobTitlesToDisplay(usersToDisplayByJobTitle)
     }
-  };
+  }
 
   const handleLocationChange = (selectedItem) => {
-    if (selectedItem) {     
+    if (selectedItem) {
       const usersToDisplayByLocation = profiles.filter(
         (location) => location.location_id === selectedItem.value
-      );     
-      setLocationsToDisplay(usersToDisplayByLocation);
+      )
+      setLocationsToDisplay(usersToDisplayByLocation)
     }
-  };
+  }
 
   const handleTechChange = (selectedItem) => {
-    if (selectedItem) {
-      console.log("Selected technology", selectedItem)
+    if (selectedItem) {      
       const selectedTechStack = selectedItem.map(item => item.value)
-      const usersWhoHaveSelectedTechs = [];
+      const usersWhoHaveSelectedTechs = []
       const mappingFunction = profiles.map(profile => {
         if (selectedTechStack.every(value => profile.techs.includes(value))) {
-          usersWhoHaveSelectedTechs.push(profile);
+          usersWhoHaveSelectedTechs.push(profile)
           setTechnologiesToDisplay(usersWhoHaveSelectedTechs)
         }
-      })
-      console.log('selectedTechStack', selectedTechStack)
-      console.log("usersWhoHaveSelectedTechs", usersWhoHaveSelectedTechs);
-  }}
+      })     
+    }
+  }
 
   useEffect(() => {
     const apiCall = async () => {
       await axiosWithAuth()
-        .get("/profile")
+        .get('/profile')
         .then((res) => {
           if (res) {
-            let data = res.data;
-            console.log("API response", res.data);
-            setProfiles(data);
+            const data = res.data
+            setProfiles(data)
           }
         })
-        .catch((err) => console.log(err));
-    };
-    apiCall();
-  }, []);
+        .catch((err) => console.log(err))
+    }
+    apiCall()
+  }, [])
 
   return (
     <div>
@@ -83,15 +83,15 @@ export function Search(props) {
             onChange={handleJobChange}
             data-test="job-title-search"
           />
-          <p>Users with Selected Job Title</p>
-          {jobTitlesToDisplay.map((profile) => (
+          <SwipeTabsJobTitle jobTitlesToDisplay={jobTitlesToDisplay} />
+          {/* {jobTitlesToDisplay.map((profile) => (
             <div key={profile.id}>
               {profile.first_name}
               {profile.last_name}
               {profile.user_type}
               {profile.location}
             </div>
-          ))}
+          ))} */}
           <h2>Location</h2>
           <Select
             name="location_id"
@@ -100,15 +100,15 @@ export function Search(props) {
             classNamePrefix="select"
             onChange={handleLocationChange}
           />
-          <p>Users with Selected Location</p>
-          {locationsToDisplay.map((profile) => (
+          <SwipeTabsLocation locationsToDisplay={locationsToDisplay} />
+          {/* {locationsToDisplay.map((profile) => (
             <div key={profile.id}>
               {profile.first_name}
               {profile.last_name}
               {profile.user_type}
               {profile.location}
             </div>
-          ))}
+          ))} */}
           <h2>Technologies</h2>
           <Select
             isMulti
@@ -118,20 +118,12 @@ export function Search(props) {
             classNamePrefix="select"
             onChange={handleTechChange}
           />
-          <p>Users with Selected Technology</p>
-          {technologiesToDisplay.map((profile) => (
-            <div key={profile.id}>
-              {profile.first_name}
-              {profile.last_name}
-              {profile.user_type}
-              {profile.location}
-            </div>
-          ))}
+          <SwipeTabsTechnology technologiesToDisplay={technologiesToDisplay} />
         </div>
       </div>
       <Footer value={2} />
     </div>
-  );
+  )
 }
 
-export default Search;
+export default Search

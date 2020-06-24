@@ -1,5 +1,5 @@
-import React from "react";
-import teamMembers from "./TeamMembers";
+import React from 'react'
+import teamMembers from './TeamMembers'
 
 const PersonCard = (props) => {
   return (
@@ -17,10 +17,10 @@ const PersonCard = (props) => {
             <h2>{teamMember.name}</h2>
             <p>{teamMember.position}</p>
           </div>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default PersonCard;
+export default PersonCard

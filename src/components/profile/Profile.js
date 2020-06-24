@@ -1,95 +1,94 @@
-import React, { useState, useContext } from "react";
-import { UserContext } from "../../UserContext";
-import Select from "react-select";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
-import { technology } from "./technologies";
-import { location } from "./location";
-import { job } from "./job";
-import { axiosWithAuth } from "../apiStuff/axiosWithAuth";
-import TextField from "@material-ui/core/TextField";
+import React, { useState, useContext } from 'react'
+import { UserContext } from '../../UserContext'
+import Select from 'react-select'
+import Header from '../header/Header'
+import Footer from '../footer/Footer'
+import { technology } from './technologies'
+import { location } from './location'
+import { job } from './job'
+import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import TextField from '@material-ui/core/TextField'
 
-function Profile(props) {
+function Profile (props) {
   const defaultState = {
-    first_name: "",
-    last_name: "",
-    bio: "",
+    first_name: '',
+    last_name: '',
+    bio: '',
     job_title_id: 0,
     location_id: 0,
-    techs: [],
-  };
-  const { user, setUser } = useContext(UserContext);
-  const [inputs, setInputs] = useState(defaultState);
-  const id = window.localStorage.getItem("id");
-  const technologies = technology;
-  const locations = location;
-  const jobs = job;
+    techs: []
+  }
+  const { user, setUser } = useContext(UserContext)
+  const [inputs, setInputs] = useState(defaultState)
+  const id = window.localStorage.getItem('id')
+  const technologies = technology
+  const locations = location
+  const jobs = job
 
   const handleOnSave = () => {
     axiosWithAuth()
       .post(`/profile/${id}`, inputs)
       .then((res) => {
         if (res) {
-          setUser({ ...res });
-          window.location = "/home";
+          setUser({ ...res })
+          window.location = '/home'
         }
       })
       .catch((err) => {
-        console.log(err);
-        setInputs(defaultState);
-        setUser(defaultState);
-      });
-  };
+        console.log(err)
+        setInputs(defaultState)
+        setUser(defaultState)
+      })
+  }
 
   const handleTextFieldChange = (event) => {
     setInputs({
       ...inputs,
-      [event.target.name]: event.target.value,
-    });
-  };
+      [event.target.name]: event.target.value
+    })
+  }
 
   const handleJobChange = (selectedItem) => {
     setInputs({
       ...inputs,
-      job_title_id: selectedItem.value,
-    });
-  };
+      job_title_id: selectedItem.value
+    })
+  }
 
   const handleLocationChange = (selectedItem) => {
     setInputs({
       ...inputs,
-      location_id: selectedItem.value,
-    });
-  };
+      location_id: selectedItem.value
+    })
+  }
 
   const handleTechChange = (selectedItem) => {
-    const technologies = selectedItem.map((item) => item.value);
+    const technologies = selectedItem.map((item) => item.value)
     setInputs({
       ...inputs,
-      techs: technologies,
-    });
-    console.log(inputs.techs);
+      techs: technologies
+    })
     setUser({
       ...inputs,
-      techs: technologies,
-    });
-  };
+      techs: technologies
+    })
+  }
 
-  let arrayFromContext = [];
+  let arrayFromContext = []
 
   const handleTechs = () => {
     if (user.techs) {
       arrayFromContext = technology.filter((item, index) => {
         if (user.techs.includes(index + 1)) {
-          return item;
+          return item
         } else {
-          return false;
+          return false
         }
-      });
+      })
     }
-  };
+  }
 
-  handleTechs();
+  handleTechs()
 
   return (
     <div>
@@ -156,8 +155,7 @@ function Profile(props) {
         />
         <button
           onClick={() => {
-            console.log("inputs from state", inputs);
-            handleOnSave();
+            handleOnSave()
           }}
         >
           Save
@@ -165,7 +163,7 @@ function Profile(props) {
       </div>
       <Footer value={1} />
     </div>
-  );
+  )
 }
 
-export default Profile;
+export default Profile
