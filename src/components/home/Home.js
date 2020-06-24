@@ -3,7 +3,7 @@ import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import Connections from '../connections/Connections'
 import ConnectionRequests from '../connections/ConnectionRequests'
-import RecommendedConnections from '../connections/RecommendedConnections'
+// import RecommendedConnections from '../connections/RecommendedConnections'
 import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
 import { UserContext } from '../../UserContext'
 
