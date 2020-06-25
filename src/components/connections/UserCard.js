@@ -26,12 +26,12 @@ function UserCard (props) {
   const payload = props.endpoint === 'request'
              ? { mentor_id: props.value.id } 
              : { status: true, rejected: false, userReq: props.value.id }
-  const handleRequest = () => {
+
+  const handleRequest = function() {
     axiosWithAuth()
-      .post(`/connection/${props.endpoint}/${id}`, payload)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
+      .post(`/connection/${props.endpoint}/${id}`, payload)      
   }
+  
   return (
     <React.Fragment>
       { myRequests && <Card className='userCard'>
