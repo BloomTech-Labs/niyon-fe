@@ -19,5 +19,4 @@ jobs:
            
         with:
           coverageCommand: npm run coverage
-          coverageLocations: "./niyon-fe/coverage/lcov.info:lcov" 
           debug: true
