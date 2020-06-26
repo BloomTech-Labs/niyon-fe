@@ -16,7 +16,8 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           CI: true
-          
+           
         with:
           coverageCommand: npm run coverage
+          coverageLocations: "./niyon-fe/coverage/lcov.info:lcov" 
           debug: true
