@@ -82,19 +82,21 @@
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0"
   },
-  "jest": {
-    "coverageReporters": [
-      "json-summary",
-      "text",
-      "lcov"
-    ],
+ "jest": {
     "collectCoverageFrom": [
-      "!**/coverage/**",
       "**/*.{js,jsx}",
       "!**/node_modules/**",
       "!**/vendor/**",
-      "!**/__test__/**",
-      "!**/*.spec.{js,jsx}"
+      "!**/_tests__/**",
+      "!**/*.{spec,test}.{js,jsx}",
+      "!**/coverage/**",
+      "!**/setUpTests.{js,jsx}",
+      "!**/index.{js,jsx}"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "json-summary",
+      "text"
     ]
   },
   "resolutions": {
