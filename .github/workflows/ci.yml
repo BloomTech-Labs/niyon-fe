@@ -20,5 +20,5 @@ jobs:
         with:
           coverageCommand: npm run coverage
           # Need to use Clover
-          coverageLocations: "${{github.workspace}}/niyon/coverage/clover.xml:clover"
+          coverageLocations: "./niyon/coverage/clover.xml:clover"
           debug: true
