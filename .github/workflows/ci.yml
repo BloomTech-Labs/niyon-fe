@@ -16,9 +16,7 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           CI: true
-          REACT_APP_BASE_URL: development
+          
         with:
           coverageCommand: npm run coverage
-          # Need to use Clover
-          coverageLocations: "./niyon/coverage/clover.xml:clover"
           debug: true
