@@ -50,7 +50,13 @@ function UserCard (props) {
           </Typography>
         </div>
         <div className='addIcon'>
-          <AddBoxIcon onClick={handleRequest} style={{ color: 'green' }} className='iconSize'/>
+          <AddBoxIcon 
+            onClick={handleRequest} 
+            style={{ color: 'green' }} 
+            className='iconSize'
+            data-test='add-box-icon'
+
+          />
         </div>
       </Card>}
       {/* {!myRequests && <p>Loading....</p>} */}

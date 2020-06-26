@@ -24,6 +24,6 @@ describe('<SwipeTabsJobTitle />', () => {
         expect(toJSON(wrapper)).toMatchSnapshot();
    })
    it('should render <SwipeTabsJobTitle /> component correctly', () => {
-        console.log(wrapper.debug())
+        // console.log(wrapper.debug())
    })
 })

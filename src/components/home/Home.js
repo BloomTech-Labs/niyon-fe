@@ -18,24 +18,18 @@ const Home = (props) => {
   const [sumConnections, setSumConnections] = useState(0)
   const [sumRequests, setSumRequests] = useState(0)
 
-  useEffect(() => {
-    const apiCall = async () => {
-      await axiosWithAuth()
-        .get(`/profile/${id}`)
-        .then((res) => {
-          if (res) {
-            console.log('Home response>>>', res);
-            setUser({ ...user, ...res.data })
-            setRequests(res.data.myRequests)
-            setSumConnections(res.data.myConnections.length)
-            setSumRequests(res.data.myRequests.length)
-          }
-        })
-        .catch((err) => console.log(err))
-    }
-    apiCall()
+  useEffect(async () => {
+      try {
+       const res =  await axiosWithAuth().get(`/profile/${id}`);                   
+          setUser({ ...user, ...res.data })
+          setRequests(res.data.myRequests)
+          setSumConnections(res.data.myConnections.length)
+          setSumRequests(res.data.myRequests.length)
+      
+      }catch(err) {
+           console.log(err)
+      }   
   }, [])
-
   return (
     <div className="home" data-test="home-container">
       <Header />
