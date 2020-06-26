@@ -64,7 +64,7 @@ describe('<UserCard /> component', () => {
   })
 
   it('should render Avatar image correctly',() => {
-      // console.log(component.debug())
+      console.log(component.debug())
       expect(component.find('img').exists()).toBe(true)
       expect(component.find('img').length).toBe(1)
   })
@@ -95,12 +95,12 @@ describe('<UserCard /> component', () => {
      expect(component.find('div.addIcon').length).toBe(1);
   })
 
-  // it('should send the add request when the user clicks on add button', () => {
-  //     const addButton = component.find('div.addIcon').find('svg');
-  //     console.log(addButton.props())
-  //     expect(addButton.exists()).toBe(true);
-  //     addButton.props().onClick(handleClick)
-  //     expect(handleClick).toHaveBeenCalled();
-  // })
+  it('should send the add request when the user clicks on add button', () => {
+      const spyClick = jest.spyOn(component, 'handleRequest')
+      const addButton = component.find('div.addIcon').find('svg');
+      expect(addButton.exists()).toBe(true);
+      addButton.simulate('click')
+      expect(spyClick).toHaveBeenCalled();
+  })
     
 })

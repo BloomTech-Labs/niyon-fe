@@ -24,6 +24,7 @@ const Home = (props) => {
         .get(`/profile/${id}`)
         .then((res) => {
           if (res) {
+            console.log('Home response>>>', res);
             setUser({ ...user, ...res.data })
             setRequests(res.data.myRequests)
             setSumConnections(res.data.myConnections.length)

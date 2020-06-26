@@ -27,7 +27,7 @@ function UserCard (props) {
              ? { mentor_id: props.value.id } 
              : { status: true, rejected: false, userReq: props.value.id }
 
-  const handleRequest = function() {
+  const handleRequest = () => {
     axiosWithAuth()
       .post(`/connection/${props.endpoint}/${id}`, payload)      
   }

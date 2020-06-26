@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper'
 import SwipeTabsConnections from './SwipeTabsConnections'
 
 export default function Connections (props) {
+  console.log('connection props', props)
   return (
     <div className="connections" data-test="connections">
       <div data-test="second-wrapper">
