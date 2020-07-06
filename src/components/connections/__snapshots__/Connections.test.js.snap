@@ -17,7 +17,8 @@ exports[`<Connections /> component testing should match snapshot tests 1`] = `
         className="container-header"
         data-test="my-connections"
       >
-        My Connections (Sum)
+        My Connections (
+        )
       </h1>
       <div>
         <SwipeTabsConnections />
