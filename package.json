@@ -34,10 +34,10 @@
     "build": "react-scripts build",
     "lint": "eslint **/*.js",
     "lint:fix": "eslint **/*.js --fix",
-    "test": "react-scripts test",
+    "test": "react-scripts test --coverage --watchAll=false",
     "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
-    "coverage": "CI=true npm test --coverage --watchAll=false || true",
+    "coverage": "CI=true npm test || true",
     "eject": "react-scripts eject"
   },
   "husky": {
