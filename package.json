@@ -30,13 +30,15 @@
     "yup": "^0.28.5"
   },
  "scripts": {
-      "start": "react-scripts start",
-      "build": "react-scripts build",
-      "test": "react-scripts test --coverage --watchAll=false",
-      "testDev": "react-scripts test --verbose --watch",
-      "eject": "react-scripts eject",
-      "format": "prettier \"**/*.{ts,tsx,html}\" --write",
-      "coverage": "CI=true npm run test || true"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --coverage --watchAll=false",
+    "local:test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint .",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "npm run lint:js -- --fix",
+    "coverage": "CI=true npm run test || true"
    },
    "jest": {
       "coverageReporters": [
