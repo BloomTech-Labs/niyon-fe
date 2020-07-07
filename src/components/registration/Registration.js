@@ -19,6 +19,7 @@ const Registration = (props) => {
       .then((res) => {
         window.localStorage.setItem('token', res.data.token)
         window.localStorage.setItem('id', res.data.user.id)
+        window.localStorage.setItem('darkmode', false)
         window.location = '/profile'
       })
       .catch((err) => {
@@ -37,7 +38,9 @@ const Registration = (props) => {
           ref={register({ required: true })}
         />
         {errors.email && (
-          <p style={{ color: 'orange', marginTop: 10 }}>Email is required</p> /*eslint-disable */
+          <p style={{ color: 'orange', marginTop: 10 }}>
+            Email is required
+          </p> /*eslint-disable */
         )}
         <input
           type="password"
@@ -46,9 +49,7 @@ const Registration = (props) => {
           ref={register({ required: true })}
         />
         {errors.password && (
-          <p style={{ color: 'orange', marginTop: 10 }}>
-            Password is required
-          </p>
+          <p style={{ color: "orange", marginTop: 10 }}>Password is required</p>
         )}
         <input
           type="password"
@@ -56,12 +57,12 @@ const Registration = (props) => {
           name="password2"
           ref={register({
             validate: (value) => {
-              return value === watch('password') // value is from password2 and watch will return value from password1
-            }
+              return value === watch("password"); // value is from password2 and watch will return value from password1
+            },
           })}
         />
         {errors.password2 && (
-          <p style={{ color: 'orange', marginTop: 10 }}>
+          <p style={{ color: "orange", marginTop: 10 }}>
             Passwords do not match
           </p>
         )}
@@ -72,7 +73,7 @@ const Registration = (props) => {
         <button type="submit">Register</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default Registration
+export default Registration;

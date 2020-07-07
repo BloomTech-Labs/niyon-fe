@@ -9,6 +9,7 @@ import PersonIcon from '@material-ui/icons/Person'
 import SettingsIcon from '@material-ui/icons/Settings'
 import Menu from '@material-ui/core/Menu'
 import { signOut } from '../apiStuff/signout'
+import { darkMode } from '../apiStuff/darkMode'
 import MenuItem from '@material-ui/core/MenuItem'
 import Brightness4Icon from '@material-ui/icons/Brightness4'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
@@ -41,7 +42,7 @@ function Footer (props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={(e) => darkMode(e)}>
           <Brightness4Icon />
           <div>&nbsp;Dark Mode</div>
         </MenuItem>
