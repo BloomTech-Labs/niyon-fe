@@ -29,17 +29,32 @@
     "sinon": "^9.0.2",
     "yup": "^0.28.5"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "lint": "eslint **/*.js",
-    "lint:fix": "eslint **/*.js --fix",
-    "test": "react-scripts test --coverage --watchAll=false",
-    "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
-    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
-    "coverage": "CI=true npm test || true",
-    "eject": "react-scripts eject"
-  },
+ "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --coverage --watchAll=false",
+      "testDev": "react-scripts test --verbose --watch",
+      "eject": "react-scripts eject",
+      "format": "prettier \"**/*.{ts,tsx,html}\" --write",
+      "coverage": "CI=true npm run test || true"
+   },
+   "jest": {
+      "coverageReporters": [
+         "json-summary",
+         "text",
+         "lcov"
+      ],
+      "collectCoverageFrom": [
+         "**/*.{js,jsx,ts,tsx}",
+         "!**/node_modules/**",
+         "!**/vendor/**",
+         "!**/__tests__/**",
+         "!**/coverage/**"
+      ]
+   },
+   "eslintConfig": {
+      "extends": "react-app"
+   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
@@ -82,23 +97,7 @@
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0"
   },
- "jest": {
-    "collectCoverageFrom": [
-      "**/*.{js,jsx}",
-      "!**/node_modules/**",
-      "!**/vendor/**",
-      "!**/_tests__/**",
-      "!**/*.{spec,test}.{js,jsx}",
-      "!**/coverage/**",
-      "!**/setUpTests.{js,jsx}",
-      "!**/index.{js,jsx}"
-    ],
-    "coverageReporters": [
-      "lcov",
-      "json-summary",
-      "text"
-    ]
-  },
+ 
   "resolutions": {
     "react-scripts/jest": "23.3.0"
   }
