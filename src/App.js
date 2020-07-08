@@ -1,34 +1,38 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { UserContext } from './UserContext'
+import { DarkModeContext } from './DarkModeContext'
 import Routes from './components/routes/Routes'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
 import './sass_master/index.scss'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 function App () {
+  const isDarkMode = window.localStorage.getItem('darkmode')
   const [user, setUser] = useState({})
-  const [mode, setMode] = useState(false)
-  const prefersDarkMode = window.addEventListener('storage', () => {
-    setMode(window.localStorage.getItem('darkmode'))
-    console.log('dark mode set to ', mode)
-  })
+  const [darkMode, setDarkMode] = useState(false)
+  const [mode, setMode] = useState(true)
+  useEffect(() => {
+    setMode(isDarkMode)
+  }, [isDarkMode])
   console.log('line 12 in App.js', mode)
   const theme = React.useMemo(
     () =>
       createMuiTheme({
         palette: {
-          type: mode ? 'dark' : 'dark'
+          type: darkMode ? 'dark' : 'light'
         }
       }),
-    [prefersDarkMode]
+    [darkMode]
   )
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Routes />
-      </ThemeProvider>
+      <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Routes />
+        </ThemeProvider>
+      </DarkModeContext.Provider>
     </UserContext.Provider>
   )
 }

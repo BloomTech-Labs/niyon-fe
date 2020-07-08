@@ -19,7 +19,6 @@ const Registration = (props) => {
       .then((res) => {
         window.localStorage.setItem('token', res.data.token)
         window.localStorage.setItem('id', res.data.user.id)
-        window.localStorage.setItem('darkmode', false)
         window.location = '/profile'
       })
       .catch((err) => {

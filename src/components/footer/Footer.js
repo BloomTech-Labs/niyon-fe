@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import BottomNavigation from '@material-ui/core/BottomNavigation'
@@ -9,10 +9,10 @@ import PersonIcon from '@material-ui/icons/Person'
 import SettingsIcon from '@material-ui/icons/Settings'
 import Menu from '@material-ui/core/Menu'
 import { signOut } from '../apiStuff/signout'
-import { darkMode } from '../apiStuff/darkMode'
 import MenuItem from '@material-ui/core/MenuItem'
 import Brightness4Icon from '@material-ui/icons/Brightness4'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+import { DarkModeContext } from '../../DarkModeContext'
 
 const useStyles = makeStyles({
   root: {
@@ -24,6 +24,7 @@ const useStyles = makeStyles({
 })
 
 function Footer (props) {
+  const { darkMode, setDarkMode } = useContext(DarkModeContext)
   const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   const handleClick = (event) => {
@@ -42,7 +43,7 @@ function Footer (props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={(e) => darkMode(e)}>
+        <MenuItem onClick={() => setDarkMode(!darkMode)}>
           <Brightness4Icon />
           <div>&nbsp;Dark Mode</div>
         </MenuItem>
