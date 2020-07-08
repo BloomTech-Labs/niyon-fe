@@ -12,6 +12,7 @@ import { signOut } from '../apiStuff/signout'
 import MenuItem from '@material-ui/core/MenuItem'
 import Brightness4Icon from '@material-ui/icons/Brightness4'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+import MenuBookIcon from '@material-ui/icons/MenuBook'
 import { DarkModeContext } from '../../DarkModeContext'
 
 const useStyles = makeStyles({
@@ -71,6 +72,12 @@ function Footer (props) {
           to="/search"
           label="Search"
           icon={<SearchIcon />}
+        />
+        <BottomNavigationAction
+          component={Link}
+          to="/news"
+          label="News"
+          icon={<MenuBookIcon />}
         />
         <BottomNavigationAction
           onClick={handleClick}
