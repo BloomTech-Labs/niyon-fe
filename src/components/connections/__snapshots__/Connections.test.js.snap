@@ -18,10 +18,7 @@ exports[`<Connections /> component testing should match snapshot tests 1`] = `
         data-test="my-connections"
       >
         My Connections (
-<<<<<<< HEAD
         1
-=======
->>>>>>> d5443855da4ee04b8664a7041f98d0b04e01d172
         )
       </h1>
       <div>

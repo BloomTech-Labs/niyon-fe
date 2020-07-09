@@ -266,7 +266,6 @@ exports[`<UserCard /> component should pass snapshot testing 1`] = `
             >
               <ForwardRef
                 className="iconSize"
-                data-test="add-box-icon"
                 onClick={[Function]}
                 style={
                   Object {
@@ -276,7 +275,6 @@ exports[`<UserCard /> component should pass snapshot testing 1`] = `
               >
                 <WithStyles(ForwardRef(SvgIcon))
                   className="iconSize"
-                  data-test="add-box-icon"
                   onClick={[Function]}
                   style={
                     Object {
@@ -299,7 +297,6 @@ exports[`<UserCard /> component should pass snapshot testing 1`] = `
                         "root": "MuiSvgIcon-root",
                       }
                     }
-                    data-test="add-box-icon"
                     onClick={[Function]}
                     style={
                       Object {
@@ -310,7 +307,6 @@ exports[`<UserCard /> component should pass snapshot testing 1`] = `
                     <svg
                       aria-hidden={true}
                       className="MuiSvgIcon-root iconSize"
-                      data-test="add-box-icon"
                       focusable="false"
                       onClick={[Function]}
                       style={
@@ -327,6 +323,10 @@ exports[`<UserCard /> component should pass snapshot testing 1`] = `
                   </ForwardRef(SvgIcon)>
                 </WithStyles(ForwardRef(SvgIcon))>
               </ForwardRef>
+              <ForwardRef(Popper)
+                anchorEl={null}
+                open={false}
+              />
             </div>
           </div>
         </ForwardRef(Paper)>
