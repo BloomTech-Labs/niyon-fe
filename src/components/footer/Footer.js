@@ -20,7 +20,12 @@ const useStyles = makeStyles({
     width: '100%',
     position: 'fixed',
     bottom: 0,
-    color: 'primary'
+    color: 'primary',
+    display: 'flex',
+    justifyContent: 'flex-start'
+  },
+  menuItem: {
+    margin: '0 -10px !important'
   }
 })
 
@@ -55,34 +60,38 @@ function Footer (props) {
       </Menu>
       <BottomNavigation value={props.value} showLabels className={classes.root}>
         <BottomNavigationAction
-          className="icon"
           component={Link}
           to="/home"
           label="Home"
           icon={<HomeIcon />}
+          className={classes.menuItem}
         />
         <BottomNavigationAction
           component={Link}
           to="/profile"
           label="Profile"
           icon={<PersonIcon />}
+          className={classes.menuItem}
         />
         <BottomNavigationAction
           component={Link}
           to="/search"
           label="Search"
           icon={<SearchIcon />}
+          className={classes.menuItem}
         />
         <BottomNavigationAction
           component={Link}
           to="/news"
           label="News"
           icon={<MenuBookIcon />}
+          className={classes.menuItem}
         />
         <BottomNavigationAction
           onClick={handleClick}
           label="Settings"
           icon={<SettingsIcon />}
+          className={classes.menuItem}
         />
       </BottomNavigation>
     </div>
