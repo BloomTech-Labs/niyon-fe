@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
+import NewsCard from './NewsCard'
 import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
 
 const News = (props) => {
@@ -18,14 +19,20 @@ const News = (props) => {
         })
         .catch((err) => console.log(err))
     }
-    apiCall()
+    if (news.length === 0) {
+      apiCall()
+    }
   }, [])
   console.log(news)
 
   return (
     <>
       <Header />
-
+      {
+        news.length > 0 && news.map((newsItem, index) => (
+          <NewsCard data={newsItem} key={index} />
+        ))
+      }
       <Footer />
     </>
   )
