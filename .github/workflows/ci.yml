@@ -1,8 +1,10 @@
 name: build
+
 on: [push, pull_request]
+
 jobs:
   coverage:
-    name: Test and publish test coverage to Code Climate
+    name: Test and publish test coverage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -12,8 +14,9 @@ jobs:
       - run: npm install
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
           CI: true
+           
         with:
           coverageCommand: npm run coverage
           debug: true
