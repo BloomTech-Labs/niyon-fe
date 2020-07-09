@@ -106,7 +106,7 @@ export default function NewsCard (props) {
           </Typography>
           <Typography paragraph>
             <div>
-              <a href= { url } rel='noopener noreferrer' target='_blank'>Click here to read more.</a>
+              <a href= { url } rel='noopener noreferrer' target='_blank'>Click here to read more on this.</a>
             </div>
           </Typography>
         </CardContent>
