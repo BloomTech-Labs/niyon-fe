@@ -54,6 +54,7 @@ export default function UserCard (props) {
       )
       .catch((err) => console.log(err));
   };
+
   return (
     <React.Fragment>
       {myRequests && (

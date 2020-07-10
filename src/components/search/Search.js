@@ -44,14 +44,14 @@ export function Search (props) {
     if (selectedItem) {      
       const selectedTechStack = selectedItem.map(item => item.value)
       const usersWhoHaveSelectedTechs = []
-      const mappingFunction = profiles.map(profile => {
+         const mappingFunction = profiles.map(profile => {
         if (selectedTechStack.every(value => profile.techs.includes(value))) {
-          usersWhoHaveSelectedTechs.push(profile)
+              usersWhoHaveSelectedTechs.push(profile)
           setTechnologiesToDisplay(usersWhoHaveSelectedTechs)
         }
       })     
     }
-  }
+  };
 
   useEffect(() => {
     const apiCall = async () => {

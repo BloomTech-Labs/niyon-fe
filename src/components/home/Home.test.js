@@ -1,34 +1,52 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import Home from './Home'
+import * as axios from "axios";
 import { MemoryRouter } from 'react-router-dom'
 import findByTestAttr from '../../tests/utils'
 import { UserContext } from '../../UserContext'
 import { fakeServer } from 'sinon'
 
+jest.mock("axios");
 const response = {
-  bio: 'xxxx',
-  email: 'mayuri@gmail.com',
-  first_name: 'mayuri',
-  id: 64,
-  job_title: 'Full Stack Web Developer',
-  job_title_id: 2,
-  last_name: 'gattu',
-  location: 'Lagos, Nigeria',
-  location_id: 2,
-  myConnections: [],
-  myRequests: [],
-  mySentRequests: [],
-  techs: [],
-  user_type: 'Mentor'
+  data: {
+    bio: 'test-bio',
+    email: 'test@gmail.com',
+    first_name: 'test-fn',
+    id: 64,
+    job_title: 'test-job-title',
+    job_title_id: 2,
+    last_name: 'test-ln',
+    location: 'location-1, location-2',
+    location_id: 2,
+    myConnections: [],
+    myRequests: [],
+    mySentRequests: [],
+    techs: [],
+    user_type: 'test-mentor'
+  }
 }
+
+
+
+
+
 describe('<Home /> component testing', () => {
+  // const axiosWithMock = jest.fn(() => {setUser({...response.data})})
   const setUser = jest.fn()
   const useStateSpy = jest.spyOn(React, 'useState')
   useStateSpy.mockImplementation((init) => [init, setUser])
+  const axiosWithMock = axios.get.mockImplementation(() => Promise.resolve({ data: {...response.data} }));
+  const useEffect = jest.spyOn(React, 'useEffect').mockImplementation( async (response) => await axiosWithMock().then((response => {
+         if(response) {
+          setUser({...response})
+         }
+          })), [])
+
   const user = {}
   let component
   let server
+  useEffect()
   beforeEach((done) => {
     const id = window.localStorage.getItem('id')
     server = fakeServer.create()
@@ -67,8 +85,8 @@ describe('<Home /> component testing', () => {
     expect(component.find('ConnectionRequests')).toHaveLength(1)
   })
 
-    it('should render <Footer /> component correctly', () => {
+  it('should render <Footer /> component correctly', () => {
        expect(component.find('Footer')).toHaveLength(1);
-    });
+  });
     
 });

@@ -1,5 +1,6 @@
 import React from 'react';
-import { shallow, } from 'enzyme';
+import { shallow,mount } from 'enzyme';
+import { Form }from 'formik';
 import toJSON from 'enzyme-to-json';
 import Login from './Login';
 
@@ -26,25 +27,28 @@ describe('<Login /> component testing', () => {
   })
 
   it('should render form correctly', () => {
-    expect(component.find('form').exists()).toBe(true)
+    console.log(component.dive().dive().debug())
+    expect(component.find(Form)).toBeTruthy()
   })
 
-  it('should render the div container with class name "formWrap"', () => {
-    expect(component.find('div').at(0).exists()).toBe(true)
-    expect(component.find('div').at(0).hasClass('formWrap')).toBe(true)
+ it('should render the input element for email field', () => {
+    expect(component.find('input[name="email"]')).toBeTruthy()
   })
 
-  it('should render the div container with class name "formLogin"', () => {
-    expect(component.find('div').at(1).exists()).toBe(true)
-    expect(component.find('div').at(1).hasClass('formLogin')).toBe(true)
+
+  it('should render the input element for password field', () => {
+    expect(component.find('input[name="password"]')).toBeTruthy()
   })
 
-  it('should render the input for email correctly', () => {
-    expect(component.find('input[type="email"]').exists()).toBe(true)
+  it('should render the submit button correctly', () => {
+    expect(component.find('[data-test="submit"]')).toBeTruthy()
   })
 
-  it('should render the input for email correctly', () => {
-    expect(component.find('input[type="password"]').exists()).toBe(true)
+  it('it should submit the form when user clicks the submit button', () => {
+    const form = mount(<Login/>)
+       const submitButton = form.find(".button")
+       submitButton.simulate('click')
+      
   })
   
 })
