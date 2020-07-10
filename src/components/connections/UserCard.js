@@ -51,6 +51,7 @@ export default function UserCard (props) {
         setAnchorEl(anchorEl ? null : event.currentTarget))
       .catch(err => console.log(err))
   }
+  
   return (
     <React.Fragment>
       { myRequests && <Card className='userCard'>
