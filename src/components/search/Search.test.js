@@ -33,7 +33,7 @@ describe('<Search /> component testing', () => {
     expect(divContainer.length).toBe(1)
   })
 
-   it('should render the selected job title paragraph correctly', () => {
+  it('should render the selected job title paragraph correctly', () => {
      expect(component.find('p').length).toBe(3);
      expect(component.find('p')
                      .at(0)
@@ -55,52 +55,44 @@ describe('<Search /> component testing', () => {
                      .toEqual('Users with Selected Technology');                                        
     });
 
-    it('it should change the job title on change correctly', () => {
+  it('it should change the job title on change correctly', () => {
       const jobSearch = findByTestAttr(component, 'job-title-search')
-      jobSearch.props().onChange(handleChange)
+      jobSearch.first().props().onChange(handleChange)
       expect(setState).toHaveBeenCalled()
-    })
   })
 
-  it('should render the selected job title paragraph correctly', () => {
-    expect(component.find('p').length).toBe(1)
-    expect(component.find('p')
-      .render()
-      .text()
-      .trim())
-      .toEqual('Users with Selected Job Title')
-  })
+  
 
   it('should render profiles container correctly', () => {
     const container = findByTestAttr(component, 'search-profile')
-    if (profiles.length === 0) {
-      expect(container.length).toBe(0)
-    } else {
-      expect(container.length).toBe(1)
-    }
+      if (profiles.length === 0) {
+        expect(container.length).toBe(0)
+      } else {
+        expect(container.length).toBe(1)
+      }
   })
 
-   describe('<select /> component', () => {
-         let selectWrapper;
-         const setState = jest.fn();
-         const useStateSpy = jest.spyOn(React, 'useState');
-         useStateSpy.mockImplementation((init) => [init, setState]);
-         const handleChange = setState();
-         beforeEach(() => {
-              selectWrapper = component.find('Select');
-         });
+  describe('<select /> component', () => {
+      let selectWrapper;
+      const setState = jest.fn();
+      const useStateSpy = jest.spyOn(React, 'useState');
+      useStateSpy.mockImplementation((init) => [init, setState]);      
+      beforeEach(() => {
+          selectWrapper = component.find('Select');
+      });
 
-         it('should render <Select />  component correctly', () => {
-            expect(selectWrapper.exists()).toBe(true);
-         
-        });
+      it('should render <Select />  component correctly', () => {
+        expect(selectWrapper.exists()).toBe(true);
+      
+    });
 
-        it('it should change the job title on change correctly', () => {
-            const searchContainer = findByTestAttr(component, 'search-container');
-            const select = findByTestAttr(searchContainer, 'job-title-search');          
-            select.first().props().onChange(handleChange);
-            expect(setState).toHaveBeenCalled();
-        });
-   });   
+    it('it should change the job title on change correctly', () => {
+        const searchContainer = findByTestAttr(component, 'search-container');
+        const select = findByTestAttr(searchContainer, 'job-title-search');  
+        const handleChange = setState();        
+        select.first().props().onChange(handleChange);
+        expect(setState).toHaveBeenCalled();
+    });
+  });   
 
 });

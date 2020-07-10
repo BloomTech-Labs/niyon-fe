@@ -10,9 +10,12 @@ const setUp = (props = {}) => {
 }
 
 describe('<Connections /> component testing', () => {
+    const testProps = {
+      sumConnections: 1
+    }
     let component;
     beforeEach(() => {
-      component = setUp();
+      component = setUp({...testProps});
     });
     it('should match snapshot tests', () => {
         expect(toJSON(component)).toMatchSnapshot();
@@ -33,9 +36,10 @@ describe('<Connections /> component testing', () => {
     });    
     
     it('should render mani title in the component', () => {
+            const sum = testProps.sumConnections;
             const h1 = findByTestAttr(component, 'my-connections');
             expect(h1.length).toBe(1);
-            expect(h1.text().trim()).toEqual('My Connections (Sum)');
+            expect(h1.text().trim()).toEqual(`My Connections (${sum})`);
     }); 
     
     it('should render <SwipeTabsConnections /> component correctly', () => {
