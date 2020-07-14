@@ -45,7 +45,6 @@ describe('<Home /> component testing', () => {
           setUser({...response})
          }
           })), [])
-
   const user = {}
   let component
   let server
