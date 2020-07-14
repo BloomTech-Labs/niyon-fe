@@ -3,6 +3,7 @@ import { mount } from 'enzyme'
 import Home from './Home'
 import * as axios from "axios";
 import { MemoryRouter } from 'react-router-dom'
+import { DarkModeContext } from '../../DarkModeContext'
 import findByTestAttr from '../../tests/utils'
 import { UserContext } from '../../UserContext'
 import { fakeServer } from 'sinon'
@@ -34,6 +35,8 @@ const response = {
 describe('<Home /> component testing', () => {
   // const axiosWithMock = jest.fn(() => {setUser({...response.data})})
   const setUser = jest.fn()
+  const darkMode=false;
+  const setDarkMode = jest.fn()
   const useStateSpy = jest.spyOn(React, 'useState')
   useStateSpy.mockImplementation((init) => [init, setUser])
   const axiosWithMock = axios.get.mockImplementation(() => Promise.resolve({ data: {...response.data} }));
@@ -60,9 +63,11 @@ describe('<Home /> component testing', () => {
         ]
     )
     component = mount(<UserContext.Provider value={{ user, setUser }}>
+    <DarkModeContext.Provider value={{darkMode, setDarkMode}} >     
       <MemoryRouter initialEntries={['/home']}>
         <Home />
       </MemoryRouter>
+      </DarkModeContext.Provider>
     </UserContext.Provider>)
     server.respond()
     setTimeout(done)

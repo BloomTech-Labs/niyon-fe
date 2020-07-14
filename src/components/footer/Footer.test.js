@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router-dom'
 import { UserContext } from '../../UserContext'
 import { DarkModeContext } from '../../DarkModeContext'
 import Footer from './Footer'
-import { signOut } from '../apiStuff/signout'
+import { signOut } from '../apiStuff/signout';
 
 const setUp = (props = {}) => {
   const darkMode=false;

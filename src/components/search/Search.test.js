@@ -3,20 +3,25 @@ import { mount } from 'enzyme'
 import { Search } from './Search'
 import { MemoryRouter } from 'react-router-dom'
 import { UserContext } from '../../UserContext'
+import { DarkModeContext } from '../../DarkModeContext'
 import findByTestAttr from '../../tests/utils'
 
 describe('<Search /> component testing', () => {
+  const darkMode=false;
+  const setDarkMode = jest.fn()
   const user = {}
   const setUser = jest.fn()
   let component
   const profiles = []
   beforeEach(() => {
     component = mount(
-      <UserContext.Provider value={{ user, setUser }}>
-        <MemoryRouter initialEntries={['/search']}>
-          <Search />
-        </MemoryRouter>
-      </UserContext.Provider>
+      <MemoryRouter initialEntries={['/search']}>
+        <UserContext.Provider value={{ user, setUser }}> 
+          <DarkModeContext.Provider value={{darkMode, setDarkMode}} >      
+            <Search />      
+          </DarkModeContext.Provider>
+        </UserContext.Provider>
+      </MemoryRouter>
     )
   })
 
