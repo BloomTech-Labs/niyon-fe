@@ -15,14 +15,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/CB.jpeg"
+        src="https://avatars3.githubusercontent.com/u/48330194?s=460&u=a27fc688702a28e9c13cba3a76cd8c324ec754c5&v=4"
       />
     </a>
     <h2>
       Carlos Banks
     </h2>
     <p>
-      Frontend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -35,14 +35,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/KB.jpeg"
+        src="https://avatars3.githubusercontent.com/u/53923403?s=460&v=4"
       />
     </a>
     <h2>
       Kenneth Brook
     </h2>
     <p>
-      Frontend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -55,14 +55,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/FF.jpeg"
+        src="https://avatars3.githubusercontent.com/u/51179586?s=460&u=e8574ff7f2ad8da4183ed14e3571a1aa96a425f0&v=4"
       />
     </a>
     <h2>
       Farjad Fazli
     </h2>
     <p>
-      Frontend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -75,14 +75,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/TM.jpeg"
+        src="https://ca.slack-edge.com/ESZCHB482-W012JHR9Y4A-a5a857f545bd-512"
       />
     </a>
     <h2>
       Tim Mitzen
     </h2>
     <p>
-      Backend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -95,14 +95,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/JT.jpeg"
+        src="https://avatars1.githubusercontent.com/u/51089982?s=460&u=9a11171c2d1647d5b68ad5754f42d1c4d8f62d84&v=4"
       />
     </a>
     <h2>
       Joe Thompson
     </h2>
     <p>
-      Backend Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -115,14 +115,14 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/VY.jpeg"
+        src="https://avatars3.githubusercontent.com/u/26292705?s=460&u=2611df50ac310da56f959adb32bf6c4bb40b2d69&v=4"
       />
     </a>
     <h2>
       Venky Yagatilee
     </h2>
     <p>
-      Front Developer
+      Fullstack Developer
     </p>
   </div>
   <div
@@ -130,19 +130,39 @@ exports[`<PersonCard /> component testing should pass the snapshot test correctl
     key="6"
   >
     <a
+      href="https://github.com/jeremyRogel"
+    >
+      <img
+        alt="Niyon Team Members"
+        className="img2, personImg"
+        src="https://avatars3.githubusercontent.com/u/52545325?s=460&u=390fe26e6eb18db20122f3239890c3b0a6722b80&v=4"
+      />
+    </a>
+    <h2>
+      Jeremy Rogel
+    </h2>
+    <p>
+      Team Lead (RC2)
+    </p>
+  </div>
+  <div
+    data-test="person-image-container"
+    key="7"
+  >
+    <a
       href="https://github.com/CarlosVillalpandoJr"
     >
       <img
         alt="Niyon Team Members"
         className="img2, personImg"
-        src="/CV.jpeg"
+        src="https://avatars3.githubusercontent.com/u/29393301?s=460&u=33d6fa041db14a6caaaa1d44ad2640a71cea2c31&v=4"
       />
     </a>
     <h2>
       Carlos Villalpando
     </h2>
     <p>
-      Project Manager
+      Team Lead (RC1)
     </p>
   </div>
 </div>
