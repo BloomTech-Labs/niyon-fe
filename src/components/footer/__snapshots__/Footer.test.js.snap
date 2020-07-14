@@ -18,7 +18,7 @@ exports[`<Footer /> component testing should match the snapshot test for  <Foote
         "entries": Array [
           Object {
             "hash": "",
-            "key": "rompt9",
+            "key": "39sjhz",
             "pathname": "/footer",
             "search": "",
             "state": undefined,
@@ -32,7 +32,7 @@ exports[`<Footer /> component testing should match the snapshot test for  <Foote
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "rompt9",
+          "key": "39sjhz",
           "pathname": "/footer",
           "search": "",
           "state": undefined,
