@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 import NewsCard from "./NewsCard";
-import { MemoryRouter } from "react-router-dom";
+// import { MemoryRouter } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 import { DarkModeContext } from "../../DarkModeContext";
 import toJSON from "enzyme-to-json";
@@ -29,18 +29,22 @@ describe("<NewsCard /> component testing", () => {
   }
   beforeEach(() => {
     component = mount(
-      <MemoryRouter initialEntries={["/news"]}>
+      // <MemoryRouter initialEntries={["/news"]}>
         <UserContext.Provider value={{ user, setUser }}>
           <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
             <NewsCard data={testProps} />
           </DarkModeContext.Provider>
         </UserContext.Provider>
-      </MemoryRouter>
+      // </MemoryRouter>
     );
   });
 
   it("should pass snapshot testing", () => {
     expect(toJSON(component)).toMatchSnapshot();
+  });
+
+   it("should render <NewsCard /> component correctly ", () => {
+    expect(component.exists()).toBe(true)
   });
 
   

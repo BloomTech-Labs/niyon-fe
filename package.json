@@ -29,34 +29,17 @@
     "sinon": "^9.0.2",
     "yup": "^0.28.5"
   },
- "scripts": {
+  "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false",
-    "local:test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint .",
-    "lint:js": "eslint . --ext .js,.jsx",
-    "lint:js:fix": "npm run lint:js -- --fix",
-    "coverage": "CI=true npm run test || true"
-   },
-   "jest": {
-      "coverageReporters": [
-         "json-summary",
-         "text",
-         "lcov"
-      ],
-      "collectCoverageFrom": [
-         "**/*.{js,jsx,ts,tsx}",
-         "!**/node_modules/**",
-         "!**/vendor/**",
-         "!**/__tests__/**",
-         "!**/coverage/**"
-      ]
-   },
-   "eslintConfig": {
-      "extends": "react-app"
-   },
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint **/*.js --fix",
+    "test": "react-scripts test",
+    "test:watch": "react-scripts test --watchAll --verbose --env=jsdom",
+    "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "coverage": "npm test -- --coverage --watchAll=true || true",
+    "eject": "react-scripts eject"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

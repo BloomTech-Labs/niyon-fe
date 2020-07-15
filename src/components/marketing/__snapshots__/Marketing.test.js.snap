@@ -1,10 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Marketing /> component testing should match the snapshot testing 1`] = `
-<div
-  data-test="marketing"
->
-  <Navbar />
-  <MarketingButtons />
-</div>
-`;
+exports[`<Marketing /> component testing should match the snapshot testing 1`] = `undefined`;
