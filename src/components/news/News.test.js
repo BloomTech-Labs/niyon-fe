@@ -1,9 +1,10 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { News } from './News'
+import  News from './News'
 import { MemoryRouter } from 'react-router-dom'
 import { UserContext } from '../../UserContext'
 import { DarkModeContext } from '../../DarkModeContext'
+import toJSON from 'enzyme-to-json';
 // import findByTestAttr from '../../tests/utils'
 
 describe('<Search /> component testing', () => {
@@ -24,7 +25,10 @@ describe('<Search /> component testing', () => {
       </MemoryRouter>
     )
   })
-
+  
+  it('should pass snapshot testing', ()=>{
+    expect(toJSON(component)).toMatchSnapshot()
+  })
   
 
   
