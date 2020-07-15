@@ -53,7 +53,7 @@ export default function NewsCard (props) {
   const handleExpandClick = () => {
     setExpanded(!expanded)
   }
-  // console.log(modifiedData)
+  // console.log('News card props', props)
   return (
     <Card className={classes.root}>
       <CardHeader
