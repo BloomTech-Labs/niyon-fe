@@ -37,4 +37,10 @@ describe("<Search /> component testing", () => {
   it("should render <Header /> component", () => {
     expect(component.find("Header")).toBeTruthy();
   });
+
+  it("should render <Footer /> component", () => {
+    expect(component.find("Footer")).toBeTruthy();
+  });
 });
+
+
