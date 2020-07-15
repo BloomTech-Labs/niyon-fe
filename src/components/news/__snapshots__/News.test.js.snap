@@ -18,7 +18,7 @@ exports[`<Search /> component testing should pass snapshot testing 1`] = `
         "entries": Array [
           Object {
             "hash": "",
-            "key": "jhijx9",
+            "key": "pr4edx",
             "pathname": "/news",
             "search": "",
             "state": undefined,
@@ -32,7 +32,7 @@ exports[`<Search /> component testing should pass snapshot testing 1`] = `
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "jhijx9",
+          "key": "pr4edx",
           "pathname": "/news",
           "search": "",
           "state": undefined,
