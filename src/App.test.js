@@ -8,12 +8,21 @@ import findByTestAttr from './tests/utils/index';
 
 describe('<App /> Component', () => {
      const user = {};
+     const mode=false;
+     const setMode = jest.fn()
      const setUser = jest.fn(); 
      const setUserSpy = jest.spyOn(React, 'useState');
      setUserSpy.mockImplementation((user) => [user, setUser]);
      let component;
+     let useEffect;
+     const mockUseEffect = () => {
+          useEffect.mockImplementationOnce(() => setMode());
+     };
      beforeEach(() => {
-      component = shallow(        
+     useEffect = jest.spyOn(React, "useEffect");
+     mockUseEffect(); // 2 times
+     mockUseEffect(); //    
+     component = shallow(        
             <UserContext.Provider value={{user, setUser}}>
               <App />
             </UserContext.Provider>       

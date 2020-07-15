@@ -99,7 +99,23 @@
     "prettier-eslint": "^11.0.0",
     "prettier-eslint-cli": "^5.0.0"
   },
- 
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/_tests__/**",
+      "!**/*.{spec,test}.{js,jsx}",
+      "!**/coverage/**",
+      "!**/setUpTests.{js,jsx}",
+      "!**/index.{js,jsx}"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "json-summary",
+      "text"
+    ]
+  },
   "resolutions": {
     "react-scripts/jest": "23.3.0"
   }

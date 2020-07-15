@@ -16,7 +16,8 @@ exports[`<ConnectionRequests /> component should match the snapshot test 1`] = `
         className="container-header"
         data-test="my-connections"
       >
-        Connection Requests (#)
+        Connection Requests (
+        )
       </h1>
       <SwipeTabsRequests />
     </WithStyles(ForwardRef(Paper))>

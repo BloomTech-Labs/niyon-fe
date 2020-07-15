@@ -34,5 +34,10 @@ exports[`<Routes /> should pass snapshot testing 1`] = `
     isAuthenticated={false}
     path="/search"
   />
+  <PrivateRoute
+    component={[Function]}
+    isAuthenticated={false}
+    path="/news"
+  />
 </Switch>
 `;

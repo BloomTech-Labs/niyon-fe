@@ -24,3 +24,7 @@ exclude_patterns:
   - "**/vendor/"
   - "**/*_test.go"
   - "**/*.d.ts"
+plugins: 
+  eslint:
+    enabled: true
+    channel: "eslint-6"  
