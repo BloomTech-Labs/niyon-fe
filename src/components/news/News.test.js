@@ -30,6 +30,8 @@ describe('<Search /> component testing', () => {
     expect(toJSON(component)).toMatchSnapshot()
   })
   
-
+  it('should render <News /> component', ()=>{
+    expect(component.find('News')).toBeTruthy()
+  })
   
 });
