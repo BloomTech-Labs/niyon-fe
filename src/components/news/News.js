@@ -14,7 +14,7 @@ const News = (props) => {
         .then((res) => {
           if (res) {
             setNews(res.data)
-            console.log(res)
+            // console.log(res)
           }
         })
         .catch((err) => console.log(err))

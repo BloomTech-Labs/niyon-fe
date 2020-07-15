@@ -7,14 +7,8 @@ import './sass_master/index.scss'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 function App () {
-  const isDarkMode = window.localStorage.getItem('darkmode')
   const [user, setUser] = useState({})
   const [darkMode, setDarkMode] = useState(false)
-  const [mode, setMode] = useState(true)
-  useEffect(() => {
-    setMode(isDarkMode)
-  }, [isDarkMode])
-  console.log('line 12 in App.js', mode)
 
   useEffect(() => {
     if (darkMode === true) {

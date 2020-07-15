@@ -27,7 +27,7 @@ describe('<Login /> component testing', () => {
   })
 
   it('should render form correctly', () => {
-    console.log(component.dive().dive().debug())
+    // console.log(component.dive().dive().debug())
     expect(component.find(Form)).toBeTruthy()
   })
 
