@@ -2,7 +2,7 @@
 /* eslint-disable padded-blocks */
 // eslint-disable-next-line object-curly-spacing
 import React, { useState } from 'react'
-import MapGL from 'react-map-gl'
+import MapGL, { Marker } from 'react-map-gl'
 
 function Map (props) {
   // eslint-disable-next-line indent
@@ -14,8 +14,10 @@ function Map (props) {
     height: '200px'
   })
 
+  console.log('connections from map.js', props.connections)
+
   return (
-    <div>
+    <div className="map">
       <MapGL
         {...viewport}
         mapboxApiAccessToken="pk.eyJ1IjoidGltaXNtYXAiLCJhIjoiY2tjcnZza2cyMDEwYzJycWo2Ynp0dGt1YiJ9.YXA40zBV_jsV-IAmvL0d2Q"
@@ -23,7 +25,11 @@ function Map (props) {
           setViewport(viewport)
         }}
         mapStyle="mapbox://styles/timismap/ckcrz63oi0cti1imla80jwj1s"
-      ></MapGL>
+      >
+        <Marker latitude={13.5} longitude={2.46}>
+          <div>Mentor 1</div>
+        </Marker>
+      </MapGL>
     </div>
   )
 }
