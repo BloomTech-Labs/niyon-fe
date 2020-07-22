@@ -1,16 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Login /> component testing should pass snaps shot testing 1`] = `
-<Formik
-  initialValues={
-    Object {
-      "email": "",
-      "password": "",
-    }
-  }
-  onSubmit={[Function]}
-  validationSchema={[Function]}
->
-  <Component />
-</Formik>
-`;
+exports[`<Login /> component testing should pass snaps shot testing 1`] = `undefined`;
