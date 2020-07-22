@@ -43,6 +43,10 @@ describe("<NewsCard /> component testing", () => {
     expect(toJSON(component)).toMatchSnapshot();
   });
 
+  it('should render <NewsCard /> component correctly', () => {
+      expect(component.exists()).toBe(true);
+  })
+
   
 });
 
