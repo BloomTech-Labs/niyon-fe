@@ -5,6 +5,7 @@ import Connections from '../connections/Connections'
 import ConnectionRequests from '../connections/ConnectionRequests'
 import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
 import { UserContext } from '../../UserContext'
+import Map from './Map'
 
 const Home = (props) => {
   const { user, setUser } = useContext(UserContext)
@@ -41,7 +42,7 @@ const Home = (props) => {
         requests={user.myRequests}
         sumRequests={sumRequests}
       />
-      {/* <RecommendedConnections /> */}
+      <Map />
       <Footer value={0} />
     </div>
   );
