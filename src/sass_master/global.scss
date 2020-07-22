@@ -29,4 +29,22 @@ html {
   .css-1uccc91-singleValue {
     color: white !important;
   }
+
+  .MuiFormLabel-root {
+    background-color: #303030 !important;
+  }
+}
+
+.MuiFormLabel-root {
+  padding: 0 10px !important;
+  display: block !important;
+  background-color: white !important;
+}
+
+.MuiOutlinedInput-inputMultiline {
+  padding-top: 10px !important;
+}
+
+.MuiCardHeader-root:first-child {
+  padding-top: 65px !important;
 }
