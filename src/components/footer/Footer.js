@@ -22,7 +22,8 @@ const useStyles = makeStyles({
     bottom: 0,
     color: 'primary',
     display: 'flex',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    zIndex: 10
   },
   menuItem: {
     margin: '0 -10px !important'
