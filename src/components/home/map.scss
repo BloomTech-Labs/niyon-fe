@@ -1,7 +1,18 @@
-.tim {
-    border: red 1px solid;
+.marker {
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    transform: translateY(-38px);
+    margin-left: -33px;
+}
+
+.map {
+    margin-top: 50px;
+}
+
+h5 {
+    font-weight: bold;
+    color: green;
+    font-size: small;
 }
