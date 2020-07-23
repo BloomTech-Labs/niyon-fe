@@ -9,6 +9,8 @@ import { Route, Switch } from 'react-router-dom'
 import { PrivateRoute } from '../privateRoute/PrivateRoute'
 import Registration from '../registration/Registration'
 import Login from '../login/Login'
+import ChatRoom from '../chat/ChatRoom'
+import RoomSelect from '../chat/RoomSelect'
 
 function Routes (props) {
   const token = window.localStorage.getItem('token')
@@ -38,6 +40,16 @@ function Routes (props) {
         path="/news"
         isAuthenticated={authorized}
         component={News}
+      />
+      <PrivateRoute
+        path="/roomselect"
+        isAuthenticated={authorized}
+        component={RoomSelect}
+      />
+      <PrivateRoute
+        path="/chatroom/:id/:roomName/:roomId"
+        isAuthenticated={authorized}
+        component={ChatRoom}
       />
     </Switch>
   )

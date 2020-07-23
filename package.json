@@ -28,6 +28,7 @@
     "react-swipeable-views": "^0.13.9",
     "sass-loader": "^8.0.2",
     "sinon": "^9.0.2",
+    "socket.io-client": "^2.3.0",
     "yup": "^0.28.5"
   },
   "scripts": {
