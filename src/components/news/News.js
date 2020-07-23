@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react'
 import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import NewsCard from './NewsCard'
-import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import { getNewsFeed } from '../apiStuff/axiosWithAuth'
 
 const News = (props) => {
   const [news, setNews] = useState([])
 
   useEffect(() => {
     const apiCall = async () => {
-      await axiosWithAuth()
-        .get('/news')
+      await getNewsFeed()
         .then((res) => {
           if (res) {
             setNews(res.data)
