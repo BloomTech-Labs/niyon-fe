@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import Avatar from '@material-ui/core/Avatar'
 import AddBoxIcon from '@material-ui/icons/AddBox'
 import { UserContext } from '../../UserContext'
-import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import { getUserCard } from '../apiStuff/axiosWithAuth'
 import Popper from '@material-ui/core/Popper'
 
 const useStyles = makeStyles({
@@ -46,8 +46,10 @@ export default function UserCard (props) {
   const popUpId = open ? "transitions-popper" : undefined;
 
   const handleRequest = (event) => {
-    axiosWithAuth()
-      .post(`/connection/${props.endpoint}/${id}`, payload)
+    const endPoint  = props.endpoint
+    // axiosWithAuth()
+    //   .post(`/connection/${props.endpoint}/${id}`, payload)
+    getUserCard(endPoint, id, payload)
       .then(
         (res) => console.log(res),
         setAnchorEl(anchorEl ? null : event.currentTarget)

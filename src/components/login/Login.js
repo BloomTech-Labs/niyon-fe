@@ -1,7 +1,7 @@
 import React from 'react'
 import { withFormik, Form, Field } from 'formik'
 import * as Yup from 'yup'
-import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import { logIn } from '../apiStuff/axiosWithAuth'
 import Header from '../header/Header'
 
 const Login = (props) => {
@@ -10,10 +10,8 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     /*eslint-disable */
     const login = { email: values.email, password: values.password };
-    event.preventDefault();
-    axiosWithAuth()
-      .post("/auth/login", values)
-      .then((res) => {
+    event.preventDefault();   
+    logIn(values).then((res) => {
         window.localStorage.setItem("token", res.data.token);
         window.localStorage.setItem("id", res.data.user.user_id);
         window.localStorage.setItem("user_type", res.data.user.user_type);

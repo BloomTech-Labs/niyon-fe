@@ -1,6 +1,6 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import { registerUser } from '../apiStuff/axiosWithAuth'
 import Header from '../header/Header'
 
 const Registration = (props) => {
@@ -8,20 +8,21 @@ const Registration = (props) => {
   const onSubmit = (data) => handleOnSubmit(data)
 
   const handleOnSubmit = (props) => {
-    const userAuth = {
+    const userDetails = {
       email: props.email,
       user_type: props.user_type,
       password: props.password
     }
     window.localStorage.setItem('user_type', props.user_type)
-    axiosWithAuth()
-      .post('/auth/register', userAuth)
+    registerUser(userDetails)
       .then((res) => {
+        console.log('hitting')
         window.localStorage.setItem('token', res.data.token)
         window.localStorage.setItem('id', res.data.user.id)
         window.location = '/profile'
       })
       .catch((err) => {
+        console.log('not hitting error')
         console.log(err)
       })
   }

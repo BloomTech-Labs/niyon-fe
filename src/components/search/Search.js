@@ -6,7 +6,7 @@ import Select from 'react-select'
 import { job } from '../profile/job'
 import { location } from '../profile/location'
 import { technology } from '../profile/technologies'
-import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import { searchProfile } from '../apiStuff/axiosWithAuth'
 import SwipeTabsJobTitle from './SwipeTabsJobTitle'
 import SwipeTabsLocation from './SwipeTabsLocation'
 import SwipeTabsTechnology from './SwipeTabsTechnology'
@@ -54,18 +54,19 @@ export function Search (props) {
   };
 
   useEffect(() => {
-    const apiCall = async () => {
-      await axiosWithAuth()
-        .get('/profile')
-        .then((res) => {
-          if (res) {
-            const data = res.data
-            setProfiles(data)
-          }
-        })
-        .catch((err) => console.log(err))
-    }
-    apiCall()
+    console.log('serach profile line 57')
+    const apiCall = async () => {     
+      await searchProfile()
+      .then((res) => {
+        if (res) {
+          const data = res.data
+          console.log('data line 65', data)
+          setProfiles(data)
+        }
+      })
+      .catch((err) => console.log(err))
+      }
+      apiCall()
   }, [])
 
   return (

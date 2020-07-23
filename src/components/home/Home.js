@@ -3,7 +3,7 @@ import Footer from '../footer/Footer'
 import Header from '../header/Header'
 import Connections from '../connections/Connections'
 import ConnectionRequests from '../connections/ConnectionRequests'
-import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import { getProfile } from '../apiStuff/axiosWithAuth'
 import { UserContext } from '../../UserContext'
 import Map from './Map'
 
@@ -22,18 +22,16 @@ const Home = (props) => {
 
   useEffect(() => {
     const apiCall = async () => {
-      await axiosWithAuth()
-        .get(`/profile/${id}`)
-        .then((res) => {
-          if (res) {
-            setUser({ ...user, ...res.data });
-            setRequests(res.data.myRequests);
-            setSumConnections(res.data.myConnections.length);
-            setSumRequests(res.data.myRequests.length);
-            setConnections(res.data.myConnections);
-          }
-        })
-        .catch((err) => console.log(err));
+      await getProfile(id).then((res) => {
+                if (res) {
+                  setUser({ ...user, ...res.data });
+                  setRequests(res.data.myRequests);
+                  setSumConnections(res.data.myConnections.length);
+                  setSumRequests(res.data.myRequests.length);
+                }
+              })
+          .catch((err) => console.log(err));
+
     };
     apiCall();
   }, []);
