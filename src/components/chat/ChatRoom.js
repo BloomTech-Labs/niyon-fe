@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import io from 'socket.io-client'
-import './App.css'
 import mentee from '../../assets/images/mentee.jpg'
 import mentor from '../../assets/images/mentor.jpg'
 import niyon from '../../assets/images/niyon-black-s.png'
