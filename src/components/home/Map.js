@@ -1,11 +1,17 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable no-unused-vars */
 /* eslint-disable padded-blocks */
 // eslint-disable-next-line object-curly-spacing
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import MapGL, { Marker } from 'react-map-gl'
+import { UserContext } from '../../UserContext'
+import PersonPinCircleIcon from '@material-ui/icons/PersonPinCircle'
 
 function Map (props) {
   // eslint-disable-next-line indent
+  const { user, setUser } = useContext(UserContext)
+  const myConnections = props.connections
+
   const [viewport, setViewport] = useState({
     latitude: 13.531665,
     longitude: 2.460415,
@@ -13,8 +19,6 @@ function Map (props) {
     width: '80%',
     height: '200px'
   })
-
-  console.log('connections from map.js', props.connections)
 
   return (
     <div className="map">
@@ -26,9 +30,18 @@ function Map (props) {
         }}
         mapStyle="mapbox://styles/timismap/ckcrz63oi0cti1imla80jwj1s"
       >
-        <Marker latitude={13.5} longitude={2.46}>
-          <div>Mentor 1</div>
-        </Marker>
+        {myConnections.length > 0 && myConnections.map(connection => {
+          return <Marker latitude={connection.latitude} longitude={connection.longitude}>
+            <div className='tim'>
+              <h6>{connection.first_name} {connection.last_name}</h6>
+              <PersonPinCircleIcon />
+            </div>
+          </Marker>
+        })}
+
+        {/* <Marker latitude={13.5} longitude={2.46}>
+          <div>{user.myConnections[0].first_name}</div>
+        </Marker> */}
       </MapGL>
     </div>
   )

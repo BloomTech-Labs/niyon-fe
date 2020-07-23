@@ -17,6 +17,8 @@ const Home = (props) => {
   const [requests, setRequests] = useState([]);
   const [sumConnections, setSumConnections] = useState(0);
   const [sumRequests, setSumRequests] = useState(0);
+  const [connections, setConnections] = useState(0);
+  
 
   useEffect(() => {
     const apiCall = async () => {
@@ -28,6 +30,7 @@ const Home = (props) => {
             setRequests(res.data.myRequests);
             setSumConnections(res.data.myConnections.length);
             setSumRequests(res.data.myRequests.length);
+            setConnections(res.data.myConnections);
           }
         })
         .catch((err) => console.log(err));
@@ -42,7 +45,7 @@ const Home = (props) => {
         requests={user.myRequests}
         sumRequests={sumRequests}
       />
-      <Map />
+      <Map connections={connections}/>
       <Footer value={0} />
     </div>
   );
