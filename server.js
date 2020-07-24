@@ -4,7 +4,6 @@ module.exports = function (app) {
   app.use(
     proxy('/', {
       target: 'https://niyon-be-chat.herokuapp.com/',
-      secure: false,
       changeOrigin: true
     })
   )
@@ -12,7 +11,6 @@ module.exports = function (app) {
   app.use(
     proxy('/chathistory', {
       target: 'https://niyon-be-chat.herokuapp.com/',
-      secure: false,
       changeOrigin: true
     })
   )

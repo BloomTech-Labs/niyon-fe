@@ -1,13 +1,31 @@
 import axios from 'axios'
+import io from 'socket.io-client'
 
+const token = localStorage.getItem('token')
 export const axiosWithAuth = () => {
-  const token = localStorage.getItem('token')
   return axios.create({
     baseURL: 'https://niyon-app.herokuapp.com',
     headers: {
       authorization: token
     }
   })
+}
+
+const createSocket = () => {
+  return axios.create({
+    baseURL: 'https://niyon-be-chat.herokuapp.com',
+    headers: {
+      authorization: token
+    }
+  })
+}
+
+export const socketIO = () => {
+  return io.connect('/')
+}
+export const getChatHistory = async (roomName) => {
+  console.log('axios call>>>>', roomName)
+  return await createSocket().get(`/chathistory?room_name=${roomName}`)
 }
 
 export const getProfile = (id) => {
