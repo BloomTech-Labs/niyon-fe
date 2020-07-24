@@ -3,11 +3,12 @@ import techs from './RoomTechs'
 
 function RoomSelect ({ history }) {
   const myUserId = localStorage.getItem('id')
-  const [user, setUser] = useState({
+  const defaultUser = {
     user_id: myUserId,
     room_name: '',
     room_id: ''
-  })
+  }
+  const [user, setUser] = useState(defaultUser)
 
   const arrayHandler = (e) => {
     e.preventDefault()
@@ -26,10 +27,9 @@ function RoomSelect ({ history }) {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    setTimeout(() => {
-      // TODO: what url name are we going to do
-      history.push(`/chatroom/${user.user_id}/${user.room_name}/${user.room_id}`)
-    }, 2000)
+    user.user_id && user.room_name && user.room_id &&
+     history.push(`/chatroom/${user.user_id}/${user.room_name}/${user.room_id}`)
+    setUser(defaultUser)
   }
 
   return (

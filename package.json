@@ -2,6 +2,7 @@
   "name": "niyon",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://niyon-be-chat.herokuapp.com",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
     "@material-ui/core": "^4.9.13",
