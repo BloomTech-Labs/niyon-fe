@@ -10,14 +10,18 @@ const socket = io.connect('/')
 
 const ChatRoom = ({ match }) => {
   const id = match.params.id // GRABBING THE USER ID FROM THE URL
-  const roomName = match.params.room_name // GRABBING THE ROOM NAME FROM THE URL
-  const roomId = match.params.room_id
+  const roomName = match.params.roomName // GRABBING THE ROOM NAME FROM THE URL
+  const roomId = match.params.roomId
   // data - IS SENT ON JOIN TO THE SERVER TO GET THE USER AND ROOM INFORMATION
+  console.log(id)
+  console.log(roomName)
+  console.log(roomId)
   const data = {
     id: Number(id),
     room_name: roomName,
     room_id: Number(roomId)
   }
+  console.log(data)
   // messages - ARE SENT AND RECEIVED AND THEN DISPLAYED WITH ALL KEYS AVAILABLE
   const [messages, setMessages] = useState([{
     first_name: 'Niyon',
@@ -47,14 +51,18 @@ const ChatRoom = ({ match }) => {
   useEffect(() => {
     Axios.get('/chathistory', {
       params: {
-        room_name: data.room_name
+        room_name: roomName
       }
     })
       .then(res => {
         console.log(res)
-        setChatHistory(res.data)
+        if (res.data === undefined) {
+          setChatHistory([])
+        }
       })
       .catch(err => {
+        console.log('this is the error')
+        setChatHistory([])
         console.log(err)
       })
   }, [])

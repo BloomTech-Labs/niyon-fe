@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf02554b-ef6d-4f25-9c4f-d83db89543c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/joe.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/joe.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/chat/RoomSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat/RoomSelect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/routes/Routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/routes/Routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/apiStuff/axiosWithAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/apiStuff/axiosWithAuth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/chat/ChatRoom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/chat/ChatRoom.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/labs_niyon/niyon-be" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -62,7 +62,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595460618422</updated>
-      <workItem from="1595460620921" duration="4318000" />
+      <workItem from="1595460620921" duration="6581000" />
+      <workItem from="1595536197128" duration="110000" />
+      <workItem from="1595538231117" duration="8460000" />
     </task>
     <servers />
   </component>
@@ -79,5 +81,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2663" y="312" width="424" height="491" key="FileChooserDialogImpl" timestamp="1595546049783">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2663" y="312" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/0.28.1920.1052@1920.0.1920.1080" timestamp="1595546049783" />
   </component>
 </project>
