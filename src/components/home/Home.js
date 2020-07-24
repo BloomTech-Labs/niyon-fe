@@ -6,6 +6,7 @@ import ConnectionRequests from '../connections/ConnectionRequests'
 import { getProfile } from '../apiStuff/axiosWithAuth'
 import { UserContext } from '../../UserContext'
 import Map from './Map'
+import ForumIcon from '@material-ui/icons/Forum'
 
 const Home = (props) => {
   const { user, setUser } = useContext(UserContext)
@@ -39,6 +40,10 @@ const Home = (props) => {
   return (
     <div className="home" data-test="home-container">
       <Header />
+      <div className='chatDiv'>
+        {/* change to Chat Link */}
+      <a href='http://www.google.com'><h3>Chat Now!</h3><ForumIcon className='chatIcon'/></a>
+      </div>
       <Connections sumConnections={sumConnections} />
       <ConnectionRequests
         requests={user.myRequests}
