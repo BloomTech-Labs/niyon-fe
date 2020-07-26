@@ -1,27 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import io from 'socket.io-client'
+// import io from 'socket.io-client'
 import mentee from '../../assets/images/mentee.jpg'
 import mentor from '../../assets/images/mentor.jpg'
 import niyon from '../../assets/images/niyon-black-s.png'
-import Axios from 'axios'
+import { socketIO, getChatHistory } from '../apiStuff/axiosWithAuth'
 
-// let endPoint  = "https://niyon-be-chat.herokuapp.com/";
-const socket = io.connect('/')
+const socket = socketIO()
 
-const ChatRoom = ({ match }) => {
-  const id = match.params.id // GRABBING THE USER ID FROM THE URL
-  const roomName = match.params.roomName // GRABBING THE ROOM NAME FROM THE URL
-  const roomId = match.params.roomId
+const ChatRoom = ({ match: { params } }) => {
+  /*  GRABBING THE USER ID FROM THE URL
+   GRABBING THE ROOM NAME FROM THE URL */
+  const { roomName, roomId, id } = params
   // data - IS SENT ON JOIN TO THE SERVER TO GET THE USER AND ROOM INFORMATION
-  console.log(id)
-  console.log(roomName)
-  console.log(roomId)
   const data = {
     id: Number(id),
     room_name: roomName,
     room_id: Number(roomId)
   }
-  console.log(data)
   // messages - ARE SENT AND RECEIVED AND THEN DISPLAYED WITH ALL KEYS AVAILABLE
   const [messages, setMessages] = useState([{
     first_name: 'Niyon',
@@ -36,9 +31,7 @@ const ChatRoom = ({ match }) => {
   const [chatHistory, setChatHistory] = useState(null)
   // MESSAGE GRABS AND SETS THE CURRENT MESSAGE AND SENDS THAT TO THE SERVER
   const [message, setMessage] = useState('')
-  const [room] = useState({
-    room_name: roomName
-  })
+
   // THIS useEffect GETS MESSAGES, CURRENTLY WORKING ON STORING MESSAGES IN DB TO GIVE EACH ROOM A HISTORY
   useEffect(() => {
     getMessages()
@@ -49,20 +42,12 @@ const ChatRoom = ({ match }) => {
   }, [data])
   // API CALL TO THE SERVER TO GET THE CHAT HISTORY
   useEffect(() => {
-    Axios.get('/chathistory', {
-      params: {
-        room_name: roomName
-      }
-    })
+    getChatHistory(roomName)
       .then(res => {
         console.log(res)
-        if (res.data === undefined) {
-          setChatHistory([])
-        }
+        setChatHistory(res.data)
       })
       .catch(err => {
-        console.log('this is the error')
-        setChatHistory([])
         console.log(err)
       })
   }, [])
@@ -70,7 +55,7 @@ const ChatRoom = ({ match }) => {
   const sendUserData = () => {
     socket.emit('join', data)
   }
-  // SOCKET.ON WHEN A MESSAGE IS SENT TO THE SERVER RETRIEVES MESSAGED PLUS USER DATA TO DISPLAY
+  // SOCKET.ON WHEN A MESSAGE IS SENT TO THE SERVER RETRIEVES MESSAGED PLUS USER DATA TO DISPLAY *sending and getting the msgs*
   const getMessages = () => {
     socket.on('message', data => {
       console.log(data)
@@ -87,7 +72,7 @@ const ChatRoom = ({ match }) => {
     if (message !== '') {
       const myobj = {
         msg: message,
-        room: room.room_name
+        room: roomName
       }
       socket.emit('message', myobj)
       setMessage('')
