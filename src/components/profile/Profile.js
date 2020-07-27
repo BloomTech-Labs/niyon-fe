@@ -6,7 +6,7 @@ import Footer from '../footer/Footer'
 import { technology } from './technologies'
 import { location } from './location'
 import { job } from './job'
-import { axiosWithAuth } from '../apiStuff/axiosWithAuth'
+import { saveProfile } from '../apiStuff/axiosWithAuth'
 import TextField from '@material-ui/core/TextField'
 
 function Profile (props) {
@@ -26,14 +26,12 @@ function Profile (props) {
   const jobs = job
 
   const handleOnSave = () => {
-    axiosWithAuth()
-      .post(`/profile/${id}`, inputs)
-      .then((res) => {
-        if (res) {
-          setUser({ ...res })
-          window.location = '/home'
-        }
-      })
+    saveProfile(id, inputs).then((res) => {
+      if (res) {
+        setUser({ ...res })
+        window.location = '/home'
+      }
+    })
       .catch((err) => {
         console.log(err)
         setInputs(defaultState)
