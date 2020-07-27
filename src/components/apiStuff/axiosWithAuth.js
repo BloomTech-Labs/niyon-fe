@@ -13,15 +13,15 @@ export const axiosWithAuth = () => {
 
 const createSocket = () => {
   return axios.create({
-    baseURL: 'https://niyon-be-chat.herokuapp.com',
-    headers: {
-      authorization: token
-    }
+    baseURL: 'https://niyon-be-chat.herokuapp.com'
+    // headers: {
+    //   authorization: token,
+    // },
   })
 }
 
 export const socketIO = () => {
-  return io.connect('/')
+  return io.connect('https://niyon-be-chat.herokuapp.com')
 }
 export const getChatHistory = async (roomName) => {
   console.log('axios call>>>>', roomName)
