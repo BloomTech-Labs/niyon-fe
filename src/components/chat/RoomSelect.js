@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import techs from './RoomTechs'
+import Header from '../header/Header'
+import Footer from '../footer/Footer'
 
 function RoomSelect ({ history }) {
   const myUserId = localStorage.getItem('id')
@@ -27,23 +29,35 @@ function RoomSelect ({ history }) {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    user.user_id && user.room_name && user.room_id &&
-     history.push(`/chatroom/${user.user_id}/${user.room_name}/${user.room_id}`)
+    user.user_id &&
+      user.room_name &&
+      user.room_id &&
+      history.push(
+        `/chatroom/${user.user_id}/${user.room_name}/${user.room_id}`
+      )
     setUser(defaultUser)
   }
 
   return (
     <div>
-      <form className='signin-form' onSubmit={submitHandler}>
-        <label className='label'>Join a Room</label>
-        <br/>
-        <select className='input-form' onChange={arrayHandler} >
+      <Header />
+      <form className="signin-form" onSubmit={submitHandler}>
+        <label className="label">Join a Room</label>
+        <br />
+        <select className="input-form" onChange={arrayHandler}>
           {techs.map((item, index) => {
-            return <option name={item.name} value={Number(item.id)} key={index}>{item.name}</option>
+            return (
+              <option name={item.name} value={Number(item.id)} key={index}>
+                {item.name}
+              </option>
+            )
           })}
         </select>
-        <button className='btn' type='submit'>Sign In</button>
+        <button className="btn" type="submit">
+          Sign In
+        </button>
       </form>
+      <Footer />
     </div>
   )
 }
